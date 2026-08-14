@@ -1,0 +1,17 @@
+# Сырьё площадок. В репозитории его нет и не будет: каталог стратегий —
+# чужая база данных, см. DATA.md. Эти каталоги появляются локально у того,
+# кто соберёт данные скриптом scripts/comon_fetch.js.
+data/cards/
+data/profit/
+data/catalog/
+data/_log/
+data/tinvest/cards/
+data/tinvest/values/
+data/tinvest/catalog/
+data/tinvest/_log/
+
+# Вывод прогонов: текстовые логи скриптов
+results/
+
+__pycache__/
+*.pyc

@@ -1,0 +1,2286 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Глава 3. Из чего сделана доходность</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="topbar"><div class="wrap"><a href="index.html">Оглавление</a><span class="sep">·</span><a href="comon-story-license.html">Условия использования</a><span class="sep">·</span><a href="comon-story-0-intro.html">Введение</a><span class="sep">·</span><a href="comon-story-1-market.html">1</a><span class="sep">·</span><a href="comon-story-2-survival.html">2</a><span class="sep">·</span><span class="here">3</span><span class="sep">·</span><a href="comon-story-4-authors.html">4</a><span class="sep">·</span><a href="comon-story-4b-interlude.html">Вторая площадка</a><span class="sep">·</span><a href="comon-story-5-buyers.html">5</a><span class="sep">·</span><a href="comon-story-6-conclusion.html">Заключение</a></div></nav>
+<main class="wrap">
+<h1>Глава 3. Из чего сделана доходность</h1>
+
+<p><em>Данные, методы и словарь терминов — во <a href="comon-story-0-intro.html">введении</a>. Все метрики пересчитаны из дневных рядов 19 978 стратегий Comon, включая 18 529 закрытых.</em></p>
+<hr>
+<p>Глава 2 была о том, что стратегия скорее всего исчезнет. Эта — о тех, кто дожил: сколько они на самом деле зарабатывают, из чего сделан их результат и можно ли по прошлому судить о будущем.</p>
+<p><strong>Сначала о выборке.</strong> Дальше в главе работают не все 19 978 стратегий, а 6 320 — те, у которых достаточно данных, чтобы метрики имели смысл: не меньше 100 торговых дней и активность не ниже 10 % (стратегия хотя бы каждый десятый день что-то делала). Это 54.2 % от тех, чей ряд насчитывает хотя бы тридцать точек, — и 34.4 % от всех 18 354 стратегий, у которых ряд есть вообще. Фильтр поставлен <strong>по измеримости, а не по результату</strong>: отбирать по доходности значило бы испортить само распределение, которое мы изучаем. Убыточные стратегии остаются в выборке полностью.</p>
+<h2>3.1 Сколько Sharpe бывает на самом деле</h2>
+<p>Напомним ориентир из <a href="comon-story-0-intro.html">введения</a>: Sharpe — доходность на единицу риска, 1.0 считается хорошим результатом, 2.0 — очень редким.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Выборка</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">p5</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;"><strong>Медиана</strong></th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p90</th>
+<th style="text-align: right;">p95</th>
+<th style="text-align: right;">p99</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Все с достаточной историей</td>
+<td style="text-align: right;">6 320</td>
+<td style="text-align: right;">−2.10</td>
+<td style="text-align: right;">−0.82</td>
+<td style="text-align: right;"><strong>−0.05</strong></td>
+<td style="text-align: right;">0.57</td>
+<td style="text-align: right;">1.23</td>
+<td style="text-align: right;">1.68</td>
+<td style="text-align: right;">3.06</td>
+</tr>
+<tr>
+<td>Живые</td>
+<td style="text-align: right;">1 262</td>
+<td style="text-align: right;">−1.39</td>
+<td style="text-align: right;">−0.22</td>
+<td style="text-align: right;"><strong>0.36</strong></td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">1.62</td>
+<td style="text-align: right;">2.11</td>
+<td style="text-align: right;">4.21</td>
+</tr>
+<tr>
+<td>Закрытые</td>
+<td style="text-align: right;">5 058</td>
+<td style="text-align: right;">−2.21</td>
+<td style="text-align: right;">−0.95</td>
+<td style="text-align: right;"><strong>−0.17</strong></td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">1.11</td>
+<td style="text-align: right;">1.53</td>
+<td style="text-align: right;">2.71</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Медианная стратегия автоследования имеет Sharpe около нуля.</strong> Не «маленький положительный» — нулевой. Половина всей популяции не создала за свою жизнь ничего сверх принятого риска. Даже среди выживших медиана 0.36 — ниже, чем у обычного широкого рынка акций на длинном горизонте (около 0.5).</p>
+<p><a class="figure" href="../images/19-sharpe-histogram.png" target="_blank" rel="noopener"><img alt="Распределение Sharpe: все измеримые стратегии, живые и закрытые; медианы −0,05 / +0,36 / −0,17" src="../images/19-sharpe-histogram.png"></a></p>
+<p>Теперь главное: сколько стратегий держат высокий Sharpe <strong>долго</strong>. Короткий период можно проскочить на везении, поэтому смотрим по длине истории:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Длина истории</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Sharpe ≥ 1.0</th>
+<th style="text-align: right;">Sharpe ≥ 1.5</th>
+<th style="text-align: right;">Sharpe ≥ 2.0</th>
+<th style="text-align: right;">Лучший результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>≥ 1 года</td>
+<td style="text-align: right;">4 073</td>
+<td style="text-align: right;">547 (13.4 %)</td>
+<td style="text-align: right;">212 (5.2 %)</td>
+<td style="text-align: right;">81 (2.0 %)</td>
+<td style="text-align: right;">19.41</td>
+</tr>
+<tr>
+<td>≥ 2 лет</td>
+<td style="text-align: right;">2 388</td>
+<td style="text-align: right;">298 (12.5 %)</td>
+<td style="text-align: right;">99 (4.1 %)</td>
+<td style="text-align: right;">35 (1.5 %)</td>
+<td style="text-align: right;">10.67</td>
+</tr>
+<tr>
+<td><strong>≥ 3 лет</strong></td>
+<td style="text-align: right;">1 619</td>
+<td style="text-align: right;">204 (12.6 %)</td>
+<td style="text-align: right;"><strong>64 (4.0 %)</strong></td>
+<td style="text-align: right;">19 (1.2 %)</td>
+<td style="text-align: right;">5.50</td>
+</tr>
+<tr>
+<td><strong>≥ 5 лет</strong></td>
+<td style="text-align: right;">697</td>
+<td style="text-align: right;">103 (14.8 %)</td>
+<td style="text-align: right;">23 (3.3 %)</td>
+<td style="text-align: right;"><strong>0 (0.0 %)</strong></td>
+<td style="text-align: right;"><strong>1.94</strong></td>
+</tr>
+<tr>
+<td>≥ 7 лет</td>
+<td style="text-align: right;">314</td>
+<td style="text-align: right;">63 (20.1 %)</td>
+<td style="text-align: right;">13 (4.1 %)</td>
+<td style="text-align: right;"><strong>0 (0.0 %)</strong></td>
+<td style="text-align: right;">1.87</td>
+</tr>
+</tbody>
+</table></div>
+<p>Смотрите, что происходит с последней колонкой. На годовой истории попадаются Sharpe 19 — на такой дистанции это чистая случайность, столько же смысла, сколько в трёх выпавших подряд шестёрках. Чем длиннее история, тем сильнее сжимается хвост: 19.4 → 10.7 → 5.5 → <strong>1.94</strong>.</p>
+<p><a class="figure" href="../images/04-sharpe-tail-compression.png" target="_blank" rel="noopener"><img alt="Сжатие хвоста Sharpe с ростом длины истории: максимум падает с 19,41 до 1,87" src="../images/04-sharpe-tail-compression.png"></a></p>
+<p>🔴 <strong>Ни одна из 697 стратегий с пятилетней историей не показала Sharpe 2.0.</strong> Максимум — 1.94. Это и есть потолок реальности на длинной дистанции: не 3, не 2.5, а примерно 1.9.</p>
+<p>Порог 1.5 на трёхлетней истории держат 64 стратегии из 1 619 — <strong>4 %</strong>. Именно столько, если переводить на человеческий язык, стоит за словами «стабильно хорошая стратегия».</p>
+<h3>Планка «ничего не делать» оказалась очень высокой</h3>
+<p>Всё сказанное выше — про Sharpe, то есть про качество. Но подписчику важно и другое: обогнала ли стратегия простую альтернативу — деньги на вкладе или в фонде денежного рынка.</p>
+<p>Возьмём общее окно, где ставки сравнимы: октябрь 2022 — август 2026, средняя безрисковая ставка 14.7 % годовых. Внутри него не меньше трёх лет проторговала 701 стратегия:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Показатель</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">Медиана</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p90</th>
+<th style="text-align: right;">p95</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sharpe как есть</td>
+<td style="text-align: right;">0.03</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: right;">1.02</td>
+<td style="text-align: right;">1.48</td>
+<td style="text-align: right;">1.87</td>
+</tr>
+<tr>
+<td><strong>Sharpe сверх ставки денежного рынка</strong></td>
+<td style="text-align: right;">−0.65</td>
+<td style="text-align: right;"><strong>−0.09</strong></td>
+<td style="text-align: right;">0.29</td>
+<td style="text-align: right;">0.71</td>
+<td style="text-align: right;">0.95</td>
+</tr>
+<tr>
+<td>Годовая доходность, %</td>
+<td style="text-align: right;">−6.5</td>
+<td style="text-align: right;">9.3</td>
+<td style="text-align: right;">19.5</td>
+<td style="text-align: right;">32.7</td>
+<td style="text-align: right;">45.3</td>
+</tr>
+<tr>
+<td>Волатильность, %</td>
+<td style="text-align: right;">18.3</td>
+<td style="text-align: right;">26.3</td>
+<td style="text-align: right;">42.4</td>
+<td style="text-align: right;">69.6</td>
+<td style="text-align: right;">90.9</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Половина публичных стратегий на этом окне не обогнала денежный рынок вообще.</strong> Медианная годовая доходность 9.3 % против безрисковых 14.7 % — и это до вычета платы за следование, о которой пойдёт речь в главе 5.</p>
+<p>Отдельно стоит заметить строку волатильности: медианные 26.3 % годовых. Стратегия с такой волатильностью в плохой год легко уходит в минус на четверть — и это середина, а не край.</p>
+<h3>Сколько стоит смотреть только на витрину</h3>
+<p>Мы можем измерить цену ошибки выжившего прямо, потому что у нас есть и мёртвые:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Длина истории</th>
+<th style="text-align: right;">Медиана Sharpe: живые</th>
+<th style="text-align: right;">Медиана: все</th>
+<th style="text-align: right;">Разница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>≥ 1 года</td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;"><strong>+0.28</strong></td>
+</tr>
+<tr>
+<td>≥ 2 лет</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">+0.23</td>
+</tr>
+<tr>
+<td>≥ 3 лет</td>
+<td style="text-align: right;">0.42</td>
+<td style="text-align: right;">0.19</td>
+<td style="text-align: right;">+0.23</td>
+</tr>
+<tr>
+<td>≥ 5 лет</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.31</td>
+<td style="text-align: right;">+0.16</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Тот, кто оценивает автоследование по видимой витрине, завышает качество рынка на 0.2–0.3 пункта Sharpe.</strong> Немного по абсолютной величине — но это половина расстояния между «посредственно» и «хорошо».</p>
+<h2>3.2 Молодые стратегии врут</h2>
+<p>Самая практичная находка главы. У нас есть возможность, недоступная снаружи: сравнить <strong>одну и ту же стратегию</strong> в начале жизни и потом.</p>
+<p>Берём 2 287 стратегий, у которых история не меньше двух лет и обе половины годятся для расчёта — и первый год, и всё, что после, — и считаем Sharpe отдельно по каждой:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Величина</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;"><strong>Медиана</strong></th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p90</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sharpe первого года</td>
+<td style="text-align: right;">−0.47</td>
+<td style="text-align: right;"><strong>0.43</strong></td>
+<td style="text-align: right;">1.38</td>
+<td style="text-align: right;">2.26</td>
+</tr>
+<tr>
+<td>Sharpe оставшейся жизни</td>
+<td style="text-align: right;">−0.52</td>
+<td style="text-align: right;"><strong>0.10</strong></td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">1.21</td>
+</tr>
+<tr>
+<td>Насколько изменился у одной и той же стратегии</td>
+<td style="text-align: right;">−1.37</td>
+<td style="text-align: right;"><strong>−0.45</strong></td>
+<td style="text-align: right;">+0.51</td>
+<td style="text-align: right;">+1.38</td>
+</tr>
+</tbody>
+</table></div>
+<p>Третья строка — <strong>не</strong> разность двух верхних. Она считается иначе: у каждой стратегии берётся её собственное изменение (Sharpe остатка жизни минус Sharpe первого года), и уже из этих изменений берутся квантили. Читается так: у четверти стратегий Sharpe упал больше чем на 1.37 пункта, у половины — больше чем на 0.45, зато четверть, наоборот, улучшилась больше чем на 0.51, а десятая часть — больше чем на 1.38.</p>
+<p>То есть <strong>медианная стратегия теряет почти половину пункта Sharpe после первого года</strong>, при этом разброс огромен и часть стратегий со временем становится лучше. Самое интересное происходит с теми, кто начал блестяще.</p>
+<p><strong>Из 319 стратегий, показавших Sharpe ≥ 2.0 в первый год</strong>, в оставшейся жизни:</p>
+<p><a class="figure" href="../images/05-sharpe-first-year-vs-rest.png" target="_blank" rel="noopener"><img alt="У каждой из 319 стратегий две точки: Sharpe первого года и остатка жизни; линии сходятся к середине" src="../images/05-sharpe-first-year-vs-rest.png"></a></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Что было дальше</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Доля</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Удержали Sharpe ≥ 1.5</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;"><strong>11.0 %</strong></td>
+</tr>
+<tr>
+<td>Остались в плюсе, но ниже 1.5</td>
+<td style="text-align: right;">203</td>
+<td style="text-align: right;">63.6 %</td>
+</tr>
+<tr>
+<td>Ушли в минус</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;"><strong>25.4 %</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Медианный Sharpe этих трёхсот девятнадцати стратегий в оставшейся жизни — <strong>0.43</strong>. Начинали они с 2.0 и выше.</p>
+<p><strong>Девять из десяти стратегий, блестяще начавших, не удержали результат.</strong> Каждая четвёртая ушла в убыток.</p>
+<p>Это тот же вывод, что дала регрессия выживаемости в <a href="comon-story-2-survival.html">главе 2</a> — доходность первого года не предсказывает ничего, — но полученный совершенно другим способом, на другой метрике. Два независимых теста, один ответ: <strong>ранний блестящий результат не является свидетельством качества.</strong> Он является свидетельством того, что стратегия молода.</p>
+<p>Механика проста и не требует злого умысла. Тысячи стратегий стартуют одновременно; у части из них первый год складывается удачно просто по случайности. Их и видно на витрине в верхних строчках — а тех, у кого не сложилось, уже нет. Это не обман, это арифметика отбора.</p>
+<h2>3.3 Волатильность не покупает доходность, а уничтожает её</h2>
+<p>Естественная гипотеза: высокая доходность на витрине — просто плата за риск, кто рискует больше, тот и зарабатывает больше. Данные говорят обратное.</p>
+<p>Разобьём все 6 320 стратегий на десять равных групп по годовой волатильности, от самых спокойных к самым буйным:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Группа по волатильности</th>
+<th style="text-align: right;">Волатильность, %</th>
+<th style="text-align: right;">Годовая доходность, %</th>
+<th style="text-align: right;">Sharpe</th>
+<th style="text-align: right;">Макс. просадка, %</th>
+<th style="text-align: right;">Доля живых</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (самые спокойные)</td>
+<td style="text-align: right;">9.8</td>
+<td style="text-align: right;"><strong>+4.9</strong></td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">−10.0</td>
+<td style="text-align: right;">24.8 %</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align: right;">17.5</td>
+<td style="text-align: right;">+4.2</td>
+<td style="text-align: right;">0.32</td>
+<td style="text-align: right;">−22.3</td>
+<td style="text-align: right;">28.6 %</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align: right;">23.2</td>
+<td style="text-align: right;">+0.6</td>
+<td style="text-align: right;">0.14</td>
+<td style="text-align: right;">−29.0</td>
+<td style="text-align: right;">28.8 %</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align: right;">28.5</td>
+<td style="text-align: right;">−0.5</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">−36.1</td>
+<td style="text-align: right;">26.4 %</td>
+</tr>
+<tr>
+<td>5</td>
+<td style="text-align: right;">35.4</td>
+<td style="text-align: right;">−5.1</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">−44.6</td>
+<td style="text-align: right;">22.6 %</td>
+</tr>
+<tr>
+<td>6</td>
+<td style="text-align: right;">44.7</td>
+<td style="text-align: right;">−13.8</td>
+<td style="text-align: right;">−0.10</td>
+<td style="text-align: right;">−50.1</td>
+<td style="text-align: right;">19.9 %</td>
+</tr>
+<tr>
+<td>7</td>
+<td style="text-align: right;">57.1</td>
+<td style="text-align: right;">−27.0</td>
+<td style="text-align: right;">−0.28</td>
+<td style="text-align: right;">−61.0</td>
+<td style="text-align: right;">17.2 %</td>
+</tr>
+<tr>
+<td>8</td>
+<td style="text-align: right;">75.0</td>
+<td style="text-align: right;">−45.9</td>
+<td style="text-align: right;">−0.41</td>
+<td style="text-align: right;">−74.3</td>
+<td style="text-align: right;">13.6 %</td>
+</tr>
+<tr>
+<td>9</td>
+<td style="text-align: right;">101.3</td>
+<td style="text-align: right;">−64.6</td>
+<td style="text-align: right;">−0.48</td>
+<td style="text-align: right;">−85.6</td>
+<td style="text-align: right;">11.1 %</td>
+</tr>
+<tr>
+<td>10 (самые буйные)</td>
+<td style="text-align: right;">165.5</td>
+<td style="text-align: right;"><strong>−91.5</strong></td>
+<td style="text-align: right;">−0.55</td>
+<td style="text-align: right;">−95.6</td>
+<td style="text-align: right;"><strong>6.5 %</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Картина монотонная и жёсткая. Доходность падает от +4.9 % до −91.5 %, Sharpe — от 0.61 до −0.55, доля выживших — с 25 % до 6.5 %. Ранговая связь волатильности с доходностью <strong>−0.53</strong>: это очень сильная связь по меркам таких данных.</p>
+<p><strong>Высокая волатильность — не «агрессивный стиль», а основной механизм смерти.</strong></p>
+<p><a class="figure" href="../images/06-volatility-deciles.png" target="_blank" rel="noopener"><img alt="Децили волатильности: доходность падает с +4,9 до −91,5 %, доля выживших — с 24,8 до 6,5 %" src="../images/06-volatility-deciles.png"></a></p>
+<p>Можно возразить: мы же смотрим и на мёртвых, а они умерли как раз потому, что потеряли деньги. Справедливо — поэтому вот те же группы отдельно по живым:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Группа по волатильности</th>
+<th style="text-align: right;">Волатильность, %</th>
+<th style="text-align: right;">Доходность живых, %</th>
+<th style="text-align: right;">Доходность закрытых, %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (самые спокойные)</td>
+<td style="text-align: right;">9.8</td>
+<td style="text-align: right;">+9.3</td>
+<td style="text-align: right;">+3.4</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align: right;">17.5</td>
+<td style="text-align: right;">+8.4</td>
+<td style="text-align: right;">+1.6</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align: right;">23.2</td>
+<td style="text-align: right;">+4.4</td>
+<td style="text-align: right;">−2.1</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align: right;">28.5</td>
+<td style="text-align: right;">+7.0</td>
+<td style="text-align: right;">−5.4</td>
+</tr>
+<tr>
+<td>5</td>
+<td style="text-align: right;">35.4</td>
+<td style="text-align: right;">+7.4</td>
+<td style="text-align: right;">−8.5</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td style="text-align: right;"><strong>44.7</strong></td>
+<td style="text-align: right;"><strong>+11.3</strong></td>
+<td style="text-align: right;">−18.4</td>
+</tr>
+<tr>
+<td>7</td>
+<td style="text-align: right;">57.1</td>
+<td style="text-align: right;">−11.4</td>
+<td style="text-align: right;">−29.8</td>
+</tr>
+<tr>
+<td>8</td>
+<td style="text-align: right;">75.0</td>
+<td style="text-align: right;">−26.8</td>
+<td style="text-align: right;">−49.4</td>
+</tr>
+<tr>
+<td>9</td>
+<td style="text-align: right;">101.3</td>
+<td style="text-align: right;">−48.4</td>
+<td style="text-align: right;">−65.7</td>
+</tr>
+<tr>
+<td>10 (самые буйные)</td>
+<td style="text-align: right;">165.5</td>
+<td style="text-align: right;">−90.5</td>
+<td style="text-align: right;">−91.5</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Даже среди выживших рост риска перестаёт оплачиваться примерно с волатильности 45 % годовых.</strong> До шестой группы доходность живых держится в районе +7…+11 %, а дальше падает — при том что просадка, судя по первой таблице, углубляется без остановки. Это уже не эффект выживания: даже у тех, кто уцелел, дополнительный риск дохода не приносит.</p>
+<h2>3.4 Цена плеча: эксперимент на близнецах</h2>
+<p>Предыдущий раздел сравнивал разные стратегии между собой, а у них разная логика — вдруг дело в ней, а не в риске? Данные позволяют поставить эксперимент чище.</p>
+<p>В популяции нашлись <strong>362 пары «близнецов»</strong>: две стратегии принадлежат одному автору и ходят почти синхронно (корреляция дневных доходностей не ниже 0.8, медиана по отобранным парам 0.90, медиана общего окна 838 дней). Одна логика, разный масштаб риска — то есть плечо в чистом виде.</p>
+<p>Теория говорит, что плечо не должно менять Sharpe: удвоив позицию, вы удваиваете и доход, и риск. Проверяем:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Плечо (во сколько раз рискованнее)</th>
+<th style="text-align: right;">Пар</th>
+<th style="text-align: right;">Sharpe спокойной</th>
+<th style="text-align: right;">Sharpe агрессивной</th>
+<th style="text-align: right;">Потеря Sharpe внутри пары</th>
+<th style="text-align: right;">Доходность выросла в</th>
+<th style="text-align: right;">Просадка выросла в</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0–1.2×</td>
+<td style="text-align: right;">208</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">0.33</td>
+<td style="text-align: right;">−0.01</td>
+<td style="text-align: right;">1.04 раза</td>
+<td style="text-align: right;">1.03 раза</td>
+</tr>
+<tr>
+<td>1.2–1.5×</td>
+<td style="text-align: right;">91</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: right;">0.44</td>
+<td style="text-align: right;">−0.06</td>
+<td style="text-align: right;">0.91</td>
+<td style="text-align: right;">1.23</td>
+</tr>
+<tr>
+<td>1.5–2.0×</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.63</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">−0.07</td>
+<td style="text-align: right;">1.11</td>
+<td style="text-align: right;">1.41</td>
+</tr>
+<tr>
+<td><strong>2.0–3.0×</strong></td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;"><strong>1.25</strong></td>
+<td style="text-align: right;"><strong>0.87</strong></td>
+<td style="text-align: right;"><strong>−0.30</strong></td>
+<td style="text-align: right;"><strong>1.72</strong></td>
+<td style="text-align: right;"><strong>1.84</strong></td>
+</tr>
+<tr>
+<td>Больше 3×</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.78</td>
+<td style="text-align: right;">−0.23</td>
+<td style="text-align: right;">3.92</td>
+<td style="text-align: right;">3.03</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Пятая колонка — не разность двух предыдущих. Она считается внутри каждой пары отдельно (Sharpe агрессивной минус Sharpe спокойной), и в таблицу идёт медиана этих значений; последние две колонки устроены так же — во сколько раз выросли доходность и просадка у одной и той же пары. Поэтому −0.01 в первой строке не противоречит паре медиан 0.37 и 0.33: это разные величины, и правильная — та, что считана внутри пар. В крайних строках, где пар мало (17 и 8), любые числа читаются как ориентир, а не как оценка.</em></p>
+<p><strong>Удвоение риска той же самой логикой стоит около 0.15 пункта Sharpe.</strong> При небольшом плече (до 1.2×) цена теряется в шуме, но начиная с двукратного она становится заметной: −0.30 пункта.</p>
+<p><a class="figure" href="../images/33-leverage-twins.png" target="_blank" rel="noopener"><img alt="362 пары близнецов одного автора: разница Sharpe против логарифма плеча, наклон −0,222" src="../images/33-leverage-twins.png"></a></p>
+<p>И вторая закономерность, важнее первой: <strong>просадка растёт быстрее доходности</strong>. В группе с плечом 2–3× доходность выросла в 1.72 раза, а просадка — в 1.84. Плечо — плохая сделка не потому, что не добавляет дохода, а потому, что риска добавляет больше.</p>
+<p>Оговорка о статистике: пары одного автора не независимы друг от друга — автор с тремя стратегиями даёт три пары. Поэтому смотреть надо на величину и знак эффекта, а не на формальную значимость, которая здесь завышена.</p>
+<h2>3.5 Чем платят за доходность: просадка</h2>
+<p>Просадка — то, что подписчик реально переживает. Вот её распределение:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Максимальная просадка</th>
+<th style="text-align: right;">p5</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;"><strong>Медиана</strong></th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p95</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Все стратегии</td>
+<td style="text-align: right;">−99.3 %</td>
+<td style="text-align: right;">−76.9 %</td>
+<td style="text-align: right;"><strong>−47.5 %</strong></td>
+<td style="text-align: right;">−26.1 %</td>
+<td style="text-align: right;">−8.7 %</td>
+</tr>
+<tr>
+<td>Только живые</td>
+<td style="text-align: right;">−98.4 %</td>
+<td style="text-align: right;">−65.4 %</td>
+<td style="text-align: right;"><strong>−41.4 %</strong></td>
+<td style="text-align: right;">−23.3 %</td>
+<td style="text-align: right;">−7.5 %</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Просадка −40…−50 % — это центр распределения, а не хвост.</strong> Половина живых стратегий в какой-то момент теряла больше сорока процентов капитала подписчика. Глубже −50 % проседали 47.3 % стратегий, глубже −80 % — 22.8 %.</p>
+<p>Теперь неожиданное. Казалось бы, глубокая просадка — плата за высокую доходность. Проверяем:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Группа по годовой доходности</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Медианная просадка</th>
+<th style="text-align: right;">Глубже −50 %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Убыток хуже −10 %</td>
+<td style="text-align: right;">3 155</td>
+<td style="text-align: right;">−73.2 %</td>
+<td style="text-align: right;">72.6 %</td>
+</tr>
+<tr>
+<td>Убыток до −10 %</td>
+<td style="text-align: right;">741</td>
+<td style="text-align: right;">−35.1 %</td>
+<td style="text-align: right;">30.9 %</td>
+</tr>
+<tr>
+<td>0…15 % годовых</td>
+<td style="text-align: right;">1 193</td>
+<td style="text-align: right;"><strong>−27.3 %</strong></td>
+<td style="text-align: right;">20.4 %</td>
+</tr>
+<tr>
+<td>15…30 %</td>
+<td style="text-align: right;">579</td>
+<td style="text-align: right;"><strong>−28.0 %</strong></td>
+<td style="text-align: right;">16.6 %</td>
+</tr>
+<tr>
+<td>30…60 %</td>
+<td style="text-align: right;">356</td>
+<td style="text-align: right;"><strong>−27.6 %</strong></td>
+<td style="text-align: right;">16.0 %</td>
+</tr>
+<tr>
+<td>Больше 60 %</td>
+<td style="text-align: right;">296</td>
+<td style="text-align: right;">−34.2 %</td>
+<td style="text-align: right;">26.4 %</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Просадка почти не зависит от доходности.</strong> В диапазоне от нуля до 60 % годовых медианная просадка стоит на месте — около −28 %. Стратегия, зарабатывающая 50 % в год, проседает не глубже той, что зарабатывает 5 %.</p>
+<p><a class="figure" href="../images/32-drawdown-by-return.png" target="_blank" rel="noopener"><img alt="Медианная просадка по группам годовой доходности: между 0 и 60 % годовых линия плоская" src="../images/32-drawdown-by-return.png"></a></p>
+<p>Вывод из этого практический: глубина провала определяется не результатом, а масштабом принятого риска. Доходные и убыточные стратегии падают одинаково — просто у первых счёт потом восстанавливается, а у вторых нет.</p>
+<h3>Одна гипотеза, которую пришлось похоронить</h3>
+<p>Есть популярное представление: у стратегий, которые «продают риск» (много мелких прибылей и редкие катастрофы), распределение доходностей скошено влево, и по этой скошенности будущую катастрофу можно предвидеть заранее.</p>
+<p>По полной истории связь действительно выглядит убедительно: корреляция скоса с Sharpe <strong>+0.427</strong>. Но это ловушка. Скос считается по всему ряду, <strong>включая день обвала</strong> — один катастрофический день одновременно портит и скос, и Sharpe, и доходность. Связь механическая: мы измеряем не предчувствие, а уже случившееся.</p>
+<p>Честная проверка — взять скос <strong>первой половины</strong> жизни стратегии и посмотреть, что было во <strong>второй</strong>:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Связь</th>
+<th style="text-align: right;">Ранговая корреляция</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Скос первой половины ↔ Sharpe <strong>той же</strong> половины</td>
+<td style="text-align: right;"><strong>+0.427</strong></td>
+</tr>
+<tr>
+<td>Скос первой половины ↔ Sharpe <strong>следующей</strong> половины</td>
+<td style="text-align: right;"><strong>+0.025</strong></td>
+</tr>
+<tr>
+<td>Скос первой половины ↔ просадка следующей половины</td>
+<td style="text-align: right;">−0.019</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Форма распределения не предсказывает ничего.</strong> 0.025 — это ноль. Просадка второй половины одинакова (около −35 %) во всех группах по скосу.</p>
+<p>Зато в той же проверке обнаружилось кое-что полезное:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Предиктор будущего Sharpe</th>
+<th style="text-align: right;">Корреляция</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Прошлый Sharpe</td>
+<td style="text-align: right;">+0.159</td>
+</tr>
+<tr>
+<td><strong>Волатильность</strong></td>
+<td style="text-align: right;"><strong>−0.184</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Волатильность предсказывает будущее качество лучше, чем прошлый результат.</strong> Простейшая риск-метрика оказалась информативнее метрики результата — этот же вывод независимо подтвердится в разделе 3.7.</p>
+<h2>3.6 Своя ли это доходность, или просто рынок</h2>
+<p>Ключевой вопрос для подписчика: за что он платит. Рыночную доходность можно купить за копейки — индексным фондом. Платить процент от активов имеет смысл только за то, чего в индексе нет.</p>
+<p>Мы посчитали для каждой стратегии, насколько её дневная доходность объясняется движением индекса Мосбиржи. Выборка — 3 811 стратегий, у которых достаточно общих с индексом дней.</p>
+<p><strong>На индивидуальном уровне ответ отрицательный: это не переодетый индекс.</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Величина</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">Медиана</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p95</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Чувствительность к индексу (β)</td>
+<td style="text-align: right;">0.03</td>
+<td style="text-align: right;"><strong>0.29</strong></td>
+<td style="text-align: right;">0.73</td>
+<td style="text-align: right;">1.74</td>
+</tr>
+<tr>
+<td>Доля движения, объяснённая индексом (R²)</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;"><strong>0.06</strong></td>
+<td style="text-align: right;">0.26</td>
+<td style="text-align: right;">0.59</td>
+</tr>
+</tbody>
+</table></div>
+<p>Индекс объясняет 6 % колебаний типичной стратегии. Большинство авторов действительно делают что-то своё.</p>
+<p><strong>Но на уровне популяции ответ противоположный.</strong> Мы разложили дневные доходности всех стратегий на общие факторы и посмотрели, какую долю всех колебаний забирает самый крупный из них:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Трёхлетнее окно</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Доля первого фактора</th>
+<th style="text-align: right;">Если бы стратегии были независимы</th>
+<th style="text-align: right;">Связь фактора с индексом</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014–2017</td>
+<td style="text-align: right;">169</td>
+<td style="text-align: right;">14.3 %</td>
+<td style="text-align: right;">0.59 %</td>
+<td style="text-align: right;"><strong>0.91</strong></td>
+</tr>
+<tr>
+<td>2017–2020</td>
+<td style="text-align: right;">368</td>
+<td style="text-align: right;">26.1 %</td>
+<td style="text-align: right;">0.27 %</td>
+<td style="text-align: right;"><strong>0.90</strong></td>
+</tr>
+<tr>
+<td>2020–2023</td>
+<td style="text-align: right;">553</td>
+<td style="text-align: right;"><strong>30.7 %</strong></td>
+<td style="text-align: right;">0.18 %</td>
+<td style="text-align: right;"><strong>0.92</strong></td>
+</tr>
+<tr>
+<td>2023–2026</td>
+<td style="text-align: right;">774</td>
+<td style="text-align: right;">25.5 %</td>
+<td style="text-align: right;">0.13 %</td>
+<td style="text-align: right;">0.77</td>
+</tr>
+</tbody>
+</table></div>
+<p>Читается так: <strong>один общий фактор забирает от седьмой части до трети всех колебаний популяции, тогда как у независимых стратегий он забирал бы доли процента</strong> — в 24–200 раз меньше, и разрыв растёт с числом стратегий в окне. И этот фактор коррелирует с индексом Мосбиржи на 0.77–0.92. Нагрузка на него положительна у 92.6 % стратегий.</p>
+<p><strong>Общая компонента есть, она одна, и она — рынок.</strong></p>
+<p><a class="figure" href="../images/20-pc1-vs-independence.png" target="_blank" rel="noopener"><img alt="Доля первого общего фактора против эталона независимости по четырём трёхлетним окнам, логарифмическая шкала" src="../images/20-pc1-vs-independence.png"></a></p>
+<p>Противоречия с предыдущей таблицей нет: у каждой стратегии по отдельности связь с индексом слабая, но направление у всех одно. Практическое следствие важное: <strong>подписчик, разложивший деньги на десять разных стратегий, получает не десять независимых ставок, а примерно одну рыночную с шумом сверху.</strong> Диверсификация по авторам работает намного хуже, чем кажется по индивидуальным цифрам.</p>
+<h3>Сколько стратегий — это рынок под другим именем</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Класс</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Доля</th>
+<th style="text-align: right;">β</th>
+<th style="text-align: right;">Sharpe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Похожи на индекс с плечом (β ≥ 0.5, корреляция &gt; 0.5, собственного вклада не видно)</td>
+<td style="text-align: right;"><strong>653</strong></td>
+<td style="text-align: right;"><strong>17.1 %</strong></td>
+<td style="text-align: right;">0.87</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr>
+<td>Все остальные</td>
+<td style="text-align: right;">3 158</td>
+<td style="text-align: right;">82.9 %</td>
+<td style="text-align: right;">0.19</td>
+<td style="text-align: right;">0.11</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Каждая шестая стратегия витрины — это рынок под другим именем.</strong> И вот что показательно: их медианный Sharpe 0.12 против 0.11 у всех остальных. За упаковку рыночного риска в подписку подписчик не получает <strong>ничего</strong> — тот же результат, что по витрине в целом, при медианной просадке −54 %.</p>
+<p>Ещё одно измерение той же темы. Индекс Мосбиржи, который мы использовали, — ценовой, без дивидендов. Если сравнивать с индексом полной доходности (с дивидендами), медианная альфа стратегий сдвигается с +1.2 % до <strong>−1.9 % годовых</strong>. То есть <strong>медианная стратегия витрины не отбивает даже дивиденды</strong>, которые подписчик получил бы, просто купив индексный фонд. А если ещё учесть, что часть капитала можно было положить под безрисковую ставку, разрыв становится больше.</p>
+<h3>И половина популяции — слегка продавцы риска</h3>
+<p>Мы посчитали чувствительность к индексу отдельно в дни его роста и в дни падения. Если стратегия падает вместе с рынком сильнее, чем растёт вместе с ним, — это профиль «продавца риска»: спокойно в обычное время, больно в кризис.</p>
+<p>Медианная разница невелика (+0.04), но устойчива: <strong>у 55.7 % стратегий чувствительность к падениям выше, чем к росту</strong>. Для подписчика это означает, что заявленная умеренная зависимость от рынка в кризис оказывается выше, чем в спокойное время — ровно тогда, когда это больнее всего.</p>
+<h3>Хорошая новость, которую надо сказать так же громко</h3>
+<p>Всё вышесказанное не означает, что умеющих нет. Мы нашли их и посчитали.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Класс</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Доля</th>
+<th style="text-align: right;">Медианный Sharpe</th>
+<th style="text-align: right;">Альфа, % годовых</th>
+<th style="text-align: right;">Доля живых</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Нейтральные к рынку и с доказанной альфой</strong></td>
+<td style="text-align: right;"><strong>241</strong></td>
+<td style="text-align: right;"><strong>6.3 %</strong></td>
+<td style="text-align: right;"><strong>1.39</strong></td>
+<td style="text-align: right;"><strong>+26.5 %</strong></td>
+<td style="text-align: right;"><strong>60.2 %</strong></td>
+</tr>
+<tr>
+<td>Нейтральные, но альфа не доказана</td>
+<td style="text-align: right;">923</td>
+<td style="text-align: right;">24.2 %</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">+3.2 %</td>
+<td style="text-align: right;">25.6 %</td>
+</tr>
+<tr>
+<td>Нейтральные с доказанным <strong>минусом</strong></td>
+<td style="text-align: right;">101</td>
+<td style="text-align: right;">2.7 %</td>
+<td style="text-align: right;">−1.57</td>
+<td style="text-align: right;">−48.4 %</td>
+<td style="text-align: right;">13.9 %</td>
+</tr>
+<tr>
+<td>Умеренная зависимость от рынка</td>
+<td style="text-align: right;">1 388</td>
+<td style="text-align: right;">36.4 %</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">+1.7 %</td>
+<td style="text-align: right;">28.2 %</td>
+</tr>
+<tr>
+<td>Сильная зависимость от рынка (β ≥ 0.8)</td>
+<td style="text-align: right;">801</td>
+<td style="text-align: right;">21.0 %</td>
+<td style="text-align: right;"><strong>−0.15</strong></td>
+<td style="text-align: right;"><strong>−16.9 %</strong></td>
+<td style="text-align: right;">20.7 %</td>
+</tr>
+<tr>
+<td>Играют против рынка (β ≤ −0.2)</td>
+<td style="text-align: right;">357</td>
+<td style="text-align: right;">9.4 %</td>
+<td style="text-align: right;">−0.04</td>
+<td style="text-align: right;">+5.4 %</td>
+<td style="text-align: right;">10.6 %</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Шесть классов покрывают всю выборку из 3 811 стратегий целиком; доли складываются в 100 %.</em></p>
+<p><strong>Примерно одна стратегия из шестнадцати действительно что-то умеет</strong> — не зависит от рынка и при этом зарабатывает. У этих 241 стратегии медианный Sharpe 1.39, альфа +26.5 % годовых, и живучесть у них вдвое выше средней: 60 % против 26 %. Это и есть то, ради чего площадка существует.</p>
+<p><a class="figure" href="../images/21-beta-alpha-map.png" target="_blank" rel="noopener"><img alt="Карта популяции: бета к индексу против альфы; 241 нейтральная стратегия с доказанной альфой выделена" src="../images/21-beta-alpha-map.png"></a></p>
+<p>И зеркальный результат: <strong>высокая зависимость от рынка — худший класс по всем осям сразу.</strong> Медианный Sharpe −0.15, альфа −16.9 % годовых, выживает каждая пятая. Плечо на индексе не создаёт доходность, оно создаёт волатильность и отрицательную альфу.</p>
+<p>Ещё два класса стоит назвать, чтобы картина была полной. Есть 101 стратегия (2.7 %), у которых нейтральность к рынку сочетается с <strong>доказанным убытком</strong>: медианный Sharpe −1.57, альфа −48 % годовых, выживает одна из семи. И есть 357 стратегий (9.4 %), играющих против рынка — у них худшая живучесть во всей таблице, 10.6 %: держать постоянный шорт на растущем рынке дорого.</p>
+<h2>3.7 Предсказывает ли прошлое будущее</h2>
+<p>Последний и самый практичный вопрос: если выбирать стратегию по прошлым результатам, это работает?</p>
+<p>Мы применили классическую схему из исследований взаимных фондов: на каждую из 29 полугодовых дат ранжируем стратегии по Sharpe за прошедшее окно, делим на пять групп и смотрим, что было дальше. Умершие не выбрасываются — их доходность после смерти считается нулевой, потому что именно это и получает подписчик.</p>
+<p><strong>Формирование 2 года → удержание 2 года:</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Группа при отборе</th>
+<th style="text-align: right;">Sharpe при отборе</th>
+<th style="text-align: right;">Медианная доходность за 2 года удержания</th>
+<th style="text-align: right;">Sharpe в удержании</th>
+<th style="text-align: right;">Умерло за период</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q1 (худшие)</td>
+<td style="text-align: right;">−1.11</td>
+<td style="text-align: right;">−2.6 %</td>
+<td style="text-align: right;">−0.53</td>
+<td style="text-align: right;"><strong>70.9 %</strong></td>
+</tr>
+<tr>
+<td>Q2</td>
+<td style="text-align: right;">−0.27</td>
+<td style="text-align: right;">−0.2 %</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">60.4 %</td>
+</tr>
+<tr>
+<td>Q3</td>
+<td style="text-align: right;">0.23</td>
+<td style="text-align: right;">+2.4 %</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">52.6 %</td>
+</tr>
+<tr>
+<td>Q4</td>
+<td style="text-align: right;">0.67</td>
+<td style="text-align: right;">+8.0 %</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">46.0 %</td>
+</tr>
+<tr>
+<td><strong>Q5 (лучшие)</strong></td>
+<td style="text-align: right;"><strong>1.39</strong></td>
+<td style="text-align: right;"><strong>+16.2 %</strong></td>
+<td style="text-align: right;"><strong>0.80</strong></td>
+<td style="text-align: right;"><strong>28.5 %</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Персистентность есть, и она экономически значима.</strong> Отбор по прошлому Sharpe даёт разницу в доходности <strong>+9…+19 процентных пунктов</strong> за период удержания, монотонно по всем группам, на разных длинах окон. Это реальный, измеримый, статистически надёжный эффект.</p>
+<p><a class="figure" href="../images/07-persistence-quintiles.png" target="_blank" rel="noopener"><img alt="Квинтили по прошлому Sharpe: доходность следующих двух лет и доля умерших" src="../images/07-persistence-quintiles.png"></a></p>
+<p>Но дальше начинается интересное — <strong>из чего этот эффект сделан</strong>.</p>
+<p>Посмотрите на последнюю колонку. Смертность падает с 70.9 % в худшей группе до 28.5 % в лучшей. Разница по смертности статистически втрое-вчетверо надёжнее, чем разница по доходности. <strong>Отбор по прошлому работает прежде всего не как поиск таланта, а как фильтр против стратегий, которые скоро умрут.</strong></p>
+<p>И вторая отрезвляющая деталь. Верхняя группа при отборе имела Sharpe 1.39. В период удержания она показала <strong>0.80</strong> — и это ещё считая только по выжившим. Ни в одной раскладке лучшая пятая часть не удержала даже 1.0.</p>
+<p><strong>Регрессия к среднему съедает половину результата.</strong> Купив «лучших по прошлым данным», подписчик получает не то, что видел на витрине, а примерно половину.</p>
+<h3>Сколько лет наблюдения нужно, чтобы понять качество</h3>
+<p>Здесь мы можем ответить количественно. Возьмём два соседних непересекающихся отрезка жизни каждой стратегии и посмотрим, насколько Sharpe первого предсказывает Sharpe второго:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Длина отрезка</th>
+<th style="text-align: right;">Связь прошлого с будущим</th>
+<th>Что это значит</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Полгода</td>
+<td style="text-align: right;">0.24</td>
+<td>почти целиком шум</td>
+</tr>
+<tr>
+<td>1 год</td>
+<td style="text-align: right;">0.31</td>
+<td>слабый сигнал</td>
+</tr>
+<tr>
+<td>2 года</td>
+<td style="text-align: right;">0.42</td>
+<td>сигнал заметен, но шума больше</td>
+</tr>
+<tr>
+<td>3 года</td>
+<td style="text-align: right;">0.44</td>
+<td>около половины наблюдаемого — настоящее качество</td>
+</tr>
+</tbody>
+</table></div>
+<p>Величина связи растёт с длиной наблюдения — и это ожидаемо: чем дольше смотришь, тем меньше в результате случайности. Подгонка простой модели к этим четырём точкам даёт число, которое стоит запомнить: <strong>сигнал сравнивается с шумом примерно на 2.8 годах наблюдения</strong>. Полугодовой результат — шум почти целиком. Годовой — слабый намёк.</p>
+<p><a class="figure" href="../images/08-persistence-rho-curves.png" target="_blank" rel="noopener"><img alt="Связь Sharpe соседних окон против длины окна: по всей популяции растёт, внутри уже приличных стратегий падает" src="../images/08-persistence-rho-curves.png"></a></p>
+<p>🔴 <strong>И самое неприятное открытие раздела.</strong> Всё сказанное относится к задаче «отличить работающую стратегию от мусора». Если взять только стратегии, которые уже прошли планку качества (Sharpe выше 1), персистентность не растёт с длиной наблюдения, а <strong>падает</strong>:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Подвыборка</th>
+<th style="text-align: right;">Полгода</th>
+<th style="text-align: right;">1 год</th>
+<th style="text-align: right;">2 года</th>
+<th style="text-align: right;">3 года</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Вся выборка</td>
+<td style="text-align: right;">0.236</td>
+<td style="text-align: right;">0.311</td>
+<td style="text-align: right;">0.417</td>
+<td style="text-align: right;">0.454</td>
+</tr>
+<tr>
+<td>Стратегии с Sharpe &gt; 0</td>
+<td style="text-align: right;">0.175</td>
+<td style="text-align: right;">0.179</td>
+<td style="text-align: right;">0.276</td>
+<td style="text-align: right;">0.335</td>
+</tr>
+<tr>
+<td><strong>Стратегии с Sharpe &gt; 1</strong></td>
+<td style="text-align: right;"><strong>0.176</strong></td>
+<td style="text-align: right;"><strong>0.151</strong></td>
+<td style="text-align: right;"><strong>0.124</strong></td>
+<td style="text-align: right;"><strong>0.090</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Внимательный читатель заметит, что на трёхлетнем окне здесь стоит 0.454, а в таблице выше — 0.44. Это одна и та же величина, посчитанная по разному числу трёхлетних периодов: 24 против 23. Таких периодов в двадцатилетней истории мало, и один лишний заметно двигает среднее — что само по себе говорит, насколько шатки оценки на длинных окнах.</em></p>
+<p><strong>Различать хороших между собой прошлое почти не умеет.</strong> Отличить рабочую стратегию от мусорной по истории можно. Отличить стратегию с Sharpe 1.5 от стратегии с Sharpe 0.7 — практически нет: прошлое объясняет несколько процентов разброса будущего.</p>
+<p>Для подписчика это переводится так: <strong>выбор из верхушки рейтинга — во многом лотерея</strong>, даже если сам рейтинг честный. Отсеять плохое по прошлым данным реально; выбрать лучшее — нет.</p>
+<hr>
+<h2>Выводы главы</h2>
+<ol>
+<li>
+<p><strong>Медианная стратегия не создаёт ничего сверх риска.</strong> Sharpe около нуля по всей популяции, 0.36 среди живых. Порог 1.5 на трёхлетней истории держат 4 % стратегий.</p>
+</li>
+<li>
+<p><strong>Потолок реальности — Sharpe около 1.9.</strong> Ни одна из 697 стратегий с пятилетней историей не превысила 2.0. Высокие значения встречаются только на коротких историях, где они означают везение, а не качество: максимум падает с 19.4 на годовой дистанции до 1.94 на пятилетней.</p>
+</li>
+<li>
+<p><strong>Половина стратегий не обогнала денежный рынок.</strong> На окне 2022–2026 при безрисковой ставке 14.7 % медианная доходность составила 9.3 % годовых, а медианный Sharpe сверх ставки — минус 0.09. И это до вычета платы за следование.</p>
+</li>
+<li>
+<p><strong>Блестящее начало ничего не значит.</strong> Из 319 стратегий с Sharpe ≥ 2.0 в первый год удержали 1.5 только 11 %, а четверть ушла в минус; медиана их дальнейшего Sharpe — 0.43. Второе независимое подтверждение вывода главы 2.</p>
+</li>
+<li>
+<p><strong>Волатильность уничтожает доходность, а не покупает её.</strong> От спокойной десятой части популяции к самой буйной доходность падает с +4.9 % до −91.5 % годовых, доля выживших — с 25 % до 6.5 %. Даже среди выживших рост риска перестаёт оплачиваться примерно с 45 % волатильности.</p>
+</li>
+<li>
+<p><strong>Плечо стоит около 0.15 пункта Sharpe за удвоение риска.</strong> Измерено на 362 парах: в каждой паре обе стратегии принадлежат одному человеку и ходят почти синхронно — та же логика, разный масштаб риска. При этом просадка растёт быстрее доходности.</p>
+</li>
+<li>
+<p><strong>Просадка −40…−50 % — центр распределения, а не хвост</strong>, и она почти не зависит от доходности: в диапазоне 0–60 % годовых медианная просадка стоит на −28 %.</p>
+</li>
+<li>
+<p><strong>По отдельности стратегии не индекс, но все вместе — да.</strong> Медианная связь с рынком слабая (индекс объясняет 6 % колебаний), однако один общий фактор забирает 25–31 % всех колебаний популяции при эталоне независимости в доли процента, и этот фактор — рынок. Диверсификация по авторам даёт куда меньше, чем кажется.</p>
+</li>
+<li>
+<p><strong>Каждая шестая стратегия — рынок под другим именем.</strong> Подписка на неё стоит ровно столько же, сколько на любую другую (тариф берётся с активов и от содержимого не зависит), а результат тот же, что по витрине в целом: медианный Sharpe 0.12 против 0.11. Медианная стратегия витрины не отбивает даже дивиденды индексного фонда.</p>
+</li>
+<li>
+<p><strong>Но умеющие есть: 6.3 %.</strong> Двести сорок одна стратегия нейтральна к рынку и имеет доказанную альфу: Sharpe 1.39, альфа +26.5 % годовых, выживаемость вдвое выше средней. Примерно один шанс из шестнадцати.</p>
+</li>
+<li>
+<p><strong>Отбор по прошлым результатам работает — но в основном как защита от смерти.</strong> Разница между лучшей и худшей пятой частью составляет +9…+19 пп доходности, при этом смертность различается в 2.2–2.5 раза (28.5 % против 70.9 % на двухлетнем горизонте) и различается статистически надёжнее, чем доходность. Верхняя группа с Sharpe 1.39 в удержании даёт 0.80: регрессия к среднему съедает половину.</p>
+</li>
+<li>
+<p>🔴 <strong>Отличить рабочую стратегию от мусора по истории можно; выбрать лучшую из хороших — почти нет.</strong> Сигнал сравнивается с шумом примерно на 2.8 годах, а среди стратегий с Sharpe выше 1 предсказуемость не растёт с наблюдением, а падает до 0.09.</p>
+</li>
+</ol>
+<p>Кто пишет эти стратегии — <a href="comon-story-4-authors.html">глава 4</a>; кто их покупает и что в итоге достаётся подписчику — <a href="comon-story-5-buyers.html">глава 5</a>.</p>
+<hr>
+<h1>Приложение: полная статистика</h1>
+<h2>В1. Ограничения главы</h2>
+<ul>
+<li><strong>Фильтр измеримости меняет состав выборки.</strong> Из 11 657 стратегий, чей ряд насчитывает не меньше тридцати точек, прошли 6 320 — то есть примерно треть от всех 18 354 стратегий с рядом. Отсеиваются короткие и малоактивные — то есть картина главы описывает «стратегии, которые реально работали», а не всю популяцию.</li>
+<li><strong>Отбор по длине истории — это отбор по выживанию.</strong> Разделы про долгую историю смотрят на выживших по построению; поправка — раздел 3.2, где сравнение идёт внутри одних и тех же стратегий.</li>
+<li><strong>Sharpe без вычета безрисковой ставки</strong> для стратегий на акциях завышен относительно стратегий на срочном рынке, где контанго уже съедает ставку. Сравнение «сверх ставки» дано отдельно.</li>
+<li><strong>Классификация по составу портфеля приблизительна:</strong> поле состава — снимок на момент выгрузки, а не средний состав за жизнь стратегии.</li>
+<li><strong>Пары близнецов не независимы</strong>, формальная значимость завышена.</li>
+<li><strong>Разложение на общие факторы считается на подвыборке долгоживущих</strong> (774 стратегии из 3 811 в последнем окне), у которых связь с рынком плотнее, чем у популяции в целом.</li>
+<li><strong>Все доходности здесь — за полную жизнь стратегии</strong>, то есть достаются тому, кто вошёл в первый день и не выходил. Подписываются позже, и цена этого измерена в <a href="comon-story-2-survival.html">главе 2</a>: вход на пике кривой оставляет в минусе 94.5 % случаев (приложение Б13 той же главы).</li>
+</ul>
+<hr>
+<h2>В2. Выборка и фильтр измеримости</h2>
+<p>Фильтр: не менее 100 торговых дней и активность (доля дней с ненулевым движением) не ниже 10 %. Прошли <strong>6 320 стратегий из 11 657</strong>, чей ряд насчитывает не меньше тридцати точек (54.2 %); от всех 18 354 стратегий с рядом это 34.4 %. Из прошедших живых 1 262, закрытых 5 058.</p>
+<p>Фильтр задан по измеримости, а не по результату: отбор по доходности исказил бы изучаемое распределение. Обоснование необходимости — в <a href="comon-story-2-survival.html">главе 2</a>: 15 % популяции держат авторы-фабрики с медианой жизни 25 дней, 21.9 % архива — разовая чистка 2014 года.</p>
+<p><strong>Конвенция Sharpe.</strong> Считается по среднему дневному результату, приведённому к году, без вычета безрисковой ставки, — кроме раздела, где явно указано «сверх ставки денежного рынка». Аннуализация по фактической частоте наблюдений (правило 2 приложения <a href="comon-story-1-market.html">главы 1</a>).</p>
+<h2>В3. Распределение Sharpe</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Выборка</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">p5</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">Медиана</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p90</th>
+<th style="text-align: right;">p95</th>
+<th style="text-align: right;">p99</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Все</td>
+<td style="text-align: right;">6 320</td>
+<td style="text-align: right;">−2.10</td>
+<td style="text-align: right;">−0.82</td>
+<td style="text-align: right;">−0.05</td>
+<td style="text-align: right;">0.57</td>
+<td style="text-align: right;">1.23</td>
+<td style="text-align: right;">1.68</td>
+<td style="text-align: right;">3.06</td>
+</tr>
+<tr>
+<td>Живые</td>
+<td style="text-align: right;">1 262</td>
+<td style="text-align: right;">−1.39</td>
+<td style="text-align: right;">−0.22</td>
+<td style="text-align: right;">0.36</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">1.62</td>
+<td style="text-align: right;">2.11</td>
+<td style="text-align: right;">4.21</td>
+</tr>
+<tr>
+<td>Закрытые</td>
+<td style="text-align: right;">5 058</td>
+<td style="text-align: right;">−2.21</td>
+<td style="text-align: right;">−0.95</td>
+<td style="text-align: right;">−0.17</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">1.11</td>
+<td style="text-align: right;">1.53</td>
+<td style="text-align: right;">2.71</td>
+</tr>
+</tbody>
+</table></div>
+<p>Геометрическая версия (доходность с учётом сложного процента, делённая на волатильность) систематически ниже: медиана по всем −0.29, по живым +0.18.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Длина истории</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">S ≥ 1.0</th>
+<th style="text-align: right;">S ≥ 1.5</th>
+<th style="text-align: right;">S ≥ 2.0</th>
+<th style="text-align: right;">S ≥ 2.5</th>
+<th style="text-align: right;">Максимум</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>≥ 1 года</td>
+<td style="text-align: right;">4 073</td>
+<td style="text-align: right;">547 (13.4 %)</td>
+<td style="text-align: right;">212 (5.2 %)</td>
+<td style="text-align: right;">81 (2.0 %)</td>
+<td style="text-align: right;">39 (1.0 %)</td>
+<td style="text-align: right;">19.41</td>
+</tr>
+<tr>
+<td>≥ 2 лет</td>
+<td style="text-align: right;">2 388</td>
+<td style="text-align: right;">298 (12.5 %)</td>
+<td style="text-align: right;">99 (4.1 %)</td>
+<td style="text-align: right;">35 (1.5 %)</td>
+<td style="text-align: right;">17 (0.7 %)</td>
+<td style="text-align: right;">10.67</td>
+</tr>
+<tr>
+<td>≥ 3 лет</td>
+<td style="text-align: right;">1 619</td>
+<td style="text-align: right;">204 (12.6 %)</td>
+<td style="text-align: right;">64 (4.0 %)</td>
+<td style="text-align: right;">19 (1.2 %)</td>
+<td style="text-align: right;">9 (0.6 %)</td>
+<td style="text-align: right;">5.50</td>
+</tr>
+<tr>
+<td>≥ 5 лет</td>
+<td style="text-align: right;">697</td>
+<td style="text-align: right;">103 (14.8 %)</td>
+<td style="text-align: right;">23 (3.3 %)</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.94</td>
+</tr>
+<tr>
+<td>≥ 7 лет</td>
+<td style="text-align: right;">314</td>
+<td style="text-align: right;">63 (20.1 %)</td>
+<td style="text-align: right;">13 (4.1 %)</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.87</td>
+</tr>
+</tbody>
+</table></div>
+<p>Из 64 стратегий с Sharpe ≥ 1.5 на трёхлетней истории статистически значим результат у 59; медиана t-статистики у прошедших — 2.36.</p>
+<p>Квантили среди 697 стратегий с историей ≥ 5 лет: медиана 0.31, p75 0.72, p90 1.21, p95 1.40, p99 1.68, максимум 1.94.</p>
+<h2>В4. Sharpe и длина истории</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Длина истории</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Медиана S</th>
+<th style="text-align: right;">p90</th>
+<th style="text-align: right;">p99</th>
+<th style="text-align: right;">Доля S ≥ 1.5</th>
+<th style="text-align: right;">Медиана волатильности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt; 1 года</td>
+<td style="text-align: right;">2 247</td>
+<td style="text-align: right;">−0.42</td>
+<td style="text-align: right;">1.38</td>
+<td style="text-align: right;">3.81</td>
+<td style="text-align: right;">8.9 %</td>
+<td style="text-align: right;">48.0 %</td>
+</tr>
+<tr>
+<td>1–1.5 года</td>
+<td style="text-align: right;">1 049</td>
+<td style="text-align: right;">−0.16</td>
+<td style="text-align: right;">1.23</td>
+<td style="text-align: right;">2.61</td>
+<td style="text-align: right;">6.9 %</td>
+<td style="text-align: right;">43.0 %</td>
+</tr>
+<tr>
+<td>1.5–3 года</td>
+<td style="text-align: right;">1 405</td>
+<td style="text-align: right;">+0.09</td>
+<td style="text-align: right;">1.21</td>
+<td style="text-align: right;">2.45</td>
+<td style="text-align: right;">5.4 %</td>
+<td style="text-align: right;">36.5 %</td>
+</tr>
+<tr>
+<td>3–5 лет</td>
+<td style="text-align: right;">922</td>
+<td style="text-align: right;">+0.09</td>
+<td style="text-align: right;">1.05</td>
+<td style="text-align: right;">2.40</td>
+<td style="text-align: right;">4.4 %</td>
+<td style="text-align: right;">35.3 %</td>
+</tr>
+<tr>
+<td>5–7 лет</td>
+<td style="text-align: right;">383</td>
+<td style="text-align: right;">+0.23</td>
+<td style="text-align: right;">1.05</td>
+<td style="text-align: right;">1.67</td>
+<td style="text-align: right;">2.6 %</td>
+<td style="text-align: right;">34.8 %</td>
+</tr>
+<tr>
+<td>≥ 7 лет</td>
+<td style="text-align: right;">314</td>
+<td style="text-align: right;">+0.44</td>
+<td style="text-align: right;">1.28</td>
+<td style="text-align: right;">1.67</td>
+<td style="text-align: right;">4.1 %</td>
+<td style="text-align: right;">29.3 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>🔴 Медиана здесь растёт с длиной истории, но это <strong>не</strong> доказательство, что стратегии улучшаются: в длинные группы попадают только выжившие. Чистая проверка — раздел 3.2, где сравнение идёт внутри одних и тех же стратегий.</p>
+<h2>В5. Первый год против остальной жизни</h2>
+<p>Выборка — 2 287 стратегий с историей ≥ 2 лет, у которых считаются обе оценки: и по первому году, и по остальной жизни. Измеримых с двухлетней историей 2 388; сто одна отпадает потому, что одна из половин слишком коротка или неподвижна.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Величина</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">Медиана</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p90</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sharpe первого года</td>
+<td style="text-align: right;">−0.47</td>
+<td style="text-align: right;">0.43</td>
+<td style="text-align: right;">1.38</td>
+<td style="text-align: right;">2.26</td>
+</tr>
+<tr>
+<td>Sharpe оставшейся жизни</td>
+<td style="text-align: right;">−0.52</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">1.21</td>
+</tr>
+<tr>
+<td>Изменение у одной и той же стратегии</td>
+<td style="text-align: right;">−1.37</td>
+<td style="text-align: right;">−0.45</td>
+<td style="text-align: right;">+0.51</td>
+<td style="text-align: right;">+1.38</td>
+</tr>
+</tbody>
+</table></div>
+<p>Третья строка — квантили <strong>распределения изменений</strong>, а не разность квантилей двух первых строк: у каждой стратегии считается её собственная величина «Sharpe остатка минус Sharpe первого года», и квантили берутся уже по ним.</p>
+<p>Из 319 стратегий с Sharpe ≥ 2.0 в первый год: медиана дальнейшего Sharpe 0.43; удержали ≥ 1.5 — 35 (11.0 %); ушли в минус — 81 (25.4 %).</p>
+<h2>В6. Волатильность, доходность, выживание</h2>
+<p>Децили по годовой волатильности, по 632 стратегии в каждом:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Дециль</th>
+<th style="text-align: right;">Волатильность, %</th>
+<th style="text-align: right;">CAGR, %</th>
+<th style="text-align: right;">Sharpe</th>
+<th style="text-align: right;">maxDD, %</th>
+<th style="text-align: right;">Живых</th>
+<th style="text-align: right;">CAGR живых, %</th>
+<th style="text-align: right;">CAGR закрытых, %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align: right;">9.8</td>
+<td style="text-align: right;">+4.9</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">−10.0</td>
+<td style="text-align: right;">24.8 %</td>
+<td style="text-align: right;">+9.3</td>
+<td style="text-align: right;">+3.4</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align: right;">17.5</td>
+<td style="text-align: right;">+4.2</td>
+<td style="text-align: right;">0.32</td>
+<td style="text-align: right;">−22.3</td>
+<td style="text-align: right;">28.6 %</td>
+<td style="text-align: right;">+8.4</td>
+<td style="text-align: right;">+1.6</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align: right;">23.2</td>
+<td style="text-align: right;">+0.6</td>
+<td style="text-align: right;">0.14</td>
+<td style="text-align: right;">−29.0</td>
+<td style="text-align: right;">28.8 %</td>
+<td style="text-align: right;">+4.4</td>
+<td style="text-align: right;">−2.1</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align: right;">28.5</td>
+<td style="text-align: right;">−0.5</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">−36.1</td>
+<td style="text-align: right;">26.4 %</td>
+<td style="text-align: right;">+7.0</td>
+<td style="text-align: right;">−5.4</td>
+</tr>
+<tr>
+<td>5</td>
+<td style="text-align: right;">35.4</td>
+<td style="text-align: right;">−5.1</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">−44.6</td>
+<td style="text-align: right;">22.6 %</td>
+<td style="text-align: right;">+7.4</td>
+<td style="text-align: right;">−8.5</td>
+</tr>
+<tr>
+<td>6</td>
+<td style="text-align: right;">44.7</td>
+<td style="text-align: right;">−13.8</td>
+<td style="text-align: right;">−0.10</td>
+<td style="text-align: right;">−50.1</td>
+<td style="text-align: right;">19.9 %</td>
+<td style="text-align: right;">+11.3</td>
+<td style="text-align: right;">−18.4</td>
+</tr>
+<tr>
+<td>7</td>
+<td style="text-align: right;">57.1</td>
+<td style="text-align: right;">−27.0</td>
+<td style="text-align: right;">−0.28</td>
+<td style="text-align: right;">−61.0</td>
+<td style="text-align: right;">17.2 %</td>
+<td style="text-align: right;">−11.4</td>
+<td style="text-align: right;">−29.8</td>
+</tr>
+<tr>
+<td>8</td>
+<td style="text-align: right;">75.0</td>
+<td style="text-align: right;">−45.9</td>
+<td style="text-align: right;">−0.41</td>
+<td style="text-align: right;">−74.3</td>
+<td style="text-align: right;">13.6 %</td>
+<td style="text-align: right;">−26.8</td>
+<td style="text-align: right;">−49.4</td>
+</tr>
+<tr>
+<td>9</td>
+<td style="text-align: right;">101.3</td>
+<td style="text-align: right;">−64.6</td>
+<td style="text-align: right;">−0.48</td>
+<td style="text-align: right;">−85.6</td>
+<td style="text-align: right;">11.1 %</td>
+<td style="text-align: right;">−48.4</td>
+<td style="text-align: right;">−65.7</td>
+</tr>
+<tr>
+<td>10</td>
+<td style="text-align: right;">165.5</td>
+<td style="text-align: right;">−91.5</td>
+<td style="text-align: right;">−0.55</td>
+<td style="text-align: right;">−95.6</td>
+<td style="text-align: right;">6.5 %</td>
+<td style="text-align: right;">−90.5</td>
+<td style="text-align: right;">−91.5</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Выборка</th>
+<th style="text-align: right;">ρ(волатильность, доходность)</th>
+<th style="text-align: right;">ρ(волатильность, Sharpe)</th>
+<th style="text-align: right;">Стратегий</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Все</td>
+<td style="text-align: right;"><strong>−0.529</strong></td>
+<td style="text-align: right;">−0.298</td>
+<td style="text-align: right;">6 320</td>
+</tr>
+<tr>
+<td>Живые</td>
+<td style="text-align: right;">−0.304</td>
+<td style="text-align: right;">−0.318</td>
+<td style="text-align: right;">1 262</td>
+</tr>
+<tr>
+<td>Закрытые</td>
+<td style="text-align: right;">−0.556</td>
+<td style="text-align: right;">−0.260</td>
+<td style="text-align: right;">5 058</td>
+</tr>
+</tbody>
+</table></div>
+<p>🔴 <strong>Кажущееся противоречие, которое стоит объяснить.</strong> Обычная регрессия доходности на волатильность даёт <strong>положительный</strong> и формально значимый коэффициент (+6.99, t = 5.68) — но с R² = 0.005. Её тянут несколько экстремальных выбросов (в популяции есть стратегия с итогом +2 877 000 %). Ранговая корреляция описывает типичную стратегию и даёт −0.53. Правильный вывод — ранговый.</p>
+<h2>В7. Близнецы: цена плеча</h2>
+<p>Критерий пары: обе стратегии принадлежат одному автору, корреляция дневных доходностей ≥ 0.80, общее окно ≥ 250 дней. Из 965 авторов с двумя и более измеримыми стратегиями (4 155 стратегий) найдено <strong>362 пары у 163 авторов</strong>; медиана общего окна 838 дней, медиана корреляции 0.90.</p>
+<p>Колонки S — медианы по группе; ΔS, CAGR_B/CAGR_A и DD_B/DD_A считаются <strong>внутри каждой пары</strong> и затем медианятся, поэтому ΔS не равен разности двух колонок слева.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Плечо</th>
+<th style="text-align: right;">Пар</th>
+<th style="text-align: right;">S спокойной (A)</th>
+<th style="text-align: right;">S агрессивной (B)</th>
+<th style="text-align: right;">ΔS внутри пары</th>
+<th style="text-align: right;">CAGR_B/CAGR_A</th>
+<th style="text-align: right;">DD_B/DD_A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0–1.2</td>
+<td style="text-align: right;">208</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">0.33</td>
+<td style="text-align: right;">−0.01</td>
+<td style="text-align: right;">1.04</td>
+<td style="text-align: right;">1.03</td>
+</tr>
+<tr>
+<td>1.2–1.5</td>
+<td style="text-align: right;">91</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: right;">0.44</td>
+<td style="text-align: right;">−0.06</td>
+<td style="text-align: right;">0.91</td>
+<td style="text-align: right;">1.23</td>
+</tr>
+<tr>
+<td>1.5–2.0</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.63</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">−0.07</td>
+<td style="text-align: right;">1.11</td>
+<td style="text-align: right;">1.41</td>
+</tr>
+<tr>
+<td>2.0–3.0</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">1.25</td>
+<td style="text-align: right;">0.87</td>
+<td style="text-align: right;">−0.30</td>
+<td style="text-align: right;">1.72</td>
+<td style="text-align: right;">1.84</td>
+</tr>
+<tr>
+<td>&gt; 3</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.78</td>
+<td style="text-align: right;">−0.23</td>
+<td style="text-align: right;">3.92</td>
+<td style="text-align: right;">3.03</td>
+</tr>
+</tbody>
+</table></div>
+<p>ΔS по всем парам: медиана −0.028, среднее −0.067. Регрессия ΔS на логарифм плеча: коэффициент <strong>−0.222</strong> (SE 0.077, t = −2.89), R² = 0.023. Отсюда цена удвоения риска: −0.222 × ln 2 ≈ <strong>−0.15 пункта Sharpe</strong>.</p>
+<p>⚠️ Формальная значимость завышена: пары одного автора не независимы (автор с тремя стратегиями даёт три пары из двух степеней свободы). Содержательны знак и величина, а не уровень значимости.</p>
+<h2>В8. Просадка и её связь с доходностью</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Величина</th>
+<th style="text-align: right;">p5</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">Медиана</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p95</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>maxDD, все</td>
+<td style="text-align: right;">−99.3 %</td>
+<td style="text-align: right;">−76.9 %</td>
+<td style="text-align: right;">−47.5 %</td>
+<td style="text-align: right;">−26.1 %</td>
+<td style="text-align: right;">−8.7 %</td>
+</tr>
+<tr>
+<td>maxDD, живые</td>
+<td style="text-align: right;">−98.4 %</td>
+<td style="text-align: right;">−65.4 %</td>
+<td style="text-align: right;">−41.4 %</td>
+<td style="text-align: right;">−23.3 %</td>
+<td style="text-align: right;">−7.5 %</td>
+</tr>
+<tr>
+<td>maxDD, закрытые</td>
+<td style="text-align: right;">−99.4 %</td>
+<td style="text-align: right;">−79.4 %</td>
+<td style="text-align: right;">−49.2 %</td>
+<td style="text-align: right;">−26.9 %</td>
+<td style="text-align: right;">−9.0 %</td>
+</tr>
+<tr>
+<td>MAR, все</td>
+<td style="text-align: right;">−1.22</td>
+<td style="text-align: right;">−0.79</td>
+<td style="text-align: right;">−0.25</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">3.25</td>
+</tr>
+<tr>
+<td>MAR, живые</td>
+<td style="text-align: right;">−0.96</td>
+<td style="text-align: right;">−0.29</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.85</td>
+<td style="text-align: right;">4.59</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>MAR</strong> — величина из словаря введения: годовая доходность, отнесённая к глубине худшей просадки, то есть «какую долю своего худшего провала стратегия зарабатывает за год». Здесь она нужна ровно затем, что переводится в срок ожидания.</p>
+<p>Медианный MAR живых стратегий — <strong>0.12</strong>. Это значит, что за год такая стратегия зарабатывает лишь восьмую часть того, что теряла в худший момент. Чтобы почувствовать масштаб, возьмём стратегию с типичными для витрины числами: просадка −40 %, доходность 4.8 % годовых (как раз MAR 0.12). Капитал подписчика упал со 100 до 60. Чтобы вернуться к 100, нужно вырасти в 1.67 раза, а при 4.8 % годовых на это уйдёт <strong>почти одиннадцать лет</strong>.</p>
+<p>У всей популяции медианный MAR отрицателен (−0.25) — там доходность сама по себе ниже нуля, и говорить о возврате просадки бессмысленно.</p>
+<p>⚠️ Пример именно иллюстративный: 0.12 — это медиана отношения, посчитанного внутри каждой стратегии, а не отношение медианной доходности к медианной просадке. Числа 40 % и 4.8 % взяты как удобная пара с нужным соотношением, а не как «средняя стратегия».</p>
+<p>Просадка глубже −50 % — у 47.3 % стратегий (среди живых 40.4 %), глубже −80 % — у 22.8 % (живых 16.0 %).</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Группа по CAGR</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Медиана maxDD</th>
+<th style="text-align: right;">Глубже −50 %</th>
+<th style="text-align: right;">Глубже −80 %</th>
+<th style="text-align: right;">Медиана MAR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Хуже −10 %</td>
+<td style="text-align: right;">3 155</td>
+<td style="text-align: right;">−73.2 %</td>
+<td style="text-align: right;">72.6 %</td>
+<td style="text-align: right;">42.7 %</td>
+<td style="text-align: right;">−0.78</td>
+</tr>
+<tr>
+<td>−10…0 %</td>
+<td style="text-align: right;">741</td>
+<td style="text-align: right;">−35.1 %</td>
+<td style="text-align: right;">30.9 %</td>
+<td style="text-align: right;">5.5 %</td>
+<td style="text-align: right;">−0.13</td>
+</tr>
+<tr>
+<td>0…15 %</td>
+<td style="text-align: right;">1 193</td>
+<td style="text-align: right;">−27.3 %</td>
+<td style="text-align: right;">20.4 %</td>
+<td style="text-align: right;">2.2 %</td>
+<td style="text-align: right;">0.23</td>
+</tr>
+<tr>
+<td>15…30 %</td>
+<td style="text-align: right;">579</td>
+<td style="text-align: right;">−28.0 %</td>
+<td style="text-align: right;">16.6 %</td>
+<td style="text-align: right;">1.7 %</td>
+<td style="text-align: right;">0.76</td>
+</tr>
+<tr>
+<td>30…60 %</td>
+<td style="text-align: right;">356</td>
+<td style="text-align: right;">−27.6 %</td>
+<td style="text-align: right;">16.0 %</td>
+<td style="text-align: right;">1.4 %</td>
+<td style="text-align: right;">1.51</td>
+</tr>
+<tr>
+<td>&gt; 60 %</td>
+<td style="text-align: right;">296</td>
+<td style="text-align: right;">−34.2 %</td>
+<td style="text-align: right;">26.4 %</td>
+<td style="text-align: right;">3.7 %</td>
+<td style="text-align: right;">3.94</td>
+</tr>
+</tbody>
+</table></div>
+<h2>В9. Форма распределения как предиктор</h2>
+<p>По полной истории: положительный скос у 51.9 % стратегий, медианный скос +0.06, медианный эксцесс 15.6.</p>
+<p>Проверка «скос первой половины жизни → результат второй», 4 956 стратегий с двумя полноценными половинами:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Скос первой половины</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">S первой</th>
+<th style="text-align: right;">S второй</th>
+<th style="text-align: right;">CAGR второй, %</th>
+<th style="text-align: right;">maxDD второй, %</th>
+<th style="text-align: right;">Живых</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt; −1</td>
+<td style="text-align: right;">1 040</td>
+<td style="text-align: right;">−0.60</td>
+<td style="text-align: right;">−0.10</td>
+<td style="text-align: right;">−7.6</td>
+<td style="text-align: right;">−34.8</td>
+<td style="text-align: right;">19.6 %</td>
+</tr>
+<tr>
+<td>−1…−0.3</td>
+<td style="text-align: right;">657</td>
+<td style="text-align: right;">−0.28</td>
+<td style="text-align: right;">−0.34</td>
+<td style="text-align: right;">−15.4</td>
+<td style="text-align: right;">−36.3</td>
+<td style="text-align: right;">16.6 %</td>
+</tr>
+<tr>
+<td>−0.3…+0.3</td>
+<td style="text-align: right;">991</td>
+<td style="text-align: right;">+0.26</td>
+<td style="text-align: right;">−0.17</td>
+<td style="text-align: right;">−11.6</td>
+<td style="text-align: right;">−35.9</td>
+<td style="text-align: right;">19.3 %</td>
+</tr>
+<tr>
+<td>+0.3…+1</td>
+<td style="text-align: right;">961</td>
+<td style="text-align: right;">+0.68</td>
+<td style="text-align: right;">−0.11</td>
+<td style="text-align: right;">−10.4</td>
+<td style="text-align: right;">−34.7</td>
+<td style="text-align: right;">27.4 %</td>
+</tr>
+<tr>
+<td>&gt; +1</td>
+<td style="text-align: right;">1 307</td>
+<td style="text-align: right;">+0.85</td>
+<td style="text-align: right;">−0.01</td>
+<td style="text-align: right;">−6.7</td>
+<td style="text-align: right;">−35.1</td>
+<td style="text-align: right;">28.8 %</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Связь</th>
+<th style="text-align: right;">ρ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Скос 1-й половины ↔ Sharpe <strong>той же</strong> половины</td>
+<td style="text-align: right;">+0.427</td>
+</tr>
+<tr>
+<td>Скос 1-й половины ↔ Sharpe 2-й половины</td>
+<td style="text-align: right;"><strong>+0.025</strong></td>
+</tr>
+<tr>
+<td>Скос 1-й половины ↔ просадка 2-й половины</td>
+<td style="text-align: right;">−0.019</td>
+</tr>
+<tr>
+<td>Эксцесс 1-й половины ↔ Sharpe 2-й половины</td>
+<td style="text-align: right;">+0.106</td>
+</tr>
+<tr>
+<td>Sharpe 1-й половины ↔ Sharpe 2-й половины</td>
+<td style="text-align: right;">+0.159</td>
+</tr>
+<tr>
+<td><strong>Волатильность 1-й половины ↔ Sharpe 2-й половины</strong></td>
+<td style="text-align: right;"><strong>−0.184</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Гипотеза «отрицательный скос выдаёт скрытую продажу риска и предвещает крах» на этих данных не подтверждается — но и не опровергается: скос по полному ряду измеряет уже случившийся обвал, а не стиль торговли. Для проверки гипотезы как задумано нужен состав портфеля, а не форма ряда.</p>
+<h2>В10. Связь с рынком</h2>
+<p><strong>Метод.</strong> Для каждой стратегии — регрессия её дневной доходности на дневную доходность индекса. Индекс — IMOEX с ISS Московской биржи (в ответах площадки серия бенчмарка пустая); контроль — MCFTR, индекс полной доходности с дивидендами. Дни, которых нет у индекса (выходные сессии, праздники), выбрасываются вместе с доходностью стратегии за них.</p>
+<p>Выборка: 3 811 стратегий, у которых не меньше 250 общих с индексом дней и не меньше 30 дней с ненулевой доходностью. 🔴 Фильтр 250 дней сам по себе отбирает более долгоживущих — все выводы этого раздела относятся к стратегиям, продержавшимся хотя бы год.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Величина</th>
+<th style="text-align: right;">p5</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">Медиана</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p95</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>β к IMOEX (все общие дни)</td>
+<td style="text-align: right;">−0.45</td>
+<td style="text-align: right;">0.03</td>
+<td style="text-align: right;"><strong>0.29</strong></td>
+<td style="text-align: right;">0.73</td>
+<td style="text-align: right;">1.74</td>
+</tr>
+<tr>
+<td>β к IMOEX (только активные дни)</td>
+<td style="text-align: right;">−0.68</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.39</td>
+<td style="text-align: right;">0.84</td>
+<td style="text-align: right;">2.08</td>
+</tr>
+<tr>
+<td>R² регрессии</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;"><strong>0.06</strong></td>
+<td style="text-align: right;">0.26</td>
+<td style="text-align: right;">0.59</td>
+</tr>
+<tr>
+<td>Корреляция с индексом</td>
+<td style="text-align: right;">−0.16</td>
+<td style="text-align: right;">0.03</td>
+<td style="text-align: right;">0.21</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">0.77</td>
+</tr>
+<tr>
+<td>α к IMOEX, % годовых</td>
+<td style="text-align: right;">−117.2</td>
+<td style="text-align: right;">−22.6</td>
+<td style="text-align: right;"><strong>+1.2</strong></td>
+<td style="text-align: right;">+16.5</td>
+<td style="text-align: right;">+54.2</td>
+</tr>
+<tr>
+<td>α к MCFTR, % годовых</td>
+<td style="text-align: right;">−121.5</td>
+<td style="text-align: right;">−26.0</td>
+<td style="text-align: right;"><strong>−1.9</strong></td>
+<td style="text-align: right;">+13.7</td>
+<td style="text-align: right;">+53.4</td>
+</tr>
+</tbody>
+</table></div>
+<p>Разница между двумя строками β поучительна: 0.29 по всем дням против 0.39 по дням, когда стратегия реально несла риск. <strong>Примерно четверть видимой «рыночной нейтральности» — это не хедж, а простое отсутствие в рынке.</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Класс</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Доля</th>
+<th style="text-align: right;">Медиана β</th>
+<th style="text-align: right;">Медиана S</th>
+<th style="text-align: right;">α, % годовых</th>
+<th style="text-align: right;">Живых</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Нейтральные (|β| &lt; 0.2)</td>
+<td style="text-align: right;">1 265</td>
+<td style="text-align: right;">33.2 %</td>
+<td style="text-align: right;">+0.04</td>
+<td style="text-align: right;">0.29</td>
+<td style="text-align: right;">+5.8</td>
+<td style="text-align: right;">31.2 %</td>
+</tr>
+<tr>
+<td>— из них α значима и положительна</td>
+<td style="text-align: right;"><strong>241</strong></td>
+<td style="text-align: right;"><strong>6.3 %</strong></td>
+<td style="text-align: right;">+0.04</td>
+<td style="text-align: right;"><strong>1.39</strong></td>
+<td style="text-align: right;"><strong>+26.5</strong></td>
+<td style="text-align: right;"><strong>60.2 %</strong></td>
+</tr>
+<tr>
+<td>— из них α значима и отрицательна</td>
+<td style="text-align: right;">101</td>
+<td style="text-align: right;">2.7 %</td>
+<td style="text-align: right;">+0.03</td>
+<td style="text-align: right;">−1.57</td>
+<td style="text-align: right;">−48.4</td>
+<td style="text-align: right;">13.9 %</td>
+</tr>
+<tr>
+<td>— из них α не значима</td>
+<td style="text-align: right;">923</td>
+<td style="text-align: right;">24.2 %</td>
+<td style="text-align: right;">+0.04</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">+3.2</td>
+<td style="text-align: right;">25.6 %</td>
+</tr>
+<tr>
+<td>Умеренная бета (0.2 ≤ β &lt; 0.8)</td>
+<td style="text-align: right;">1 388</td>
+<td style="text-align: right;">36.4 %</td>
+<td style="text-align: right;">+0.46</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">+1.7</td>
+<td style="text-align: right;">28.2 %</td>
+</tr>
+<tr>
+<td>Высокая бета (β ≥ 0.8)</td>
+<td style="text-align: right;">801</td>
+<td style="text-align: right;">21.0 %</td>
+<td style="text-align: right;"><strong>+1.21</strong></td>
+<td style="text-align: right;">−0.15</td>
+<td style="text-align: right;">−16.9</td>
+<td style="text-align: right;">20.7 %</td>
+</tr>
+<tr>
+<td>Отрицательная бета (β ≤ −0.2)</td>
+<td style="text-align: right;">357</td>
+<td style="text-align: right;">9.4 %</td>
+<td style="text-align: right;">−0.50</td>
+<td style="text-align: right;">−0.04</td>
+<td style="text-align: right;">+5.4</td>
+<td style="text-align: right;">10.6 %</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Бета в росте и в падении:</strong> медиана β в дни роста индекса 0.28, в дни падения 0.27, медиана разности +0.04; доля стратегий с большей чувствительностью к падениям — 55.7 % (знаковый тест, p = 2 · 10⁻⁷).</p>
+<p><strong>Разложение популяции на общие факторы</strong> (в каждом трёхлетнем окне берутся стратегии, покрывающие ≥ 80 % его дней):</p>
+<p>Колонки PC1, PC2, PC3 — первая, вторая и третья главные компоненты: доля всех колебаний популяции, которую забирает каждая из них. PC1–5 — сумма первых пяти. Последняя колонка <code>1/N</code> — сколько забирала бы одна компонента, если бы стратегии двигались независимо друг от друга.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Окно</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Дней</th>
+<th style="text-align: right;">PC1</th>
+<th style="text-align: right;">PC2</th>
+<th style="text-align: right;">PC3</th>
+<th style="text-align: right;">PC1–5</th>
+<th style="text-align: right;">corr(PC1, IMOEX)</th>
+<th style="text-align: right;">1/N</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-08 … 2017-08</td>
+<td style="text-align: right;">169</td>
+<td style="text-align: right;">753</td>
+<td style="text-align: right;">14.3 %</td>
+<td style="text-align: right;">9.2 %</td>
+<td style="text-align: right;">4.1 %</td>
+<td style="text-align: right;">33.7 %</td>
+<td style="text-align: right;">0.91</td>
+<td style="text-align: right;">0.59 %</td>
+</tr>
+<tr>
+<td>2017-08 … 2020-08</td>
+<td style="text-align: right;">368</td>
+<td style="text-align: right;">757</td>
+<td style="text-align: right;">26.1 %</td>
+<td style="text-align: right;">7.0 %</td>
+<td style="text-align: right;">3.8 %</td>
+<td style="text-align: right;">42.6 %</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">0.27 %</td>
+</tr>
+<tr>
+<td>2020-08 … 2023-08</td>
+<td style="text-align: right;">553</td>
+<td style="text-align: right;">742</td>
+<td style="text-align: right;">30.7 %</td>
+<td style="text-align: right;">6.8 %</td>
+<td style="text-align: right;">4.5 %</td>
+<td style="text-align: right;">48.2 %</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">0.18 %</td>
+</tr>
+<tr>
+<td>2023-08 … 2026-08</td>
+<td style="text-align: right;">774</td>
+<td style="text-align: right;">765</td>
+<td style="text-align: right;">25.5 %</td>
+<td style="text-align: right;">6.4 %</td>
+<td style="text-align: right;">5.5 %</td>
+<td style="text-align: right;">41.2 %</td>
+<td style="text-align: right;">0.77</td>
+<td style="text-align: right;">0.13 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>В последнем окне: доля стратегий с положительной нагрузкой на первый фактор — 92.6 %; корреляция нагрузки с β к индексу — +0.739.</p>
+<p><strong>Скрытый buy &amp; hold, по ступеням строгости:</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Критерий</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Доля</th>
+<th style="text-align: right;">β</th>
+<th style="text-align: right;">α, % годовых</th>
+<th style="text-align: right;">Медиана S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>β ≥ 0.8 и corr &gt; 0.9</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.2 %</td>
+<td style="text-align: right;">0.98</td>
+<td style="text-align: right;">+1.8</td>
+<td style="text-align: right;">−0.62</td>
+</tr>
+<tr>
+<td>β ≥ 0.8 и corr &gt; 0.8</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">1.6 %</td>
+<td style="text-align: right;">1.04</td>
+<td style="text-align: right;">+2.1</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr>
+<td>β ≥ 0.8 и corr &gt; 0.7</td>
+<td style="text-align: right;">170</td>
+<td style="text-align: right;">4.5 %</td>
+<td style="text-align: right;">1.11</td>
+<td style="text-align: right;">−1.5</td>
+<td style="text-align: right;">0.15</td>
+</tr>
+<tr>
+<td>β ≥ 0.5 и corr &gt; 0.5</td>
+<td style="text-align: right;">788</td>
+<td style="text-align: right;">20.7 %</td>
+<td style="text-align: right;">0.88</td>
+<td style="text-align: right;">−1.8</td>
+<td style="text-align: right;">0.11</td>
+</tr>
+<tr>
+<td><strong>β ≥ 0.5, corr &gt; 0.5, α не значима</strong></td>
+<td style="text-align: right;"><strong>653</strong></td>
+<td style="text-align: right;"><strong>17.1 %</strong></td>
+<td style="text-align: right;">0.87</td>
+<td style="text-align: right;">−1.2</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+</tbody>
+</table></div>
+<p>Строгий критерий почти никого не ловит по техническим причинам: дневная доходность на счёте подписчика — это индекс плюс шум исполнения, и корреляция падает даже у чистой бета-стратегии. Поэтому за рабочее определение взята самая широкая честная версия.</p>
+<p><strong>Отражает ли витрина рыночный риск:</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Связь</th>
+<th style="text-align: right;">ρ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>β ↔ категория риска из карточки</td>
+<td style="text-align: right;"><strong>−0.083</strong></td>
+</tr>
+<tr>
+<td>β ↔ частота сделок из карточки</td>
+<td style="text-align: right;">−0.128</td>
+</tr>
+<tr>
+<td>β ↔ волатильность стратегии</td>
+<td style="text-align: right;">+0.156</td>
+</tr>
+<tr>
+<td>β ↔ доля активных дней</td>
+<td style="text-align: right;">+0.232</td>
+</tr>
+</tbody>
+</table></div>
+<p>🔴 Заявленная категория риска не имеет отношения к рыночному риску, и знак связи даже обратный: помеченные как более рискованные имеют чуть меньшую бету. Единственная осмысленная связь — с долей активных дней, и это та же механика «нейтральности через простой».</p>
+<p><strong>Три ограничения раздела.</strong> (1) IMOEX — ценовой индекс, без дивидендов (~7–9 % годовых); стратегия, держащая акции, дивиденды получает, поэтому её альфа против IMOEX завышена — контроль по MCFTR в таблице выше. (2) Безрисковая ставка в регрессии не вычитается; при средней ставке и медианной β это добавляет к показанной альфе около +7.7 п.п. годовых сверх настоящей избыточной. (3) t-статистики альфы завышены из-за автокорреляции дневных доходностей автоследования, поэтому порог значимости применён как мягкий, а доля «со значимой альфой» — верхняя граница.</p>
+<h2>В11. Персистентность</h2>
+<p><strong>Дизайн.</strong> Схема Кархарта: окно формирования (ранжируем) → окно удержания (смотрим результат). Полугодовая сетка дат формирования, 2012-01-01 … 2026-07-01, окна формирования и удержания по 0.5 / 1 / 2 / 3 года. Всего <strong>57 168 наблюдений</strong> по 5 574 стратегиям.</p>
+<p>Три поправки под специфику данных:
+- <strong>смерть — исход, а не выбывание:</strong> исключить умерших в периоде удержания значило бы вернуть ошибку выжившего; доходность после смерти считается нулевой — это ровно то, что получает подписчик;
+- <strong>окна перекрываются</strong>, поэтому статистика считается внутри каждой когорты отдельно, а затем усредняются когортные оценки (процедура Фамы—Макбета), t-статистика берётся по разбросу между когортами;
+- <strong>витринные поля не имеют истории</strong> — рейтинг и число подписчиков известны только на момент выгрузки, поэтому проверить «предсказывал ли рейтинг будущее» нельзя в принципе.</p>
+<p><strong>Квинтили, формирование 1 год → удержание 1 год</strong> (28 когорт, медиана 518 стратегий в срезе):</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Квинтиль</th>
+<th style="text-align: right;">S формирования</th>
+<th style="text-align: right;">Медиана доходности</th>
+<th style="text-align: right;">Усечённое среднее</th>
+<th style="text-align: right;">S удержания</th>
+<th style="text-align: right;">Умерло</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q1</td>
+<td style="text-align: right;">−1.45</td>
+<td style="text-align: right;">−3.9 %</td>
+<td style="text-align: right;">−12.7 %</td>
+<td style="text-align: right;">−0.58</td>
+<td style="text-align: right;">51.0 %</td>
+</tr>
+<tr>
+<td>Q2</td>
+<td style="text-align: right;">−0.39</td>
+<td style="text-align: right;">−1.4 %</td>
+<td style="text-align: right;">−2.2 %</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">42.2 %</td>
+</tr>
+<tr>
+<td>Q3</td>
+<td style="text-align: right;">+0.24</td>
+<td style="text-align: right;">+0.3 %</td>
+<td style="text-align: right;">+2.4 %</td>
+<td style="text-align: right;">0.32</td>
+<td style="text-align: right;">34.2 %</td>
+</tr>
+<tr>
+<td>Q4</td>
+<td style="text-align: right;">+0.84</td>
+<td style="text-align: right;">+3.7 %</td>
+<td style="text-align: right;">+6.8 %</td>
+<td style="text-align: right;">0.51</td>
+<td style="text-align: right;">29.7 %</td>
+</tr>
+<tr>
+<td>Q5</td>
+<td style="text-align: right;">+1.76</td>
+<td style="text-align: right;">+5.2 %</td>
+<td style="text-align: right;">+11.2 %</td>
+<td style="text-align: right;">0.74</td>
+<td style="text-align: right;">23.4 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>Спред Q5−Q1: доходность +9.1 пп (t = +4.92), смертность −27.5 пп (t = −12.57).</p>
+<p><strong>Формирование 2 года → удержание 2 года</strong> (26 когорт, медиана 235 стратегий):</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Квинтиль</th>
+<th style="text-align: right;">S формирования</th>
+<th style="text-align: right;">Медиана доходности</th>
+<th style="text-align: right;">Усечённое среднее</th>
+<th style="text-align: right;">S удержания</th>
+<th style="text-align: right;">Умерло</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q1</td>
+<td style="text-align: right;">−1.11</td>
+<td style="text-align: right;">−2.6 %</td>
+<td style="text-align: right;">−14.3 %</td>
+<td style="text-align: right;">−0.53</td>
+<td style="text-align: right;">70.9 %</td>
+</tr>
+<tr>
+<td>Q2</td>
+<td style="text-align: right;">−0.27</td>
+<td style="text-align: right;">−0.2 %</td>
+<td style="text-align: right;">+7.5 %</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">60.4 %</td>
+</tr>
+<tr>
+<td>Q3</td>
+<td style="text-align: right;">+0.23</td>
+<td style="text-align: right;">+2.4 %</td>
+<td style="text-align: right;">+17.6 %</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">52.6 %</td>
+</tr>
+<tr>
+<td>Q4</td>
+<td style="text-align: right;">+0.67</td>
+<td style="text-align: right;">+8.0 %</td>
+<td style="text-align: right;">+20.4 %</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">46.0 %</td>
+</tr>
+<tr>
+<td>Q5</td>
+<td style="text-align: right;">+1.39</td>
+<td style="text-align: right;">+16.2 %</td>
+<td style="text-align: right;">+41.5 %</td>
+<td style="text-align: right;">0.80</td>
+<td style="text-align: right;">28.5 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>Спред Q5−Q1: доходность +18.8 пп (t = +6.63), смертность −42.4 пп (t = −16.63).</p>
+<p><strong>Формирование 3 года → удержание 1 год</strong> (28 когорт, медиана 177 стратегий): спред по доходности +10.7 пп (t = +6.85), по смертности −39.3 пп (t = −13.56); Q5 в удержании даёт Sharpe 0.90 при 1.31 в формировании.</p>
+<p><strong>Сколько лет наблюдения информативны.</strong> Корреляция Sharpe двух смежных непересекающихся окон одинаковой длины:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Длина окна</th>
+<th style="text-align: right;">Когорт</th>
+<th style="text-align: right;">Стратегий (медиана)</th>
+<th style="text-align: right;">ρ</th>
+<th style="text-align: right;">t</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.5 года</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">591</td>
+<td style="text-align: right;">0.236</td>
+<td style="text-align: right;">8.04</td>
+</tr>
+<tr>
+<td>1 год</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">352</td>
+<td style="text-align: right;">0.311</td>
+<td style="text-align: right;">9.90</td>
+</tr>
+<tr>
+<td>2 года</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">117</td>
+<td style="text-align: right;">0.417</td>
+<td style="text-align: right;">15.92</td>
+</tr>
+<tr>
+<td>3 года</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">0.440</td>
+<td style="text-align: right;">12.77</td>
+</tr>
+</tbody>
+</table></div>
+<p>Подгонка ρ(T) = T/(T + c) даёт c = <strong>2.78 года</strong>.</p>
+<p>⚠️ Оценка условна на выживание: Sharpe второго окна существует только у доживших, а умирают преимущественно плохие — их отсев сужает разброс истинного качества и скорее <strong>занижает</strong> ρ. Значения читаются как нижняя оценка.</p>
+<p><strong>Та же величина по подвыборкам</strong> (в скобках — число когорт, по которым усреднено):</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Подвыборка</th>
+<th style="text-align: right;">T = 0.5 г</th>
+<th style="text-align: right;">T = 1 г</th>
+<th style="text-align: right;">T = 2 г</th>
+<th style="text-align: right;">T = 3 г</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Вся выборка</td>
+<td style="text-align: right;">+0.236 (29)</td>
+<td style="text-align: right;">+0.311 (28)</td>
+<td style="text-align: right;">+0.417 (26)</td>
+<td style="text-align: right;">+0.454 (24)</td>
+</tr>
+<tr>
+<td>S формирования &gt; 0</td>
+<td style="text-align: right;">+0.175 (29)</td>
+<td style="text-align: right;">+0.179 (28)</td>
+<td style="text-align: right;">+0.276 (26)</td>
+<td style="text-align: right;">+0.335 (24)</td>
+</tr>
+<tr>
+<td>S формирования &gt; 1</td>
+<td style="text-align: right;">+0.176 (29)</td>
+<td style="text-align: right;">+0.151 (23)</td>
+<td style="text-align: right;">+0.124 (18)</td>
+<td style="text-align: right;">+0.090 (12)</td>
+</tr>
+<tr>
+<td>Верхний квинтиль когорты</td>
+<td style="text-align: right;">+0.173 (29)</td>
+<td style="text-align: right;">+0.230 (28)</td>
+<td style="text-align: right;">+0.226 (23)</td>
+<td style="text-align: right;">+0.061 (11)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Часть падения в нижних строках объясняется сужением диапазона и малым числом наблюдений (верхняя подвыборка на трёх годах держится всего на 11–12 когортах). Но направление однозначно и противоположно тому, что даёт полная выборка.</p>
+<p><strong>Ранговые связи предикторов с будущим</strong> (процедура Фамы—Макбета по 29 когортам, все значения значимы):</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Предиктор</th>
+<th>Окно формирования</th>
+<th style="text-align: right;">H = 0.5 г</th>
+<th style="text-align: right;">H = 1 г</th>
+<th style="text-align: right;">H = 2 г</th>
+<th style="text-align: right;">H = 3 г</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sharpe</td>
+<td>1 год</td>
+<td style="text-align: right;">+0.205</td>
+<td style="text-align: right;">+0.233</td>
+<td style="text-align: right;">+0.255</td>
+<td style="text-align: right;">+0.272</td>
+</tr>
+<tr>
+<td>Доходность</td>
+<td>1 год</td>
+<td style="text-align: right;">+0.210</td>
+<td style="text-align: right;">+0.240</td>
+<td style="text-align: right;">+0.266</td>
+<td style="text-align: right;">+0.297</td>
+</tr>
+<tr>
+<td><strong>Волатильность</strong></td>
+<td>1 год</td>
+<td style="text-align: right;"><strong>−0.182</strong></td>
+<td style="text-align: right;"><strong>−0.218</strong></td>
+<td style="text-align: right;"><strong>−0.245</strong></td>
+<td style="text-align: right;"><strong>−0.259</strong></td>
+</tr>
+<tr>
+<td>Максимальная просадка</td>
+<td>1 год</td>
+<td style="text-align: right;">+0.225</td>
+<td style="text-align: right;">+0.269</td>
+<td style="text-align: right;">+0.307</td>
+<td style="text-align: right;">+0.323</td>
+</tr>
+<tr>
+<td>Sharpe</td>
+<td>3 года</td>
+<td style="text-align: right;">+0.240</td>
+<td style="text-align: right;">+0.290</td>
+<td style="text-align: right;">+0.341</td>
+<td style="text-align: right;">+0.368</td>
+</tr>
+<tr>
+<td>Доходность</td>
+<td>3 года</td>
+<td style="text-align: right;">+0.247</td>
+<td style="text-align: right;">+0.299</td>
+<td style="text-align: right;">+0.348</td>
+<td style="text-align: right;">+0.385</td>
+</tr>
+<tr>
+<td>Волатильность</td>
+<td>3 года</td>
+<td style="text-align: right;">−0.137</td>
+<td style="text-align: right;">−0.172</td>
+<td style="text-align: right;">−0.203</td>
+<td style="text-align: right;">−0.212</td>
+</tr>
+</tbody>
+</table></div>
+<p>Цель здесь — доходность окна удержания. При цели «Sharpe окна удержания» лидером снова становится прошлый Sharpe (+0.28…+0.44), а просадка отходит на второе место: значит её лидерство в таблице выше частично механическое. Механика такая: при одинаковой средней доходности более волатильная стратегия сама по себе показывает худший накопленный результат — эффект, известный как volatility drag. Волатильность при этом остаётся значимо отрицательным предиктором и по Sharpe (−0.16…−0.25), то есть её роль не сводится к этой механике.</p>
+<h1>Источники</h1>
+<p><strong>Первичные данные</strong></p>
+<ul>
+<li>Публичный каталог автоследования Comon, <a href="https://www.comon.ru/strategies/">www.comon.ru</a> — выгрузка 5 августа 2026 года (ряды доведены до 4 августа включительно), 19 978 стратегий с карточками и дневными рядами. Состав выборки и правила пересчёта — во <a href="comon-story-0-intro.html">введении</a> и в приложении <a href="comon-story-1-market.html">главы 1</a>.</li>
+</ul>
+<p><strong>Внешние данные</strong></p>
+<ul>
+<li><strong><a href="https://www.moex.com/ru/index/IMOEX">Индекс Мосбиржи (IMOEX)</a></strong> и <strong>индекс полной доходности MCFTR</strong> — дневные значения 2005-01-11 … 2026-08-05 (5 407 и 5 403 торговых дня), выгружены напрямую у биржи через её открытый интерфейс: <a href="https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/IMOEX.json">IMOEX</a>, <a href="https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/MCFTR.json">MCFTR</a>. Серии бенчмарков внутри ответов площадки пустые, поэтому индексы брались у первоисточника.</li>
+<li><strong>Ставка денежного рынка RUSFAR</strong> — <a href="https://iss.moex.com/iss/history/engines/stock/markets/index/boards/MMIX/securities/RUSFAR.json">ISS MOEX</a>, доступна с 9 января 2019. Средняя за окно сравнения 14.7 % годовых.</li>
+</ul>
+<p><strong>Методы</strong></p>
+<ul>
+<li>Схема оценки персистентности — классический дизайн из исследований взаимных фондов: Mark M. Carhart, <a href="https://ideas.repec.org/a/bla/jfinan/v52y1997i1p57-82.html">«On Persistence in Mutual Fund Performance»</a>, The Journal of Finance, 1997 (DOI 10.1111/j.1540-6261.1997.tb03808.x).</li>
+<li>Процедура усреднения кросс-секционных оценок с t-статистикой по разбросу между когортами: Eugene F. Fama, James D. MacBeth, <a href="https://ideas.repec.org/a/ucp/jpolec/v81y1973i3p607-36.html">«Risk, Return, and Equilibrium: Empirical Tests»</a>, Journal of Political Economy, 1973 (DOI 10.1086/260061; <a href="https://people.hec.edu/rosu/wp-content/uploads/sites/43/2023/09/Fama-MacBeth-Risk-return-and-equilibrium-Empirical-tests-1973.pdf">полный текст</a>).</li>
+</ul>
+<hr>
+<hr>
+<p><em>Условия использования: текст и графики — CC BY-NC-SA 4.0, код расчётов — BSD 3-Clause; <a href="comon-story-license.html">подробнее</a>.</em></p>
+<div class="foot">Дальше: <a href="comon-story-4-authors.html">Глава 4. Продавцы</a> · <a href="index.html">оглавление серии</a></div>
+</main>
+</body>
+</html>

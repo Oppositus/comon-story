@@ -1,0 +1,3161 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Глава 5. Покупатели: кто и как выбирает</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="topbar"><div class="wrap"><a href="index.html">Оглавление</a><span class="sep">·</span><a href="comon-story-license.html">Условия использования</a><span class="sep">·</span><a href="comon-story-0-intro.html">Введение</a><span class="sep">·</span><a href="comon-story-1-market.html">1</a><span class="sep">·</span><a href="comon-story-2-survival.html">2</a><span class="sep">·</span><a href="comon-story-3-returns.html">3</a><span class="sep">·</span><a href="comon-story-4-authors.html">4</a><span class="sep">·</span><a href="comon-story-4b-interlude.html">Вторая площадка</a><span class="sep">·</span><span class="here">5</span><span class="sep">·</span><a href="comon-story-6-conclusion.html">Заключение</a></div></nav>
+<main class="wrap">
+<h1>Глава 5. Покупатели: кто и как выбирает</h1>
+
+<p><em>Данные, методы и словарь терминов — во <a href="comon-story-0-intro.html">введении</a>. Все метрики пересчитаны из дневных рядов 19 978 стратегий Comon, включая 18 529 закрытых.</em></p>
+<hr>
+<p>Четыре главы описывали сторону предложения: что продаётся, сколько живёт, из чего сделана доходность, кто всё это пишет. Осталась вторая сторона прилавка. На живых стратегиях Comon висит <strong>13 430 подписок</strong> — состоявшихся решений, за которыми стоят реальные деньги.</p>
+<p>Глава отвечает на два вопроса. Первый: <strong>по каким признакам выбирают</strong>. Второй: <strong>что остаётся выбравшему после тарифа</strong>. Между ними обнаруживается разрыв, ради которого главу и стоит читать: признаки, по которым выбирают, и признаки, которые предсказывают качество, — почти не пересекаются.</p>
+<p><strong>Сразу о единице счёта, иначе вся глава будет прочитана неверно.</strong> 13 430 — это <strong>подписки, а не люди</strong>. Один человек может держать несколько подписок, и численность аудитории неизвестна в принципе: площадка отдаёт одно целое число на стратегию, индивидуальных записей нет ни одной. Поэтому всё ниже — структура <strong>спроса</strong>, а не портрет публики. Фраза «толпа выбирает X» везде означает ровно одно: <em>у стратегий с бо́льшим X сейчас больше подписчиков</em>. Не «подписчик посмотрел на X и решил» — истории подписок в данных нет, только текущий срез, и причинность из него не следует.</p>
+<p><strong>И о слове «деньги», которое дальше встретится часто.</strong> Настоящих сумм на счетах подписчиков мы не знаем: площадка отдаёт только счётчик подписок. Поэтому везде ниже «деньги», «где лежат деньги», «доля денег» означают <strong>подписки, взвешенные этим счётчиком</strong>, а не рубли. Единственная денежная оценка во всей главе — нижняя граница активов в 3.94 млрд ₽, и она получена умножением подписок на минимальный порог входа, то есть заведомо занижена.</p>
+<p><strong>И об ошибке выжившего, которая здесь неустранима.</strong> У закрытых стратегий счётчик подписчиков обнулён площадкой (глава 1, раздел 1.4). Значит подписки видны только у живых, а те, кто подписался на стратегию, которая потом умерла, в данных не существуют. Всякий раз, когда ниже написано «подписчики в среднем получают столько-то», читать надо «подписчики <strong>выживших</strong> стратегий», и смещение вверх огромное.</p>
+<hr>
+<h2>5.1 Сколько их и что о них вообще известно</h2>
+<p>Первое, что видно в данных о спросе, — он собран в кучу.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Величина</th>
+<th style="text-align: right;">Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Живых стратегий</td>
+<td style="text-align: right;">1 448</td>
+</tr>
+<tr>
+<td>Подписок на них</td>
+<td style="text-align: right;">13 430</td>
+</tr>
+<tr>
+<td><strong>Стратегий без единого подписчика</strong></td>
+<td style="text-align: right;"><strong>957 (66.1 %)</strong></td>
+</tr>
+<tr>
+<td>Стратегий, у которых подписчик есть</td>
+<td style="text-align: right;">491</td>
+</tr>
+<tr>
+<td>Медиана подписчиков на стратегию</td>
+<td style="text-align: right;"><strong>0</strong></td>
+</tr>
+<tr>
+<td>90-й перцентиль</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr>
+<td>Максимум у одной стратегии</td>
+<td style="text-align: right;">945</td>
+</tr>
+<tr>
+<td>Доля подписок у десяти самых популярных стратегий</td>
+<td style="text-align: right;">31.5 %</td>
+</tr>
+<tr>
+<td>Доля подписок у ста самых популярных</td>
+<td style="text-align: right;">85.0 %</td>
+</tr>
+<tr>
+<td>Коэффициент Джини по стратегиям</td>
+<td style="text-align: right;">0.931</td>
+</tr>
+<tr>
+<td>Коэффициент Джини <strong>по авторам</strong></td>
+<td style="text-align: right;"><strong>0.962</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Две трети живых стратегий не выбрал никто. Восемьдесят пять процентов всех подписок собрали сто стратегий из полутора тысяч. По авторам концентрация ещё выше, чем по стратегиям: пятеро держат <strong>половину всех подписок</strong>, а из 866 авторов живых стратегий <strong>615 (71.0 %) не имеют ни одного подписчика</strong>. Витрина, на которой полторы тысячи товаров, работает как прилавок с десятком.</p>
+<p><strong>Сколько это денег.</strong> Точной суммы под управлением площадка не публикует, но нижнюю границу дают сами данные: подписки, умноженные на минимальный порог входа своей стратегии, — <strong>3.94 млрд ₽</strong>, то есть не меньше <strong>293 тыс. ₽</strong> на подписку. Именно нижнюю, и по устройству расчёта: сумма на счёте подписчика не может быть меньше порога, а насколько она его превышает — в данных не видно. Разумно предположить, что у части подписчиков счёт заметно больше порога, но проверить это нечем: индивидуальных записей площадка не отдаёт.</p>
+<p><strong>Единственное, что известно о самом покупателе.</strong> Порог входа характеризует не стратегию, а человека: подписавшийся на стратегию с порогом в миллион этот миллион имеет. Это жёсткий пол капитала — и единственное свойство подписчика, просачивающееся через агрегат. Взвешенные по подпискам квантили порога: p10 — 35 тыс. ₽, медиана — <strong>180 тыс. ₽</strong>, p90 — 550 тыс. ₽.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Сегмент по порогу входа</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Доля стратегий</th>
+<th style="text-align: right;">Подписок</th>
+<th style="text-align: right;">Доля подписок</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>менее 50 тыс. ₽</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">20.0 %</td>
+<td style="text-align: right;">3 149</td>
+<td style="text-align: right;">23.4 %</td>
+</tr>
+<tr>
+<td>50–150 тыс.</td>
+<td style="text-align: right;">124</td>
+<td style="text-align: right;">25.3 %</td>
+<td style="text-align: right;">3 174</td>
+<td style="text-align: right;">23.6 %</td>
+</tr>
+<tr>
+<td>150–400 тыс.</td>
+<td style="text-align: right;">146</td>
+<td style="text-align: right;">29.7 %</td>
+<td style="text-align: right;">3 840</td>
+<td style="text-align: right;">28.6 %</td>
+</tr>
+<tr>
+<td>400 тыс. — 1 млн</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">16.9 %</td>
+<td style="text-align: right;">2 902</td>
+<td style="text-align: right;">21.6 %</td>
+</tr>
+<tr>
+<td><strong>1 млн и выше</strong></td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">8.1 %</td>
+<td style="text-align: right;">365</td>
+<td style="text-align: right;"><strong>2.7 %</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><em>База — 491 живая стратегия, у которой есть хотя бы один подписчик.</em></p>
+<p>По капиталу аудитория разложена на удивление ровно: четыре нижних сегмента держат по 21–29 % подписок каждый. Обрыв один, и он резкий: <strong>выше миллиона рынка практически нет</strong> — 2.7 % подписок при 8.1 % таких стратегий.</p>
+<p>🔴 <strong>Чего с этой таблицей делать нельзя — сравнивать сегменты между собой.</strong> Соблазн велик: посчитать, что выбирает мелкий капитал, а что крупный. Мы посчитали — и рядом посчитали, на скольких стратегиях эта медиана держится. Половину подписок любого сегмента набирают <strong>пять–семь стратегий</strong>, а в сегменте 150–400 тыс. четверть подписок — это одна стратегия. Эффективное число независимых наблюдений всей выборки — <strong>57.9</strong> при 491 стратегии с подписчиками: концентрация съедает выборку на порядок. Различия между строками были бы различиями между конкретными популярными стратегиями, случайно попавшими в тот или иной диапазон порогов, а не между группами людей. Подробности — в приложении <a href="#д4-капитальные-сегменты-и-почему-их-нельзя-сравнивать">Д4</a>.</p>
+<h3>Есть ли качество среди тех, кого не выбрал никто</h3>
+<p>Две трети витрины пустуют. Естественный вопрос: это отсев или недосмотр? Может быть, там лежат прекрасные стратегии, которых просто не заметили?</p>
+<p>Сначала общая картина — она не в пользу версии о недосмотре.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Группа по числу подписчиков</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Подписок</th>
+<th style="text-align: right;">Sharpe</th>
+<th style="text-align: right;">CAGR, % год.</th>
+<th style="text-align: right;">Волатильность, %</th>
+<th style="text-align: right;">Просадка, %</th>
+<th style="text-align: right;">Лет истории</th>
+<th style="text-align: right;">Порог, тыс. ₽</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>0</strong></td>
+<td style="text-align: right;">793</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;"><strong>−0.08</strong></td>
+<td style="text-align: right;">−2.7</td>
+<td style="text-align: right;">31.2</td>
+<td style="text-align: right;">−46.1</td>
+<td style="text-align: right;">2.49</td>
+<td style="text-align: right;">135</td>
+</tr>
+<tr>
+<td>1–5</td>
+<td style="text-align: right;">249</td>
+<td style="text-align: right;">525</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">11.0</td>
+<td style="text-align: right;">28.6</td>
+<td style="text-align: right;">−37.6</td>
+<td style="text-align: right;">2.58</td>
+<td style="text-align: right;">160</td>
+</tr>
+<tr>
+<td>6–20</td>
+<td style="text-align: right;">111</td>
+<td style="text-align: right;">1 170</td>
+<td style="text-align: right;">0.82</td>
+<td style="text-align: right;">19.8</td>
+<td style="text-align: right;">25.1</td>
+<td style="text-align: right;">−32.9</td>
+<td style="text-align: right;">4.13</td>
+<td style="text-align: right;">220</td>
+</tr>
+<tr>
+<td>21–100</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">3 141</td>
+<td style="text-align: right;">0.87</td>
+<td style="text-align: right;">20.2</td>
+<td style="text-align: right;">27.4</td>
+<td style="text-align: right;">−37.9</td>
+<td style="text-align: right;">5.05</td>
+<td style="text-align: right;">280</td>
+</tr>
+<tr>
+<td><strong>101+</strong></td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">8 445</td>
+<td style="text-align: right;">0.88</td>
+<td style="text-align: right;">23.8</td>
+<td style="text-align: right;">29.3</td>
+<td style="text-align: right;"><strong>−51.7</strong></td>
+<td style="text-align: right;">6.14</td>
+<td style="text-align: right;">105</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Медианы. База — 1 262 живые стратегии, прошедшие фильтр измеримости (не меньше 100 торговых дней и активность не ниже 10 %), из них 793 без единого подписчика. Sharpe геометрический: годовая доходность ÷ волатильность.</em></p>
+<p>Типичная невыбранная стратегия убыточна и Sharpe имеет отрицательный. Массового сокровища в пустой части витрины нет.</p>
+<p><strong>Но хвост есть.</strong> Возьмём за планку медианы самой популярной группы — Sharpe 0.88, доходность 23.8 %, просадка −51.7 % — и посчитаем, сколько невыбранных стратегий эту планку держат.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Критерий</th>
+<th style="text-align: right;">Без подписчиков</th>
+<th style="text-align: right;">Доля от 793</th>
+<th style="text-align: right;">С подписчиками</th>
+<th style="text-align: right;">Доля от 469</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sharpe не ниже планки</td>
+<td style="text-align: right;">137</td>
+<td style="text-align: right;">17.3 %</td>
+<td style="text-align: right;">187</td>
+<td style="text-align: right;">39.9 %</td>
+</tr>
+<tr>
+<td>Доходность не ниже планки</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">11.1 %</td>
+<td style="text-align: right;">164</td>
+<td style="text-align: right;">35.0 %</td>
+</tr>
+<tr>
+<td>Просадка не глубже планки</td>
+<td style="text-align: right;">448</td>
+<td style="text-align: right;">56.5 %</td>
+<td style="text-align: right;">324</td>
+<td style="text-align: right;">69.1 %</td>
+</tr>
+<tr>
+<td><strong>Все три условия сразу</strong></td>
+<td style="text-align: right;"><strong>63</strong></td>
+<td style="text-align: right;"><strong>7.9 %</strong></td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">27.3 %</td>
+</tr>
+<tr>
+<td>Строгий критерий достоверности</td>
+<td style="text-align: right;"><strong>24</strong></td>
+<td style="text-align: right;"><strong>3.0 %</strong></td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">14.9 %</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Строгий критерий — тот же, что в главе 4: результат отличим от случайности (t ≥ 2), уровень не ниже Sharpe 1, история не короче трёх лет.</em></p>
+<p>Итак, прямой ответ: <strong>да, есть.</strong> Шестьдесят три стратегии не хуже топовых сразу по трём метрикам, из них двадцать четыре держат уровень достоверно и на длинной истории. Ни у одной из них нет ни одного подписчика.</p>
+<p><strong>И сразу — почему это не значит «толпа проглядела сокровища».</strong> Среди 793 попыток хорошие результаты появятся и случайно; вопрос в том, насколько наблюдаемое превышает случайное. Невыбранные стратегии моложе (медиана 2.49 года против 6.14 у популярных), а достоверность растёт с длиной ряда, поэтому сравнивать надо на одинаковой длине.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Выборка</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">t ≥ 2 наблюдается</th>
+<th style="text-align: right;">Ожидается случайно</th>
+<th style="text-align: right;">t ≥ 3 наблюдается</th>
+<th style="text-align: right;">Ожидается</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Без подписчиков, история ≥ 3 лет</td>
+<td style="text-align: right;">322</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;"><strong>7.3</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;">0.4</td>
+</tr>
+<tr>
+<td>С подписчиками, история ≥ 3 лет</td>
+<td style="text-align: right;">276</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;"><strong>6.3</strong></td>
+<td style="text-align: right;"><strong>14</strong></td>
+<td style="text-align: right;">0.4</td>
+</tr>
+</tbody>
+</table></div>
+<p>У невыбранных достоверных вчетверо больше, чем дала бы случайность; у выбранных — в тринадцать раз. А на верхнем уровне достоверности картина категорична: <strong>ни одной невыбранной стратегии с t ≥ 3 против четырнадцати у выбранных</strong>. Проглядели крепких середняков, а не звёзд: звёзд в пустой части витрины нет вовсе.</p>
+<p><strong>Почему же не нашли и этих?</strong> Ответ оказался не про внимание, а про цену.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Признак (медианы)</th>
+<th style="text-align: right;">Сильные без подписчиков (24)</th>
+<th style="text-align: right;">Сильные с подписчиками (70)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Порог входа, тыс. ₽</strong></td>
+<td style="text-align: right;"><strong>2 710</strong></td>
+<td style="text-align: right;"><strong>500</strong></td>
+</tr>
+<tr>
+<td>Возраст ряда, лет</td>
+<td style="text-align: right;">6.00</td>
+<td style="text-align: right;">6.96</td>
+</tr>
+<tr>
+<td>Длина описания, символов</td>
+<td style="text-align: right;">584</td>
+<td style="text-align: right;">1 688</td>
+</tr>
+<tr>
+<td>Число тегов</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>Есть аватар автора</td>
+<td style="text-align: right;">62 %</td>
+<td style="text-align: right;">96 %</td>
+</tr>
+<tr>
+<td>Автор не имеет подписчиков нигде</td>
+<td style="text-align: right;">33 %</td>
+<td style="text-align: right;">10 %</td>
+</tr>
+<tr>
+<td>Sharpe</td>
+<td style="text-align: right;">1.60</td>
+<td style="text-align: right;">1.56</td>
+</tr>
+<tr>
+<td>Доходность, % годовых</td>
+<td style="text-align: right;">26.0</td>
+<td style="text-align: right;">36.8</td>
+</tr>
+<tr>
+<td>Максимальная просадка, %</td>
+<td style="text-align: right;">−20.9</td>
+<td style="text-align: right;">−26.0</td>
+</tr>
+</tbody>
+</table></div>
+<p>По качеству они не уступают выбранным: Sharpe даже чуть выше, просадка мельче. Отличий три, и первое решающее — <strong>вход в них стоит впятеро дороже</strong>. У 71 % этих стратегий порог не ниже миллиона, а в сегмент «миллион и выше» публика вкладывает 2.7 % своих подписок. Их <strong>не могли купить</strong>. Второе отличие — подача: описание вдвое короче, тегов нет, у трети нет даже аватара автора. Третье — известность: у трети автор не имеет подписчиков нигде на площадке. Плюс концентрация — девять из двадцати четырёх принадлежат одному автору.</p>
+<p>Отсюда вывод, к которому глава будет возвращаться: <strong>признак качества и барьер доступа — это одно и то же поле.</strong> Порог входа лучше всех видимых признаков предсказывает качество (раздел 5.8) — и именно потому, что он отсекает публику.</p>
+<hr>
+<h2>5.2 На что смотрят: доходность и больше ничего</h2>
+<p>Сравним, что на витрине <strong>есть</strong>, с тем, что <strong>выбрано</strong>: первая колонка — среднее по всем 1 448 живым стратегиям, вторая — то же среднее, но взвешенное по числу подписчиков (13 430 подписок).</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Метрика (витринное поле)</th>
+<th style="text-align: right;">На витрине</th>
+<th style="text-align: right;">Взвешенно по подпискам</th>
+<th style="text-align: right;">Сдвиг</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Среднегодовая доходность, % годовых</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">36.2</td>
+<td style="text-align: right;"><strong>+33.5</strong></td>
+</tr>
+<tr>
+<td>Доходность за 365 дней, %</td>
+<td style="text-align: right;">−2.7</td>
+<td style="text-align: right;">12.6</td>
+<td style="text-align: right;">+15.3</td>
+</tr>
+<tr>
+<td>Доходность за 30 дней, %</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">+1.6</td>
+</tr>
+<tr>
+<td><strong>Максимальная просадка, %</strong></td>
+<td style="text-align: right;"><strong>−42.3</strong></td>
+<td style="text-align: right;"><strong>−41.5</strong></td>
+<td style="text-align: right;"><strong>+0.9</strong></td>
+</tr>
+<tr>
+<td>CVaR («прогноз просадки»), %</td>
+<td style="text-align: right;">−22.4</td>
+<td style="text-align: right;">−13.7</td>
+<td style="text-align: right;">+8.8</td>
+</tr>
+<tr>
+<td>Ярлык уровня риска (1–3)</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">2.3</td>
+<td style="text-align: right;">−0.4</td>
+</tr>
+<tr>
+<td>Порог входа, ₽</td>
+<td style="text-align: right;">824 752</td>
+<td style="text-align: right;">293 121</td>
+<td style="text-align: right;">−531 631</td>
+</tr>
+<tr>
+<td>Возраст, лет</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">5.5</td>
+<td style="text-align: right;">+2.5</td>
+</tr>
+</tbody>
+</table></div>
+<p>Смещение по доходности огромное, по риску — нулевое. Деньги ушли к доходным, и только к доходным; глубина просадки у выбранных стратегий (−41.5 %) не отличается от средней по витрине (−42.3 %).</p>
+<p><a class="figure" href="../images/38-shelf-vs-choice.png" target="_blank" rel="noopener"><img alt="Сдвиг выбора относительно витрины по восьми полям карточки, в долях разброса поля" src="../images/38-shelf-vs-choice.png"></a></p>
+<p>Ранговые связи с числом подписчиков говорят то же самое и добавляют важную деталь о <strong>горизонте</strong>:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Что видно в карточке</th>
+<th style="text-align: right;">ρ с числом подписчиков</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Среднегодовая доходность за всю жизнь</strong></td>
+<td style="text-align: right;"><strong>+0.437</strong></td>
+</tr>
+<tr>
+<td>Рейтинг площадки</td>
+<td style="text-align: right;">+0.442</td>
+</tr>
+<tr>
+<td>Возраст, лет</td>
+<td style="text-align: right;">+0.285</td>
+</tr>
+<tr>
+<td>Доходность за 365 дней</td>
+<td style="text-align: right;">+0.152</td>
+</tr>
+<tr>
+<td><strong>Доходность за 30 дней</strong></td>
+<td style="text-align: right;"><strong>+0.069</strong></td>
+</tr>
+<tr>
+<td>Максимальная просадка (глубина)</td>
+<td style="text-align: right;">−0.040</td>
+</tr>
+<tr>
+<td>CVaR (глубина)</td>
+<td style="text-align: right;">−0.162</td>
+</tr>
+<tr>
+<td>Ярлык уровня риска</td>
+<td style="text-align: right;">−0.305</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>База — 1 437 живых стратегий, по которым можно посчитать метрики, то есть торговавших хотя бы один день.</em></p>
+<p><strong>Подписки собраны у стратегий с долгим послужным списком, а не с недавним успехом.</strong> Сильнее всего популярность связана с доходностью за всю жизнь стратегии и с её возрастом; результат последнего месяца не связан с ней почти никак. Это стоит отметить отдельно, потому что расходится с ожиданием: за розничным инвестором закрепилась репутация человека, гоняющегося за свежей доходностью. Здесь картина обратная — и если она отражает выбор, то выбор этот устроен разумнее, чем принято думать.</p>
+<p>Теперь то же самое, но метриками, посчитанными нами из рядов, а не взятыми с витрины:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Честная метрика из дневного ряда</th>
+<th style="text-align: right;">ρ с числом подписчиков</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CAGR</td>
+<td style="text-align: right;">+0.379</td>
+</tr>
+<tr>
+<td><strong>Коэффициент Шарпа</strong></td>
+<td style="text-align: right;"><strong>+0.345</strong></td>
+</tr>
+<tr>
+<td>Коэффициент Сортино</td>
+<td style="text-align: right;">+0.362</td>
+</tr>
+<tr>
+<td>Доля торговых дней</td>
+<td style="text-align: right;">+0.306</td>
+</tr>
+<tr>
+<td>Возраст</td>
+<td style="text-align: right;">+0.285</td>
+</tr>
+<tr>
+<td>Волатильность</td>
+<td style="text-align: right;">−0.074</td>
+</tr>
+<tr>
+<td>Максимальная просадка (глубина)</td>
+<td style="text-align: right;">−0.040</td>
+</tr>
+</tbody>
+</table></div>
+<p>На первый взгляд обнадёживает: связь с Sharpe +0.345 — вроде бы подписки идут туда, где доходность получена с меньшим риском. <strong>Это иллюзия, и она разбирается одним приёмом.</strong> Спросим иначе: если сравнивать стратегии с <em>одинаковой</em> показанной доходностью и <em>одинакового</em> возраста — что тогда добавляет качество?</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Величина</th>
+<th style="text-align: right;">ρ парная</th>
+<th style="text-align: right;">ρ при равной доходности и возрасте</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Честный Sharpe</td>
+<td style="text-align: right;">+0.345</td>
+<td style="text-align: right;"><strong>−0.054</strong></td>
+</tr>
+<tr>
+<td>Честный Сортино</td>
+<td style="text-align: right;">+0.362</td>
+<td style="text-align: right;">−0.051</td>
+</tr>
+<tr>
+<td>Честная просадка (глубина)</td>
+<td style="text-align: right;">−0.040</td>
+<td style="text-align: right;"><strong>+0.082</strong></td>
+</tr>
+<tr>
+<td>CVaR (глубина)</td>
+<td style="text-align: right;">−0.162</td>
+<td style="text-align: right;">+0.028</td>
+</tr>
+<tr>
+<td>Ярлык уровня риска</td>
+<td style="text-align: right;">−0.305</td>
+<td style="text-align: right;">−0.132</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Связь популярности с качеством исчерпывается доходностью полностью.</strong> Как только доходность и возраст учтены, от Sharpe не остаётся ничего — минус пять сотых. Насколько это ноль, стоит сказать точно: погрешность такой связи при выборке в 1 437 стратегий составляет около ±0.05, то есть измеренная величина лежит на самой границе различимости, а в полной модели раздела 5.6, где учтена ещё и зависимость стратегий одного автора, она от нуля неотличима. Знак при этом отрицательный: если качество и связано с популярностью при равной доходности, то в минус. Парные +0.345 были не самостоятельной связью, а тенью корреляции Sharpe с доходностью.</p>
+<p>А просадка при этом <strong>меняет знак на положительный</strong>. Об этом — следующий раздел.</p>
+<hr>
+<h2>5.3 С риском популярность не связана — с ярлыком «агрессивная» связана</h2>
+<p>Соберём всё, что данные говорят о риске, в одном месте.</p>
+<p><strong>Первое. Связи с фактическим риском нет.</strong> Ранговая связь популярности с максимальной просадкой — −0.040, то есть ноль. Взвешенная по подпискам просадка (−41.5 %) не отличается от витринной (−42.3 %).</p>
+<p><strong>Второе. Доли совпадают.</strong> Если бы публика избегала риска, доля подписок в рискованных стратегиях была бы ниже доли самих таких стратегий. Она не ниже:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Порог</th>
+<th style="text-align: right;">Доля стратегий</th>
+<th style="text-align: right;">Доля подписок</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Просадка глубже −30 %</td>
+<td style="text-align: right;">59.2 %</td>
+<td style="text-align: right;">59.9 %</td>
+</tr>
+<tr>
+<td>Просадка глубже −50 %</td>
+<td style="text-align: right;">36.3 %</td>
+<td style="text-align: right;">35.9 %</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>База — 1 437 живых стратегий с рядом, по которому считается просадка; доля подписок — от 13 430.</em></p>
+<p>Совпадение до десятых. Риск не фильтруется вообще — ни в одну сторону.</p>
+<p><strong>Третье, и самое неожиданное. При равной доходности популярнее те, кто просаживался глубже.</strong> Частичная связь просадки с популярностью +0.082 — величина небольшая и лежащая недалеко от границы различимости (погрешность около ±0.05), но она подтверждается двумя независимыми способами: в полной модели раздела 5.6 тот же эффект даёт +0.213 с надёжным запасом, а таблица долей выше показывает его же в третьей форме. То есть глубокая просадка работает не как предупреждение, а как <strong>побочный признак «настоящей» доходности</strong>: если стратегия много зарабатывает и сильно проваливается, провалы не отталкивают.</p>
+<p>Это же видно в профиле по группам популярности:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Группа</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Подписок</th>
+<th style="text-align: right;">Годовая доходность, %</th>
+<th style="text-align: right;">Просадка, %</th>
+<th style="text-align: right;">Возраст, лет</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Без подписчиков</td>
+<td style="text-align: right;">957</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">−1.0</td>
+<td style="text-align: right;">−37.8</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>1–5</td>
+<td style="text-align: right;">265</td>
+<td style="text-align: right;">561</td>
+<td style="text-align: right;">10.2</td>
+<td style="text-align: right;">−36.3</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>6–20</td>
+<td style="text-align: right;">116</td>
+<td style="text-align: right;">1 218</td>
+<td style="text-align: right;">19.3</td>
+<td style="text-align: right;">−32.6</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td>21–100</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">3 206</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">−37.5</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td><strong>101+</strong></td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">8 445</td>
+<td style="text-align: right;">23.7</td>
+<td style="text-align: right;"><strong>−48.8</strong></td>
+<td style="text-align: right;">6</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Витринные поля, медианы внутри группы. База — все 1 448 живых стратегий.</em></p>
+<p>Чем популярнее группа, тем выше доходность — и тем <strong>глубже</strong> просадка. В самой популярной она −48.8 % против −37.8 % у стратегий, которых не выбрал никто.</p>
+<p><strong>Четвёртое. Риском управляют, но через слово, а не через число.</strong> У каждой стратегии на витрине есть ярлык уровня риска — консервативный, умеренный, агрессивный. Он связан с популярностью заметно (−0.305): чем агрессивнее ярлык, тем меньше на стратегии подписок. Беда в том, что сам ярлык с фактическим риском связан слабо — с реальной просадкой всего +0.184.</p>
+<p>Сопоставим это с тем, что мы знаем из главы 1: <strong>витринные числа честные</strong>. Показанная доходность ранжирует стратегии так же, как пересчитанная нами (+0.954), а показанная просадка совпадает с настоящей тождественно (+1.000). CVaR, который площадка называет прогнозом просадки, ранжирует риск почти правильно (+0.910 с реальной просадкой).</p>
+<p>Вывод получается неудобным для обеих сторон. Площадку нельзя обвинить в дезинформации: <strong>нужные числа на витрине стоят и они верны</strong>. Но подписки распределены так, будто решает не они, а ярлык — как раз наименее информативное поле карточки.</p>
+<hr>
+<h2>5.4 Что деньги всё-таки отфильтровали</h2>
+<p>Предыдущие два раздела легко прочитать как «публика ничего не понимает». Это было бы неверно, и вот доказательство обратного.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Пожизненный Sharpe</th>
+<th style="text-align: right;">p10</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">Медиана</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p90</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Равновзвешенно (какие стратегии <strong>есть</strong>)</td>
+<td style="text-align: right;">−0.88</td>
+<td style="text-align: right;">−0.46</td>
+<td style="text-align: right;"><strong>0.18</strong></td>
+<td style="text-align: right;">1.04</td>
+<td style="text-align: right;">2.28</td>
+</tr>
+<tr>
+<td>Взвешенно по подпискам (что <strong>выбрано</strong>)</td>
+<td style="text-align: right;">0.29</td>
+<td style="text-align: right;">0.49</td>
+<td style="text-align: right;"><strong>1.03</strong></td>
+<td style="text-align: right;">1.89</td>
+<td style="text-align: right;">2.35</td>
+</tr>
+</tbody>
+</table></div>
+<p>Медианная стратегия витрины имеет Sharpe 0.18. Медианная <strong>подписка</strong> лежит под стратегией с Sharpe 1.03 — впятеро выше. И ещё нагляднее:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Критерий</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Доля стратегий</th>
+<th style="text-align: right;">Подписок</th>
+<th style="text-align: right;">Доля подписок</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Пожизненный Sharpe &lt; 0</td>
+<td style="text-align: right;">601</td>
+<td style="text-align: right;">41.8 %</td>
+<td style="text-align: right;">581</td>
+<td style="text-align: right;"><strong>4.3 %</strong></td>
+</tr>
+<tr>
+<td>Пожизненный Sharpe ≥ 1</td>
+<td style="text-align: right;">370</td>
+<td style="text-align: right;">25.7 %</td>
+<td style="text-align: right;">6 890</td>
+<td style="text-align: right;"><strong>51.3 %</strong></td>
+</tr>
+<tr>
+<td>Пожизненный Sharpe ≥ 1.5</td>
+<td style="text-align: right;">240</td>
+<td style="text-align: right;">16.7 %</td>
+<td style="text-align: right;">4 824</td>
+<td style="text-align: right;">35.9 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>Убыточные по Sharpe стратегии составляют <strong>сорок два процента витрины и четыре процента подписок</strong>. Половина всех подписок лежит под стратегиями с Sharpe не ниже единицы. <strong>Мусор отфильтрован, и отфильтрован уверенно.</strong></p>
+<p>Тот же счёт в рублях — подписки, умноженные на порог входа своей стратегии, — картину подтверждает и чуть усиливает: на 1 262 измеримых живых стратегиях под Sharpe не ниже единицы лежит <strong>52.5 % денег против 50.8 % подписок</strong>, а под убыточными по Sharpe — <strong>3.0 % денег против 4.3 % подписок</strong>. Медианный рубль куплен под Sharpe 1.06 при 1.01 у медианной подписки и 0.18 у медианной стратегии витрины.</p>
+<p>Как это совмещается с разделом 5.2, где качество не влияло ни на что? Совершенно непротиворечиво: отбор идёт по доходности, а доходность с качеством коррелирует. Публика попала в приличный сегмент, <strong>двигаясь по единственной оси и не глядя на риск</strong>. Результат достигнут, но не тем способом, каким кажется, — и потому не переносится на случаи, где доходность и качество расходятся.</p>
+<p><strong>Где предел этого успеха.</strong> Тот же Sharpe, но избыточный над ставкой денежного рынка, — то есть с поправкой на то, что деньги можно было просто положить под безрисковый процент:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Избыточный Sharpe на общем окне</th>
+<th style="text-align: right;">p10</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">Медиана</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p90</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Равновзвешенно</td>
+<td style="text-align: right;">−1.14</td>
+<td style="text-align: right;">−0.55</td>
+<td style="text-align: right;"><strong>−0.05</strong></td>
+<td style="text-align: right;">0.33</td>
+<td style="text-align: right;">0.73</td>
+</tr>
+<tr>
+<td>Взвешенно по подпискам</td>
+<td style="text-align: right;">−0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;"><strong>+0.58</strong></td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">1.35</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>База — 601 живая стратегия с историей не меньше трёх лет внутри окна 2022-10-12…2026-08-04, 10 384 подписки. Требования к активности здесь нет; в разделе 5.7, где считается плата, оно добавлено, и база сужается до 593 — те же подписки, потому что у восьми отсеянных подписчиков нет.</em></p>
+<p>Медианная стратегия витрины безрисковую ставку не бьёт вовсе. Медианная подписка бьёт, но на +0.58 — половина денег лежит под результатом, который <strong>от денежного рынка отличим слабо</strong>, и это ещё до вычета платы за следование (раздел 5.7).</p>
+<p><strong>И последнее: у спроса есть структура, которой средние не видят.</strong> Взвешенные по подпискам квантили просадки — от −74.8 % на p10 до −12.5 % на p90. Разброс <strong>шестикратный</strong>; медиана −36.9 % не описывает почти никого, потому что лежит между двумя разными группами, а не в центре одной.</p>
+<p>Разделим стратегии с подписчиками по одному признаку — глубине просадки:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Где лежат деньги</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Подписок</th>
+<th style="text-align: right;">Доля подписок</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>В спокойных: просадка мельче −20 %</td>
+<td style="text-align: right;">127</td>
+<td style="text-align: right;">2 614</td>
+<td style="text-align: right;"><strong>19.5 %</strong></td>
+</tr>
+<tr>
+<td>В рискованных: просадка глубже −50 %</td>
+<td style="text-align: right;">151</td>
+<td style="text-align: right;">4 818</td>
+<td style="text-align: right;"><strong>35.9 %</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><em>База — 491 живая стратегия, у которой есть хотя бы один подписчик.</em></p>
+<p>Рискованный полюс вдвое населённее спокойного. Но интереснее не размер, а то, <strong>чем каждый полюс отплатил</strong>:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Где лежат деньги</th>
+<th style="text-align: right;">Всего подписок</th>
+<th style="text-align: right;">Из них в стратегиях с Sharpe ≥ 1</th>
+<th style="text-align: right;">Доля</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>В спокойных (просадка мельче −20 %)</td>
+<td style="text-align: right;">2 614</td>
+<td style="text-align: right;">2 510</td>
+<td style="text-align: right;"><strong>96 %</strong></td>
+</tr>
+<tr>
+<td>В рискованных (просадка глубже −50 %)</td>
+<td style="text-align: right;">4 818</td>
+<td style="text-align: right;">1 255</td>
+<td style="text-align: right;"><strong>26 %</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Спокойный полюс качественный почти целиком; у рискованного качеством оправдана лишь четверть денег. Остальные три четверти — 3 563 подписки — это глубокие просадки, за которые не заплатили ничем.</p>
+<p>🔴 <strong>Как это читать и как не читать.</strong> Соблазн сказать «каждая пятая подписка выбрала спокойную качественную стратегию» велик, но так говорить нельзя по двум причинам. Первая: <strong>Sharpe на витрине не показывают вовсе</strong>, поэтому сегмент, заданный через Sharpe, описывает исход, а не выбор. Вторая: эти стратегии выделялись на витрине не спокойствием, а тем же, чем все популярные, — <strong>показанной доходностью</strong>. Её медиана в спокойном полюсе 27.3 % против 15.7 % по всем стратегиям с подписчиками; больше половины из них входят в верхнюю треть витрины по показанной доходности и держат 68.5 % подписок полюса. То есть спокойный полюс совместим с тем же правилом «иду на доходность» — просто эти стратегии добились её без глубоких провалов. Честная формулировка: <strong>деньги в спокойных стратегиях есть, и они там качественные, но данные не говорят, что их туда привёл выбор по риску.</strong></p>
+<p>Отсюда уточнение к разделам 5.2–5.3, а не отмена: «риск в подписках не отражается» остаётся верным про центр распределения, но пятая часть денег всё же лежит там, где риск низкий, — и, что важнее, среди высокорисковых подписок три четверти не получили за этот риск ничего.</p>
+<hr>
+<h2>5.5 Выбирают людей, а не стратегии</h2>
+<p>В главе 4 мы отметили, что аудитория собирается вокруг авторов плотнее, чем вокруг стратегий: Джини по авторам 0.962 против 0.931 по стратегиям. Здесь этот механизм измеряется прямо.</p>
+<p>Возьмём авторов, у которых живых стратегий не меньше двух, — таких 220, стратегий у них 791 — и спросим: насколько популярность стратегии предсказуема из того, <strong>чья</strong> она?</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Величина</th>
+<th style="text-align: right;">Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Доля разброса популярности, объяснённая личностью автора</td>
+<td style="text-align: right;"><strong>67.0 %</strong></td>
+</tr>
+<tr>
+<td>ρ(подписчики стратегии, средние подписчики <strong>других</strong> стратегий того же автора)</td>
+<td style="text-align: right;"><strong>+0.636</strong></td>
+</tr>
+<tr>
+<td>ρ(подписчики стратегии, средний Sharpe <strong>других</strong> стратегий автора)</td>
+<td style="text-align: right;">+0.219</td>
+</tr>
+<tr>
+<td>Для сравнения: лучшая собственная метрика стратегии (показанная доходность)</td>
+<td style="text-align: right;">+0.437</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Две трети разброса популярности объясняются тем, чья это стратегия, а не какая.</strong> Знание того, сколько подписчиков у остальных стратегий автора, предсказывает популярность лучше, чем любая характеристика самой стратегии, — заметно лучше даже её показанной доходности.</p>
+<p>Вот эти авторы. Мы называем их по никам витрины: это публичные продавцы услуги за плату, распоряжающиеся чужими деньгами, и данные взяты с открытой страницы. Никаких оценок, только числа.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Автор</th>
+<th style="text-align: right;">Живых стратегий</th>
+<th style="text-align: right;">Подписок</th>
+<th style="text-align: right;">Медиана Sharpe</th>
+<th style="text-align: right;">Медиана доходности, % год.</th>
+<th style="text-align: right;">Медиана просадки, %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>voldemort</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">2 257</td>
+<td style="text-align: right;">1.67</td>
+<td style="text-align: right;">38.8</td>
+<td style="text-align: right;">−28.9</td>
+</tr>
+<tr>
+<td>Finam InvestLAB</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">1 856</td>
+<td style="text-align: right;">1.05</td>
+<td style="text-align: right;">20.4</td>
+<td style="text-align: right;">−28.6</td>
+</tr>
+<tr>
+<td>Alenka Capital</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1 181</td>
+<td style="text-align: right;">0.85</td>
+<td style="text-align: right;">23.3</td>
+<td style="text-align: right;">−56.2</td>
+</tr>
+<tr>
+<td>Космос Капитал</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">877</td>
+<td style="text-align: right;">0.84</td>
+<td style="text-align: right;">13.5</td>
+<td style="text-align: right;">−55.4</td>
+</tr>
+<tr>
+<td>camry759</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">590</td>
+<td style="text-align: right;">1.13</td>
+<td style="text-align: right;">43.3</td>
+<td style="text-align: right;">−49.1</td>
+</tr>
+<tr>
+<td>alexeipo</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">469</td>
+<td style="text-align: right;">1.27</td>
+<td style="text-align: right;">32.2</td>
+<td style="text-align: right;">−36.9</td>
+</tr>
+<tr>
+<td>Poly Invest</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">413</td>
+<td style="text-align: right;">0.73</td>
+<td style="text-align: right;">16.4</td>
+<td style="text-align: right;">−26.9</td>
+</tr>
+<tr>
+<td>Krasnoyarskinvest</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">370</td>
+<td style="text-align: right;">0.70</td>
+<td style="text-align: right;">20.6</td>
+<td style="text-align: right;">−60.9</td>
+</tr>
+<tr>
+<td>Динамичный Инвестор</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">346</td>
+<td style="text-align: right;">2.05</td>
+<td style="text-align: right;">152.8</td>
+<td style="text-align: right;">−49.4</td>
+</tr>
+<tr>
+<td>MaxFunt</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">242</td>
+<td style="text-align: right;">1.12</td>
+<td style="text-align: right;">39.5</td>
+<td style="text-align: right;">−66.1</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Отбор в таблицу — только по числу подписок, десять первых. Метрики — медианы </em><em>по живым стратегиям</em><em> автора, поэтому у одного и того же человека они отличаются от главы 4, где считались по всем измеримым, включая закрытые: у voldemort здесь 1.67 против 1.25 там. Разница не в расчёте, а в том, что закрытые стратегии обычно хуже живых, и в главе 5 их нет.</em></p>
+<p>Первая пятёрка держит 50.3 % всех подписок, первая десятка — 64.0 %, первые пятьдесят — 91.2 %.</p>
+<p><strong>Что в этой таблице важнее самих строк — кого в ней нет.</strong> Граница десятки проходит по 242 подпискам, и она условна: сразу за ней стоят PS investing (224), EcoTrade (194) и Пуховой Иван (189) — разница в десятки подписок, а не в порядок. Содержательно другое: <strong>в таблицу не попадает ни один из авторов, которых отобрало бы качество</strong>. howtotrade, разобранный в главе 4 как автор с лучшим сочетанием качества и длины истории, стоит здесь <strong>на двадцать шестом месте с 88 подписками</strong> — при медианном Sharpe 1.41 по своим живым стратегиям, то есть выше, чем у восьми из десяти в таблице. FinVision с медианным Sharpe 2.07 — двадцать четвёртый, 90 подписок.</p>
+<p>Наоборот тоже верно: четыре места из десяти заняты авторами с медианным Sharpe ниже единицы — 0.85, 0.84, 0.73 и 0.70. Никакого противоречия с разделом 5.4, где деньги отфильтровали мусор, здесь нет: фильтрация работает на уровне всей витрины (убыточные по Sharpe — 42 % стратегий и 4 % подписок), но <strong>внутри верхушки популярности качество уже не упорядочивает никого</strong>. Именно это и означает «выбирают людей, а не стратегии»: попав в верхушку, автор собирает подписки на все свои стратегии — и на хорошие, и на средние.</p>
+<p>Здесь же смыкается вывод главы 4: чем больше стратегий заводит автор, тем больше у него попыток попасть в верхнюю часть витрины. Строка Finam InvestLAB — ровно этот случай: 37 живых стратегий и 1 856 подписок, причём подписки достаются его витрине целиком, а не одной удачной системе.</p>
+<h3>Оформление весит больше качества</h3>
+<p>Если популярность держится на авторе, то связана с ней должна быть и всякая деталь, которая автора представляет. Так и есть.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Признак подачи</th>
+<th style="text-align: right;">ρ парная</th>
+<th style="text-align: right;">ρ при равной доходности и возрасте</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Число тегов</td>
+<td style="text-align: right;">+0.456</td>
+<td style="text-align: right;"><strong>+0.334</strong></td>
+</tr>
+<tr>
+<td>Рейтинг площадки</td>
+<td style="text-align: right;">+0.442</td>
+<td style="text-align: right;"><strong>+0.345</strong></td>
+</tr>
+<tr>
+<td>Теги есть (да/нет)</td>
+<td style="text-align: right;">+0.430</td>
+<td style="text-align: right;">+0.308</td>
+</tr>
+<tr>
+<td>Длина описания</td>
+<td style="text-align: right;">+0.365</td>
+<td style="text-align: right;">+0.250</td>
+</tr>
+<tr>
+<td>Аватар автора есть</td>
+<td style="text-align: right;">+0.358</td>
+<td style="text-align: right;">+0.250</td>
+</tr>
+<tr>
+<td>Число тарифных планов</td>
+<td style="text-align: right;">+0.318</td>
+<td style="text-align: right;">+0.236</td>
+</tr>
+<tr>
+<td>Число заполненных опций карточки</td>
+<td style="text-align: right;">+0.038</td>
+<td style="text-align: right;">+0.041</td>
+</tr>
+<tr>
+<td>Описание вообще есть (да/нет)</td>
+<td style="text-align: right;">+0.037</td>
+<td style="text-align: right;">+0.043</td>
+</tr>
+</tbody>
+</table></div>
+<p>Правая колонка — это то, что остаётся от связи, когда доходность и возраст уже учтены. Она и есть главное в таблице, и вот с чем её нужно сравнить: при <strong>том же</strong> контроле от коэффициента Шарпа остаётся <strong>−0.054</strong> (раздел 5.2), то есть ноль в пределах шума.</p>
+<p>Сказанное простыми словами: возьмём две стратегии с одинаковой показанной доходностью и одинакового возраста. Если у одной из них есть теги, аватар и длинное описание — она популярнее. Если у одной из них вдвое выше коэффициент Шарпа — это не значит ничего. Дело не в том, что оформление «важнее качества во столько-то раз»: делить одно на другое здесь нельзя, потому что делить пришлось бы на ноль. Дело в том, что <strong>одна связь есть, а другой нет</strong>.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Длина описания</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Подписок</th>
+<th style="text-align: right;">Доля с подписчиками</th>
+<th style="text-align: right;">Sharpe</th>
+<th style="text-align: right;">Доходность, %</th>
+<th style="text-align: right;">Возраст, лет</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Нет описания</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0 %</td>
+<td style="text-align: right;">−0.32</td>
+<td style="text-align: right;">−12.4</td>
+<td style="text-align: right;">8.5</td>
+</tr>
+<tr>
+<td>1–200 символов</td>
+<td style="text-align: right;">228</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">12.7 %</td>
+<td style="text-align: right;">−0.25</td>
+<td style="text-align: right;">−9.5</td>
+<td style="text-align: right;">1.5</td>
+</tr>
+<tr>
+<td>201–800</td>
+<td style="text-align: right;">546</td>
+<td style="text-align: right;">1 262</td>
+<td style="text-align: right;">25.3 %</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.8</td>
+<td style="text-align: right;">2.5</td>
+</tr>
+<tr>
+<td><strong>Больше 800</strong></td>
+<td style="text-align: right;">659</td>
+<td style="text-align: right;"><strong>12 114</strong></td>
+<td style="text-align: right;"><strong>49.2 %</strong></td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">11.4</td>
+<td style="text-align: right;">2.7</td>
+</tr>
+</tbody>
+</table></div>
+<p>Девяносто процентов подписок — в стратегиях с описанием длиннее восьмисот символов.</p>
+<p>Честности ради: длинное описание пишут те, кто вообще вкладывается в продукт, и у таких стратегий результат действительно лучше (Sharpe 0.45 против отрицательных в коротких группах). Но правая колонка предыдущей таблицы измеряет как раз то, что остаётся <strong>сверх</strong> этого: при равной доходности и равном возрасте длина описания всё ещё стоит +0.250.</p>
+<p><strong>Отдельно о рейтинге площадки.</strong> С честным Sharpe он связан на +0.115, с числом подписчиков — на +0.442. Это не оценка качества, а <strong>мера известности</strong>; вероятнее всего, он частично и считается от популярности. Читать его как «площадка отобрала лучших» нельзя.</p>
+<hr>
+<h2>5.6 Всё сразу: что решает на самом деле</h2>
+<p>Парные корреляции путают эффекты: старые стратегии одновременно и доходнее, и известнее. Соберём все признаки в одну модель, где каждый коэффициент показывает вклад признака <strong>при прочих равных</strong>.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Признак</th>
+<th style="text-align: right;">Стандартизованный коэффициент</th>
+<th style="text-align: right;">t</th>
+<th style="text-align: right;">ρ парная</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Показанная годовая доходность</strong></td>
+<td style="text-align: right;"><strong>+0.432</strong></td>
+<td style="text-align: right;">+8.54</td>
+<td style="text-align: right;">+0.437</td>
+</tr>
+<tr>
+<td><strong>Ставка тарифа (% от активов)</strong></td>
+<td style="text-align: right;"><strong>−0.292</strong></td>
+<td style="text-align: right;">−7.05</td>
+<td style="text-align: right;">−0.475</td>
+</tr>
+<tr>
+<td>Рейтинг площадки</td>
+<td style="text-align: right;">+0.269</td>
+<td style="text-align: right;">+9.85</td>
+<td style="text-align: right;">+0.442</td>
+</tr>
+<tr>
+<td><strong>Фактическая просадка (глубина)</strong></td>
+<td style="text-align: right;"><strong>+0.213</strong></td>
+<td style="text-align: right;">+5.87</td>
+<td style="text-align: right;">−0.040</td>
+</tr>
+<tr>
+<td>Длина описания</td>
+<td style="text-align: right;">+0.131</td>
+<td style="text-align: right;">+4.68</td>
+<td style="text-align: right;">+0.365</td>
+</tr>
+<tr>
+<td>Ярлык уровня риска</td>
+<td style="text-align: right;">−0.113</td>
+<td style="text-align: right;">−4.14</td>
+<td style="text-align: right;">−0.305</td>
+</tr>
+<tr>
+<td>Порог входа</td>
+<td style="text-align: right;">−0.102</td>
+<td style="text-align: right;">−3.88</td>
+<td style="text-align: right;">+0.059</td>
+</tr>
+<tr>
+<td>Возраст</td>
+<td style="text-align: right;">−0.083</td>
+<td style="text-align: right;">−2.34</td>
+<td style="text-align: right;">+0.285</td>
+</tr>
+<tr>
+<td><strong>Честный Sharpe</strong></td>
+<td style="text-align: right;"><strong>−0.046</strong></td>
+<td style="text-align: right;"><strong>−1.24</strong></td>
+<td style="text-align: right;">+0.345</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>База — 1 437 живых стратегий. Доля объяснённого разброса рангов популярности — 47.4 %. Все величины переведены в ранги, поэтому коэффициенты сопоставимы между собой. Столбец t — насколько коэффициент отличается от случайного совпадения; значения по модулю больше 2 считаются надёжными.</em></p>
+<p>🔴 <strong>Почему t здесь считаются не обычным способом.</strong> Стандартный расчёт предполагает, что стратегии независимы друг от друга. Они не независимы: 791 стратегия из 1 437 принадлежит авторам, у которых их несколько, а у одного автора их 37 — и мы только что показали, что личность автора объясняет две трети разброса популярности. Поэтому надёжность каждого коэффициента посчитана с поправкой на группировку по авторам. Поправка ощутима: у ставки тарифа надёжность падает почти вдвое (с 13.8 до 7.1) — что логично, потому что тариф на деле является свойством автора, а не стратегии. <strong>Но ни один вывод от неё не изменился:</strong> значимым осталось всё, что было значимым, а Sharpe как был неотличим от нуля, так и остался.</p>
+<p>Три вещи читаются сразу.</p>
+<p><strong>Качество не участвует.</strong> Честный Sharpe — единственный признак в модели, не отличимый от нуля, при том что парно он давал +0.345. Всё, что казалось предпочтением риск-скорректированной доходности, было отражением обычной доходности.</p>
+<p><a class="figure" href="../images/30-popularity-forest.png" target="_blank" rel="noopener"><img alt="Форест-плот модели популярности: интервалы кластерно-робастные по авторам; у честного Sharpe интервал накрывает ноль" src="../images/30-popularity-forest.png"></a></p>
+<p><strong>Риск участвует с обратным знаком.</strong> Просадка значимо положительна: при равной доходности, цене и подаче популярнее те, кто проваливался глубже. Это ровно тот механизм, который экспериментальная работа о копировании описывает как причину избыточного риска: у копирующего нет способа отличить умение от везения, а высокая доходность часто и бывает следствием большего риска, — поэтому копирование смещает выбор в сторону рискованного.</p>
+<p><strong>Цена и оформление вместе весят больше, чем всё качество.</strong> Ставка тарифа (−0.292), рейтинг (+0.269) и длина описания (+0.131) — против нуля у Sharpe.</p>
+<p><strong>Про цену — обязательная оговорка.</strong> Спрос выглядит эластичным по цене сильнее, чем по качеству: ставка тарифа даёт −0.402 при контроле доходности и возраста, тогда как Sharpe при том же контроле −0.054. Но причинность здесь может идти в обе стороны: льготную ставку 3 % вместо 6 % площадка вполне может давать именно крупным и популярным авторам, и тогда это не «подписчик выбрал подешевле», а «у популярных дешевле». Разделить эти версии на срезе невозможно.</p>
+<p><strong>Во что вложены деньги:</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Чем торгует стратегия</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Доля стратегий</th>
+<th style="text-align: right;">Подписок</th>
+<th style="text-align: right;">Доля подписок</th>
+<th style="text-align: right;">Медиана Sharpe</th>
+<th style="text-align: right;">Медиана просадки, %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Акции</td>
+<td style="text-align: right;">789</td>
+<td style="text-align: right;">55.4 %</td>
+<td style="text-align: right;">9 371</td>
+<td style="text-align: right;"><strong>69.8 %</strong></td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">−36.0</td>
+</tr>
+<tr>
+<td>Фьючерсы</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: right;">13.1 %</td>
+<td style="text-align: right;">2 081</td>
+<td style="text-align: right;">15.5 %</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">−39.8</td>
+</tr>
+<tr>
+<td>Облигации</td>
+<td style="text-align: right;">165</td>
+<td style="text-align: right;">11.6 %</td>
+<td style="text-align: right;">1 282</td>
+<td style="text-align: right;">9.5 %</td>
+<td style="text-align: right;">0.75</td>
+<td style="text-align: right;">−17.7</td>
+</tr>
+<tr>
+<td>Смешанные</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.4 %</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.1 %</td>
+<td style="text-align: right;">1.81</td>
+<td style="text-align: right;">−19.7</td>
+</tr>
+<tr>
+<td><strong>Вне рынка на день выгрузки</strong></td>
+<td style="text-align: right;">279</td>
+<td style="text-align: right;">19.6 %</td>
+<td style="text-align: right;">687</td>
+<td style="text-align: right;">5.1 %</td>
+<td style="text-align: right;">−0.17</td>
+<td style="text-align: right;">−54.2</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>База — 1 425 живых стратегий с заполненным составом портфеля. Класс определён по преобладающему рисковому активу; «вне рынка» — стратегии, у которых на день выгрузки не было ни одной рисковой позиции.</em></p>
+<p>Спрос на две трети сидит в акциях. Облигационные стратегии — самые спокойные на витрине (просадка −17.7 % против −36.0 % у акций) и при этом собирают меньше десятой части подписок.</p>
+<p>🔴 <strong>Что этот разрез может и чего не может — и почему за ним нужен следующий.</strong> Состав портфеля — <strong>снимок одного дня</strong>, а не характеристика стратегии за её жизнь: та же система на другой неделе могла быть в другом классе. Строка «вне рынка» это показывает нагляднее всего: почти пятая часть витрины на день выгрузки просто не имела позиций, и это не тип стратегии, а состояние — среди них 303 из 447 заявляют ежедневную торговлю, медианная волатильность 45.7 %, медианная просадка −44.6 %. Никакой «денежной» или «консервативной» природы за этим нет. Кроме того, доли в карточке <strong>не нормированы на сто процентов</strong>: доля денег доходит до 714 %, то есть поле отражает ещё и плечо с короткими позициями. Поэтому классы здесь — приблизительные.</p>
+<p>Но у вопроса «во что вложены деньги» есть ответ надёжнее, чем состав портфеля на один день, — <strong>как эти стратегии себя ведут</strong>. Им и закончим раздел.</p>
+<h3>Из скольких вариантов на самом деле состоит выбор</h3>
+<p>До сих пор раздел разбирал, что решает выбор. Последний вопрос другой: <strong>что из всех этих выборов сложилось</strong>. Подписчик выбирает из полутора тысяч живых стратегий; сколько по-настоящему разных вещей он в итоге купил?</p>
+<p>Чтобы ответить, нужно сравнить не карточки, а дневные ряды: если две стратегии ходят вверх и вниз в одни и те же дни, для держателя это одна вещь, как бы по-разному они ни назывались. Мы взяли 427 живых стратегий с подписчиками, у которых хватает общей истории, — на них 95 % всех подписок.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Мера</th>
+<th style="text-align: right;">Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Стратегий в расчёте</td>
+<td style="text-align: right;">427</td>
+</tr>
+<tr>
+<td>Во скольких стратегиях лежат деньги (эффективное N по концентрации)</td>
+<td style="text-align: right;">54.5</td>
+</tr>
+<tr>
+<td>Медианная корреляция пары стратегий на витрине</td>
+<td style="text-align: right;">0.098</td>
+</tr>
+<tr>
+<td><strong>Сколько среди них по-настоящему разных ставок</strong></td>
+<td style="text-align: right;"><strong>6.6</strong></td>
+</tr>
+<tr>
+<td>То же, если бы деньги лежали в стратегиях поровну</td>
+<td style="text-align: right;">11.9</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Пятьдесят четыре стратегии, в которых лежат деньги, — это примерно шесть разных вещей.</strong> Причём винить в этом витрину нельзя: случайная пара стратегий похожа слабо, медианная корреляция 0.098 — почти ноль. Разнообразие на витрине есть, деньги собрались именно в похожей её части. Контрольная строка это подтверждает: если бы подписки были распределены по тем же стратегиям поровну, независимых направлений вышло бы 11.9, а по факту 6.6 — <strong>популярные стратегии похожи друг на друга сильнее, чем стратегии витрины вообще</strong>.</p>
+<p>Что это за направления, видно, если сгруппировать стратегии по совместному движению:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Группа</th>
+<th style="text-align: right;">Систем</th>
+<th style="text-align: right;">Подписок</th>
+<th style="text-align: right;">Доля денег</th>
+<th style="text-align: right;">Похожесть внутри</th>
+<th style="text-align: right;">Бета к индексу</th>
+<th style="text-align: right;">Sharpe</th>
+<th style="text-align: right;">Просадка, %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Рынок акций</strong></td>
+<td style="text-align: right;">197</td>
+<td style="text-align: right;">6 692</td>
+<td style="text-align: right;"><strong>52.4 %</strong></td>
+<td style="text-align: right;">0.523</td>
+<td style="text-align: right;"><strong>0.63</strong></td>
+<td style="text-align: right;"><strong>0.36</strong></td>
+<td style="text-align: right;">−43.1</td>
+</tr>
+<tr>
+<td><strong>Не зависящие от рынка</strong></td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">1 969</td>
+<td style="text-align: right;">15.4 %</td>
+<td style="text-align: right;">0.407</td>
+<td style="text-align: right;">−0.02</td>
+<td style="text-align: right;"><strong>1.33</strong></td>
+<td style="text-align: right;">−34.7</td>
+</tr>
+<tr>
+<td>Остальные, ни на что не похожие</td>
+<td style="text-align: right;">165</td>
+<td style="text-align: right;">4 103</td>
+<td style="text-align: right;">32.1 %</td>
+<td style="text-align: right;">0.053</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.74</td>
+<td style="text-align: right;">−38.4</td>
+</tr>
+</tbody>
+</table></div>
+<p>Три группы между собой почти не связаны — корреляции 0.005…0.067.</p>
+<p><strong>Половина всех подписок рынка автоследования сидит в одной ставке — на российский рынок акций.</strong> Внутри этой группы стратегии совпадают друг с другом на 0.52, у 60 % бета выше 0.5, индексом объясняется треть их колебаний. И это худшая группа по качеству: Sharpe 0.36 при просадке −43 %. За вычетом тарифа (следующий раздел) речь идёт о дорогом способе купить то, что индексный фонд отдаёт за десятые доли процента.</p>
+<p>Вторая группа — противоположность первой: от рынка не зависит вовсе (бета −0.02), Sharpe 1.33, доходность 41 % годовых. В ней 15 % денег. Похожесть внутри 0.41 говорит, что это не набор счастливых случайностей, а общий подход — 83 % её стратегий торгуют ежедневно.</p>
+<p>Третья группа — не группа: похожесть внутри 0.053, то есть не отличается от случайной пары с витрины. Это корзина непохожих стратегий, и типом спроса её называть нельзя.</p>
+<p>🔴 <strong>Границы у этого счёта размытые.</strong> Обособленность групп слабая — по стандартной мере 0.24 из 1.0, — хотя их состав устойчив: при пересборке на случайных 80 % выборки 88 % пар стратегий остаются вместе. И окно короткое, три года: в кризис корреляции растут, поэтому в спокойное время независимых ставок было бы больше, а в обвал — меньше шести. Полные таблицы и метод — в приложении <a href="#д15-сколько-независимых-ставок-стоит-за-подписками">Д15</a>.</p>
+<hr>
+<h2>5.7 Что остаётся выбравшему</h2>
+<p>До сих пор речь шла о выборе. Теперь — о счёте. Все доходности предыдущих разделов и всей серии — это доходность <strong>счёта автора</strong>. Подписчик получает её за вычетом платы за следование.</p>
+<p><strong>База раздела</strong> — 593 живые стратегии с историей не меньше трёх лет внутри окна 2022-10-12…2026-08-04 и активностью не ниже 10 % дней. Это те же стратегии, что в разделе 5.4, минус восемь простаивавших: подписок в них нет, поэтому счёт подписок не меняется — 10 384. Средняя ставка денежного рынка за это окно — 14.7 % годовых.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Величина</th>
+<th style="text-align: right;">p10</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">Медиана</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p90</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Доходность <strong>до</strong> тарифа (счёт автора), % годовых</td>
+<td style="text-align: right;">−34.20</td>
+<td style="text-align: right;">−4.55</td>
+<td style="text-align: right;"><strong>10.62</strong></td>
+<td style="text-align: right;">21.02</td>
+<td style="text-align: right;">36.80</td>
+</tr>
+<tr>
+<td>Доходность <strong>после</strong> тарифа (подписчик), % годовых</td>
+<td style="text-align: right;">−38.03</td>
+<td style="text-align: right;">−9.90</td>
+<td style="text-align: right;"><strong>5.42</strong></td>
+<td style="text-align: right;">15.62</td>
+<td style="text-align: right;">29.44</td>
+</tr>
+<tr>
+<td>Плата, процентных пунктов годовых</td>
+<td style="text-align: right;">2.35</td>
+<td style="text-align: right;">3.77</td>
+<td style="text-align: right;"><strong>5.72</strong></td>
+<td style="text-align: right;">6.81</td>
+<td style="text-align: right;">7.75</td>
+</tr>
+<tr>
+<td>Sharpe до тарифа</td>
+<td style="text-align: right;">−0.47</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">1.10</td>
+<td style="text-align: right;">1.54</td>
+</tr>
+<tr>
+<td>Sharpe после тарифа</td>
+<td style="text-align: right;">−0.63</td>
+<td style="text-align: right;">−0.10</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.85</td>
+<td style="text-align: right;">1.27</td>
+</tr>
+</tbody>
+</table></div>
+<p>Медианная стратегия зарабатывает 10.6 % и отдаёт 5.7 процентных пункта — <strong>больше половины</strong>. Подписчику остаётся 5.4 % годовых при безрисковой ставке 14.7 %.</p>
+<p><a class="figure" href="../images/29-fee-shift.png" target="_blank" rel="noopener"><img alt="Распределение доходности до и после тарифа: медиана падает с 10,6 до 5,4 % годовых" src="../images/29-fee-shift.png"></a></p>
+<p><strong>Сколько стратегий сохраняют смысл:</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Критерий</th>
+<th style="text-align: right;">До тарифа</th>
+<th style="text-align: right;">После тарифа</th>
+<th style="text-align: right;">Потеряли смысл</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Доходность выше нуля</td>
+<td style="text-align: right;">418 (70.5 %)</td>
+<td style="text-align: right;">373 (62.9 %)</td>
+<td style="text-align: right;">45</td>
+</tr>
+<tr>
+<td><strong>Доходность выше денежного рынка</strong></td>
+<td style="text-align: right;"><strong>234 (39.5 %)</strong></td>
+<td style="text-align: right;"><strong>159 (26.8 %)</strong></td>
+<td style="text-align: right;"><strong>75</strong></td>
+</tr>
+<tr>
+<td>Sharpe ≥ 1.0</td>
+<td style="text-align: right;">170 (28.7 %)</td>
+<td style="text-align: right;">120 (20.2 %)</td>
+<td style="text-align: right;">50</td>
+</tr>
+<tr>
+<td>Sharpe ≥ 1.5</td>
+<td style="text-align: right;">65 (11.0 %)</td>
+<td style="text-align: right;">34 (5.7 %)</td>
+<td style="text-align: right;">31</td>
+</tr>
+<tr>
+<td>Sharpe ≥ 2.0</td>
+<td style="text-align: right;">21 (3.5 %)</td>
+<td style="text-align: right;">11 (1.9 %)</td>
+<td style="text-align: right;">10</td>
+</tr>
+</tbody>
+</table></div>
+<p>Тариф уничтожает <strong>треть</strong> стратегий, обгонявших вклад, и <strong>половину</strong> тех, что держали Sharpe 1.5. После него осмысленных вариантов остаётся четверть витрины — и это среди доживших до сегодня.</p>
+<p><strong>Куда уходит заработанное.</strong> Среди 418 стратегий с положительным валовым результатом медианная доля дохода, съеденная тарифом, — <strong>32.5 %</strong>; у 29.2 % стратегий тариф забирает больше половины.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Группа по валовой доходности</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">До тарифа, %</th>
+<th style="text-align: right;">После, %</th>
+<th style="text-align: right;">Плата, п.п.</th>
+<th style="text-align: right;">Доля, обогнавшая вклад</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Убыточные</td>
+<td style="text-align: right;">175</td>
+<td style="text-align: right;">−20.7</td>
+<td style="text-align: right;">−25.3</td>
+<td style="text-align: right;"><strong>4.29</strong></td>
+<td style="text-align: right;">0.0 %</td>
+</tr>
+<tr>
+<td>0…10 %</td>
+<td style="text-align: right;">109</td>
+<td style="text-align: right;">6.2</td>
+<td style="text-align: right;">0.7</td>
+<td style="text-align: right;">6.03</td>
+<td style="text-align: right;">0.0 %</td>
+</tr>
+<tr>
+<td>10…20 %</td>
+<td style="text-align: right;">144</td>
+<td style="text-align: right;">14.6</td>
+<td style="text-align: right;">8.9</td>
+<td style="text-align: right;">6.49</td>
+<td style="text-align: right;">8.3 %</td>
+</tr>
+<tr>
+<td>20…35 %</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">25.5</td>
+<td style="text-align: right;">18.6</td>
+<td style="text-align: right;">7.12</td>
+<td style="text-align: right;">82.0 %</td>
+</tr>
+<tr>
+<td>Больше 35 %</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">46.2</td>
+<td style="text-align: right;">38.8</td>
+<td style="text-align: right;">8.47</td>
+<td style="text-align: right;">100.0 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>Первая строка — главное, что нужно знать о фиксированной плате: <strong>убыточная стратегия всё равно берёт 4.3 п.п. в год</strong>. За потерю 20 % клиент доплачивает.</p>
+<p>Отсюда практическое правило, обещанное ещё в главе 1: <strong>порог окупаемости подписки в этом периоде — около 20 % валовых годовых.</strong> Ниже него шансы обогнать обычный вклад после тарифа единичные (8.3 % в группе 10–20 %), выше — почти гарантированы. Смотреть на тариф надо раньше, чем на доходность.</p>
+<p><strong>Цена одного слова.</strong> Плату от результата берут немногие, но у тех, кто берёт, всё решает база: считается ли она с новых максимумов (high-water mark) или с каждого прироста. Разница — <strong>4.01 п.п. годовых против 11.74 п.п.</strong>, почти втрое. В публичном описании тарифов Comon принцип HWM не упомянут.</p>
+<p><strong>Взвешенно по подпискам</strong> картина заметно лучше:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Величина (веса — число подписчиков)</th>
+<th style="text-align: right;">Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Подписок учтено</td>
+<td style="text-align: right;">10 384 в 276 стратегиях</td>
+</tr>
+<tr>
+<td>Доходность до тарифа</td>
+<td style="text-align: right;">30.39 %</td>
+</tr>
+<tr>
+<td>Доходность после тарифа</td>
+<td style="text-align: right;"><strong>23.86 %</strong></td>
+</tr>
+<tr>
+<td>Ставка денежного рынка</td>
+<td style="text-align: right;">14.79 %</td>
+</tr>
+<tr>
+<td>Доля подписок в стратегиях, чей результат после тарифа выше ставки</td>
+<td style="text-align: right;"><strong>61.4 %</strong></td>
+</tr>
+<tr>
+<td>Доля подписок в стратегиях с отрицательным результатом</td>
+<td style="text-align: right;">4.4 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>🔴 <strong>Эту таблицу нельзя читать как «подписчики в среднем в плюсе».</strong> Здесь только стратегии, дожившие до сегодня с трёхлетней историей. У закрытых счётчик подписчиков обнулён, поэтому подписки в умерших стратегиях в расчёт не попадают физически, — а умирают чаще именно плохие. Честная формулировка: <strong>среди выживших</strong> средний подписанный рубль после тарифа получает 23.9 % против 14.8 % у вклада.</p>
+<p>🔴 <strong>И общее ограничение раздела.</strong> Из результата вычтен только тариф автоследования. Комиссия собственного брокера подписчика и проскальзывание при копировании — тем большее, чем больше у стратегии подписчиков, — в данных Comon отсутствуют полностью. Все числа «после тарифа» — <strong>верхняя граница</strong> того, что достаётся подписчику.</p>
+<p><strong>А если взвесить не подписками, а рублями</strong>, получится ещё лучше — и по той же причине, по которой в разделе 5.8 переворачивается картина по порогу входа: дороже вход, выше качество, а рубль считается умножением на порог.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Величина (медиана)</th>
+<th style="text-align: right;">По стратегиям</th>
+<th style="text-align: right;">Взвешенно подписками</th>
+<th style="text-align: right;">Взвешенно рублями</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Доходность до тарифа, % годовых</td>
+<td style="text-align: right;">10.62</td>
+<td style="text-align: right;">27.32</td>
+<td style="text-align: right;"><strong>31.08</strong></td>
+</tr>
+<tr>
+<td>Доходность после тарифа, % годовых</td>
+<td style="text-align: right;">5.42</td>
+<td style="text-align: right;">22.84</td>
+<td style="text-align: right;"><strong>26.66</strong></td>
+</tr>
+<tr>
+<td>Sharpe после тарифа</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;"><strong>1.21</strong></td>
+</tr>
+<tr>
+<td>Просадка после тарифа, %</td>
+<td style="text-align: right;">−46.54</td>
+<td style="text-align: right;">−36.10</td>
+<td style="text-align: right;"><strong>−31.14</strong></td>
+</tr>
+<tr>
+<td>Доля в стратегиях выше денежного рынка</td>
+<td style="text-align: right;">26.8 %</td>
+<td style="text-align: right;">61.4 %</td>
+<td style="text-align: right;"><strong>77.4 %</strong></td>
+</tr>
+<tr>
+<td>Доля в стратегиях с убытком</td>
+<td style="text-align: right;">37.1 %</td>
+<td style="text-align: right;">4.4 %</td>
+<td style="text-align: right;"><strong>2.2 %</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><em>База та же — 593 живые стратегии окна, из них 276 с подписками; 10 384 подписки и 3.33 млрд ₽ нижней оценки. «Рубли» = подписки × минимальный порог входа.</em></p>
+<p>Читать это надо строго так: <strong>доля денег — не нижняя оценка, а счёт при допущении, что у каждого подписчика на счёте ровно порог</strong>. Сколько на счетах на самом деле, неизвестно. Если у дешёвых стратегий счета в разы превышают порог, а у дорогих держатся у планки, рублёвая колонка завышена. Проверить это нечем, поэтому в серии обе колонки идут рядом.</p>
+<p><strong>Масштаб.</strong> 13 430 подписок при нижней оценке активов 3.94 млрд ₽ дают при базовой ставке 6 % около <strong>236 млн ₽ платы в год</strong> (при льготной 3 % — 118 млн ₽). Это выручка, которую делят автор и площадка.</p>
+<hr>
+<h2>5.8 Два признака работали — и в подписках не отразились</h2>
+<p>Осталось показать самое неприятное. Признаки, предсказывающие качество, на витрине <strong>были видны заранее</strong>. Их два, и подписки не пошли ни за одним.</p>
+<h3>Порог входа</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Квинтиль порога</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Медиана порога, ₽</th>
+<th style="text-align: right;">Sharpe до тарифа</th>
+<th style="text-align: right;">Доходность после тарифа, %</th>
+<th style="text-align: right;">Подписок</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (низкий)</td>
+<td style="text-align: right;">138</td>
+<td style="text-align: right;">40 000</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;"><strong>−2.7</strong></td>
+<td style="text-align: right;"><strong>2 539</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align: right;">138</td>
+<td style="text-align: right;">100 000</td>
+<td style="text-align: right;">0.42</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">1 870</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align: right;">138</td>
+<td style="text-align: right;">200 000</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: right;">2 398</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align: right;">138</td>
+<td style="text-align: right;">440 000</td>
+<td style="text-align: right;">0.69</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: right;">2 676</td>
+</tr>
+<tr>
+<td>5 (высокий)</td>
+<td style="text-align: right;">138</td>
+<td style="text-align: right;">1 515 000</td>
+<td style="text-align: right;"><strong>0.98</strong></td>
+<td style="text-align: right;"><strong>12.4</strong></td>
+<td style="text-align: right;"><strong>901</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><em>База — 690 стратегий окна с историей не меньше трёх лет и активностью не ниже 10 % дней: 593 живые из раздела 5.7 плюс 97 закрытых. Закрытые здесь нужны, чтобы связь порога с качеством не считалась по одним выжившим; подписок у них нет, поэтому подписок в таблице те же 10 384.</em></p>
+<p>Связь монотонна по всем пяти квинтилям: ρ(порог, Sharpe) = <strong>+0.296</strong>, ρ(порог, чистая доходность) = +0.299. Разрыв между крайними квинтилями по чистой доходности — <strong>15 процентных пунктов годовых</strong>. Для сравнения: рейтинг площадки связан с качеством втрое слабее (+0.115).</p>
+<p>А подписки идут ровно в обратную сторону. Нижний квинтиль (порог 40 тыс.) собрал 2 539 подписок при чистой доходности −2.7 %; верхний (1.5 млн) — 901 подписку при +12.4 %. Связь порога с популярностью нулевая (+0.059), а при равной доходности отрицательная (−0.104).</p>
+<p><a class="figure" href="../images/12-entry-threshold-quintiles.png" target="_blank" rel="noopener"><img alt="Квинтили порога входа: Sharpe и чистая доходность растут, а подписки идут вниз" src="../images/12-entry-threshold-quintiles.png"></a></p>
+<p><strong>Но в рублях картина обратная, и это стоит показать отдельно.</strong> Подписка подписке не равна: за подпиской на стратегию с порогом 40 тыс. стоит счёт минимум в сорок тысяч, за подпиской на стратегию с порогом полтора миллиона — минимум полтора миллиона. Умножив подписки каждой стратегии на её порог входа, получаем нижнюю оценку денег — ту самую, из которой в разделе 5.1 вышли 3.94 млрд ₽:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Квинтиль порога входа</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Подписок</th>
+<th style="text-align: right;">Доля подписок</th>
+<th style="text-align: right;">Денег, млн ₽</th>
+<th style="text-align: right;">Доля денег</th>
+<th style="text-align: right;">Денег на подписку, тыс. ₽</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1: до 55 тыс.</td>
+<td style="text-align: right;">103</td>
+<td style="text-align: right;">3 182</td>
+<td style="text-align: right;">23.7 %</td>
+<td style="text-align: right;">122</td>
+<td style="text-align: right;"><strong>3.1 %</strong></td>
+<td style="text-align: right;">38</td>
+</tr>
+<tr>
+<td>2: 60–115 тыс.</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">2 797</td>
+<td style="text-align: right;">20.8 %</td>
+<td style="text-align: right;">264</td>
+<td style="text-align: right;">6.7 %</td>
+<td style="text-align: right;">94</td>
+</tr>
+<tr>
+<td>3: 120–260 тыс.</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">3 024</td>
+<td style="text-align: right;">22.5 %</td>
+<td style="text-align: right;">583</td>
+<td style="text-align: right;">14.8 %</td>
+<td style="text-align: right;">193</td>
+</tr>
+<tr>
+<td>4: 265–500 тыс.</td>
+<td style="text-align: right;">103</td>
+<td style="text-align: right;">2 438</td>
+<td style="text-align: right;">18.2 %</td>
+<td style="text-align: right;">1 009</td>
+<td style="text-align: right;">25.6 %</td>
+<td style="text-align: right;">414</td>
+</tr>
+<tr>
+<td>5: от 505 тыс.</td>
+<td style="text-align: right;">92</td>
+<td style="text-align: right;">1 989</td>
+<td style="text-align: right;">14.8 %</td>
+<td style="text-align: right;">1 958</td>
+<td style="text-align: right;"><strong>49.8 %</strong></td>
+<td style="text-align: right;">985</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>База — 491 живая стратегия, у которой есть хотя бы один подписчик; квинтили нарезаны по этой же базе, поэтому границы не совпадают с таблицей выше (там 690 стратегий окна, живые и закрытые). «Денег» = подписки × минимальный порог входа стратегии.</em></p>
+<p>Половина всех денег площадки лежит в верхнем квинтиле по порогу — том самом, где качество лучше всего. 🔴 <strong>Но переворот этот в основном арифметический, и подавать его как «публика всё-таки выбрала верно» нельзя:</strong> рубли и есть подписки, умноженные на порог, поэтому дорогие стратегии не могут не весить больше. Содержательно здесь другое — <strong>насколько спрос компенсирует разницу порогов, и ответ: почти никак</strong>. Денег на одну подписку в крайних квинтилях различается в двадцать шесть раз (38 тыс. против 985 тыс.), а числом подписок дешёвый квинтиль отыгрывает всего в полтора раза. Обе картины верны одновременно, и они отвечают на разные вопросы: подписок больше там, где дешевле вход, а денег — там, где дороже.</p>
+<p>🔴 <strong>Причинность отсюда не следует.</strong> Высокий порог может быть признаком серьёзности автора; может быть следствием крупных лотов у фьючерсных стратегий; может быть способом отсечь мелкие счета, на которых копирование неточно. Мы видим связь, а не механизм. И здесь же — объяснение из раздела 5.1: <strong>высокий порог и отсекает публику</strong>, поэтому «лучший видимый признак качества» и «стратегия, которую никто не купит» — это во многом одни и те же стратегии.</p>
+<h3>Частота сделок</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Заявленная частота</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Sharpe до тарифа</th>
+<th style="text-align: right;">Sharpe после</th>
+<th style="text-align: right;">Доходность после тарифа, %</th>
+<th style="text-align: right;">Волатильность, %</th>
+<th style="text-align: right;">Подписок</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Редко</td>
+<td style="text-align: right;">106</td>
+<td style="text-align: right;"><strong>0.91</strong></td>
+<td style="text-align: right;"><strong>0.67</strong></td>
+<td style="text-align: right;"><strong>9.8</strong></td>
+<td style="text-align: right;">18.6</td>
+<td style="text-align: right;">456</td>
+</tr>
+<tr>
+<td>Раз в месяц</td>
+<td style="text-align: right;">130</td>
+<td style="text-align: right;">0.54</td>
+<td style="text-align: right;">0.34</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: right;">22.7</td>
+<td style="text-align: right;">1 698</td>
+</tr>
+<tr>
+<td>Раз в неделю</td>
+<td style="text-align: right;">138</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">4.9</td>
+<td style="text-align: right;">31.5</td>
+<td style="text-align: right;">1 834</td>
+</tr>
+<tr>
+<td><strong>Ежедневно</strong></td>
+<td style="text-align: right;"><strong>316</strong></td>
+<td style="text-align: right;"><strong>0.49</strong></td>
+<td style="text-align: right;"><strong>0.27</strong></td>
+<td style="text-align: right;"><strong>2.7</strong></td>
+<td style="text-align: right;">31.2</td>
+<td style="text-align: right;"><strong>6 396</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Sharpe падает монотонно с ростом частоты — <strong>ещё до тарифа</strong>. Тариф разрыв добивает: 0.67 против 0.27. Чистая доходность редко торгующих в <strong>3.6 раза</strong> выше, чем у ежедневных, а волатильность растёт с частотой (+0.290 по рангу).</p>
+<p>И снова спрос устроен наоборот: <strong>61.6 % всех подписок окна (6 396 из 10 384) — в ежедневно торгующих стратегиях</strong>, худшем классе по всем метрикам. Активность выглядит как работа, а редкие сделки — как бездействие, хотя платят именно за второе.</p>
+<p>Это совпадение стоит назвать прямо, потому что о нём предупреждал регулятор. Разбирая рынок копирования сделок ещё в 2021 году, Банк России называл конкретный риск: управляющий может совершать много сделок, чтобы получить больше комиссий с операций клиента. Мы не можем сказать, происходит ли это, — намерения в данных не видны. Мы можем сказать другое: <strong>структура спроса такому поведению не мешает</strong>. Деньги концентрируются именно там, где сделок больше всего, а результат хуже всего.</p>
+<p><strong>Оговорка о базе.</strong> Порог входа — сильнейший из заранее видимых признаков качества, но не единственный: частота тоже видна в карточке и тоже связана с результатом, просто по ранговой связи слабее (−0.159 против +0.296). В деньгах, впрочем, она разделяет сильнее.</p>
+<hr>
+<h2>Выводы главы</h2>
+<ol>
+<li>
+<p><strong>Спрос сконцентрирован сильнее, чем предложение.</strong> Две трети живых стратегий (66.1 %) не выбрал никто; сто стратегий из полутора тысяч держат 85 % подписок; по авторам концентрация ещё выше (Джини 0.962), пятеро держат половину всех подписок, а 71 % авторов не имеют ни одного подписчика.</p>
+</li>
+<li>
+<p><strong>Среди невыбранных качество есть, но без верхнего хвоста.</strong> 63 стратегии не хуже топовых сразу по трём метрикам, 24 проходят строгий критерий достоверности. Однако систем с высшим уровнем достоверности среди них <strong>ноль</strong> против четырнадцати у выбранных: проглядели крепких середняков, а не звёзд.</p>
+</li>
+<li>
+<p><strong>Не нашли их не по невнимательности, а по цене.</strong> Медианный порог входа сильных невыбранных стратегий — 2.71 млн ₽ при 500 тыс. у сильных выбранных и взвешенной медиане рынка 180 тыс. У 71 % из них порог не ниже миллиона, а выше миллиона лежит 2.7 % подписок. Их не могли купить.</p>
+</li>
+<li>
+<p><strong>Отбирают по долгой истории, а не по свежему результату.</strong> Пожизненная доходность даёт +0.437, возраст +0.285, доходность за последние 30 дней — +0.069. Это противоположно расхожему представлению о рознице и говорит в пользу публики.</p>
+</li>
+<li>
+<p><strong>Связь популярности с качеством исчерпывается доходностью.</strong> При равной показанной доходности и равном возрасте от Sharpe остаётся −0.054, от Сортино −0.051. В полной модели Sharpe — единственный признак, не отличимый от нуля.</p>
+</li>
+<li>
+<p><strong>Риск не фильтруется вообще, а при равной доходности идёт в плюс.</strong> Доли подписок в стратегиях с просадкой глубже −30 % и −50 % совпадают с долями таких стратегий на витрине до десятых. При контроле доходности связь просадки с популярностью положительна (+0.082 частично, +0.213 в модели). Чем популярнее группа, тем глубже её просадка: −48.8 % в самой популярной против −37.8 % у невыбранных.</p>
+</li>
+<li>
+<p><strong>С подписками расходится слово, а не число.</strong> Ярлык уровня риска связан с популярностью на −0.305, будучи при этом наименее информативным полем карточки (с фактической просадкой +0.184). А показанные числа честны: доходность ранжирует стратегии как ряды (+0.954), просадка — тождественно (+1.000). Плохой выбор нельзя списать на дезинформацию.</p>
+</li>
+<li>
+<p><strong>Деньги отфильтровали мусор, но не риск.</strong> Медианная подписка лежит под Sharpe 1.03 против 0.18 по витрине; убыточные по Sharpe — 41.8 % витрины и 4.3 % подписок. Но избыточный над ставкой Sharpe под подписками всего +0.58 — половина денег лежит под результатом, слабо отличимым от денежного рынка, и это до вычета платы.</p>
+</li>
+<li>
+<p><strong>Спрос неоднороден, но рискованный полюс вдвое населённее спокойного — и оплачен хуже.</strong> Разброс просадки под подписками шестикратный. В стратегиях с просадкой мельче −20 % лежит 19.5 % подписок, глубже −50 % — 35.9 %; при этом спокойный полюс качественный на 96 %, рискованный — на 26 %. Три четверти высокорисковых подписок (3 563 штуки) не получили за риск ничего. Дальше этого спрос не режется: эффективное число независимых наблюдений всей выборки — 57.9 при 491 стратегии с подписчиками, а на сегмент приходится 3–10 стратегий, держащих половину его подписок.</p>
+</li>
+<li>
+<p><strong>Главный механизм отбора — автор.</strong> 67 % разброса популярности объясняется личностью автора; популярность других его стратегий предсказывает лучше (+0.636), чем любая собственная метрика стратегии (+0.437). Оформление при равной доходности и равном возрасте сохраняет связь +0.24…+0.35, тогда как качество при том же контроле обращается в ноль (−0.054 у Sharpe): у одного связь есть, у другого её нет.</p>
+</li>
+<li>
+<p><strong>Полторы тысячи вариантов на витрине — это около шести разных ставок.</strong> Деньги лежат примерно в 54 стратегиях по концентрации, но по совместному движению это лишь <strong>6.6 независимых направлений</strong>; равновзвешенно вышло бы 11.9, то есть популярные стратегии похожи друг на друга сильнее среднего, при том что медианная пара с витрины связана почти нулевым 0.098. Половина всех подписок сидит в одной группе — рынке акций (бета 0.63, Sharpe 0.36, просадка −43.1 %); группа, не зависящая от рынка и лучшая по качеству (Sharpe 1.33), держит 15 %.</p>
+</li>
+<li>
+<p><strong>Тариф забирает треть заработанного и уничтожает четверть осмысленных вариантов.</strong> Медиана: 10.6 % валовых → 5.4 % чистых при ставке 14.7 %. Денежный рынок обгоняли 39.5 % стратегий, после тарифа 26.8 %. Убыточная стратегия всё равно берёт 4.3 п.п. в год. Порог окупаемости подписки — около 20 % валовых годовых.</p>
+</li>
+<li>
+<p><strong>Два признака качества были видны заранее, и подписки не пошли ни за одним.</strong> Порог входа монотонно связан с качеством (+0.296; 15 п.п. разрыва чистой доходности между крайними квинтилями) — подписки идут в дешёвый вход. Редко торгующие лучше ежедневных по всем метрикам до и после тарифа — 61.6 % подписок сидят в ежедневных, и в рублях этот перекос даже сильнее (70.8 % денег).</p>
+</li>
+<li>
+<p><strong>Считать в подписках и считать в рублях — разные счёта, и по порогу входа они дают противоположный ответ.</strong> Дешёвый квинтиль держит 23.7 % подписок и 3.1 % денег, дорогой — 14.8 % подписок и 49.8 % денег: спрос компенсирует двадцатишестикратную разницу денег на подписку всего в полтора раза по их числу. По остальным разрезам веса согласны: в рублях качество купленного не ниже (Sharpe 1.06 против 1.01), концентрация не мягче (Джини 0.940 против 0.931 по стратегиям), доля денег у стратегий с платой от результата совпадает с долей подписок (48.0 % против 48.6 %). 🔴 Рублёвые доли — не нижняя оценка, а счёт при допущении «счёт = порог входа».</p>
+</li>
+</ol>
+<hr>
+<h1>Приложение: полная статистика</h1>
+<h2>Д1. Ограничения главы</h2>
+<ul>
+<li><strong>Подписки — не люди.</strong> <code>followerCount</code> — целое число на стратегию в текущем срезе; индивидуальных записей нет. Один человек может держать несколько подписок, численность аудитории неизвестна в принципе. Все выводы — о структуре спроса; переносить их на сегменты людей нельзя (это была бы экологическая ошибка).</li>
+<li><strong>Только срез, никакой динамики.</strong> Истории подписок в интерфейсе площадки нет — проверено семью разными обращениями. Поэтому «уходят ли после плохого квартала», «асимметрия притока и оттока», «умные ли это деньги» на этих данных не проверяются вообще. Всё, что здесь названо связью, — сосуществование признаков в один момент времени.</li>
+<li><strong>Причинность не отделена ни в одном разделе.</strong> Дешёвый тариф у популярных может быть следствием популярности; рейтинг площадки почти наверняка эндогенен популярности; длинное описание пишут те, кто вообще вкладывается в продвижение. Модель раздела 5.6 описывает срез, а не механизм.</li>
+<li><strong>Ошибка выжившего неустранима.</strong> У закрытых стратегий счётчик подписчиков обнулён, поэтому подписки в умерших стратегиях не существуют в данных. Все взвешенные по подпискам величины — про выживших, смещение вверх большое.</li>
+<li><strong>Издержек подписчика в данных нет.</strong> Комиссия его брокера и проскальзывание при копировании отсутствуют полностью. Все числа «после тарифа» — верхняя граница; для ежедневно торгующих на неликвиде реальная разница может быть сопоставима с самим тарифом.</li>
+<li>🔴 <strong>Полюса риска описывают исход, а не выбор.</strong> Они заданы величинами, посчитанными из ряда задним числом, причём Sharpe на витрине не показывают вовсе — подписчик не мог отобрать стратегии по признаку, которого не видит. Пороги −20 % и −50 % назначены; при их сдвиге доли меняются в разы (приложение <a href="#д11-полюса-риска-полный-разбор-и-чувствительность">Д11</a>). Читать эти доли следует как «где деньги оказались», а не «что публика предпочла».</li>
+<li><strong>Счёт независимых ставок зависит от окна.</strong> Корреляции посчитаны на трёх годах (с августа 2023) по 427 стратегиям из 491 — те, у кого хватило общей истории; на них 95 % подписок. В кризис корреляции растут, в спокойный период падают, поэтому 6.6 — величина этого окна, а не константа. Мера построена на нормированных рядах и говорит о разнообразии направлений, а не о вкладе в риск.</li>
+<li><strong>Сегменты по капиталу описательны.</strong> Эффективное N всей выборки 57.9; медиана любого сегмента держится на 5–7 стратегиях, в сегменте 150–400 тыс. четверть подписок — одна стратегия. Таблица <a href="#д4-капитальные-сегменты-и-почему-их-нельзя-сравнивать">Д4</a> приведена ради оценки долей рынка, а не для сравнения сегментов.</li>
+<li><strong>Разбор невыбранных стратегий смещён отбором по измеримости.</strong> Он ведётся на стратегиях, доживших до 100 торговых дней; более короткие невыбранные в него не входят, а их большинство. Утверждение «качество там есть» относится к измеримой части, а не ко всем 957.</li>
+<li><strong>Поправка на случайность груба.</strong> Ожидаемое число достоверных результатов посчитано при нулевом умении и независимости стратегий; стратегии одного автора и одного рынка коррелированы, поэтому ожидание занижено, а превышение над ним — оптимистичная оценка.</li>
+<li>🔴 <strong>Класс активов — снимок одного дня, а не свойство стратегии.</strong> Состав взят из карточки на момент выгрузки; та же система неделей раньше могла быть в другом классе. Отсюда и строка «вне рынка» на 279 стратегий: это состояние счёта, а не консервативный стиль (медианная волатильность таких систем 45.7 %, просадка −44.6 %, две трети заявляют ежедневную торговлю). Доли в карточке не нормированы на 100 %: доля денег доходит до 714 %, то есть поле отражает плечо и короткие позиции. Классы приблизительны.</li>
+<li><strong>Заявленная частота сделок — поле карточки</strong>, а не измеренная величина. Автор указывает её сам.</li>
+<li><strong>Две базы подписок, и они не взаимозаменяемы.</strong> В каталоге живых 13 430 подписок; все тарифные и частотные разрезы считаны на окне с историей не меньше трёх лет, где подписок 10 384. Каждая таблица подписана своей базой.</li>
+<li><strong>Ярлык риска — порядковая шкала из трёх значений</strong>; ранговая корреляция с ней устойчива, но три градации огрубляют любую связь, и −0.305 стоит читать как «заметно», а не как точную величину.</li>
+</ul>
+<h2>Д2. Выборки и базы главы</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>База</th>
+<th style="text-align: right;">Размер</th>
+<th>Где используется</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Живые стратегии</td>
+<td style="text-align: right;">1 448</td>
+<td>концентрация, сегменты по капиталу, профиль по группам популярности</td>
+</tr>
+<tr>
+<td>Живые, по которым считаются метрики (торговали хотя бы день)</td>
+<td style="text-align: right;">1 437</td>
+<td>все корреляции, частные корреляции, модель 5.6</td>
+</tr>
+<tr>
+<td>Живые, прошедшие фильтр измеримости</td>
+<td style="text-align: right;">1 262</td>
+<td>разбор невыбранных стратегий (5.1)</td>
+</tr>
+<tr>
+<td>Живые с хотя бы одним подписчиком</td>
+<td style="text-align: right;">491</td>
+<td>сегменты по капиталу, углы риск-доходности</td>
+</tr>
+<tr>
+<td>Живые с историей ≥ 3 лет внутри окна, без требования к активности</td>
+<td style="text-align: right;">601</td>
+<td>избыточный Sharpe над ставкой</td>
+</tr>
+<tr>
+<td>То же плюс активность ≥ 10 % дней</td>
+<td style="text-align: right;">593</td>
+<td>раздел 5.7, тарифные расчёты</td>
+</tr>
+<tr>
+<td>То же, но вместе с закрытыми окна (593 + 97)</td>
+<td style="text-align: right;">690</td>
+<td>квинтили порога входа, частота сделок</td>
+</tr>
+<tr>
+<td>Живые с заполненным составом портфеля</td>
+<td style="text-align: right;">1 425</td>
+<td>классы активов</td>
+</tr>
+<tr>
+<td>Живые с подписчиками и общей историей ≥ 250 дней</td>
+<td style="text-align: right;">427</td>
+<td>независимые ставки, кластеры (Д15)</td>
+</tr>
+<tr>
+<td>Авторы всех живых стратегий</td>
+<td style="text-align: right;">876</td>
+<td>концентрация подписок (Д3)</td>
+</tr>
+<tr>
+<td>Авторы живых торговавших стратегий (тех самых 1 437)</td>
+<td style="text-align: right;">866</td>
+<td>эффект автора в модели (Д12)</td>
+</tr>
+<tr>
+<td>Подписок всего / на окне ≥ 3 лет</td>
+<td style="text-align: right;">13 430 / 10 384</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p>Окно тарифных и оконных расчётов — 2022-10-12…2026-08-04. Фильтр измеримости — не меньше 100 торговых дней и активность не ниже 10 %.</p>
+<p><strong>Два веса.</strong> Везде, где в главе сказано «подписки», единица счёта — счётчик подписок стратегии. Везде, где сказано «денег, ₽», величина получена умножением этого счётчика на минимальный порог входа стратегии — единственный денежный признак, который есть в данных. Разбор обоих весов — в Д18.</p>
+<h2>Д3. Концентрация подписок</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Величина</th>
+<th style="text-align: right;">По стратегиям</th>
+<th style="text-align: right;">По авторам</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Единиц</td>
+<td style="text-align: right;">1 448</td>
+<td style="text-align: right;">876</td>
+</tr>
+<tr>
+<td>Коэффициент Джини</td>
+<td style="text-align: right;">0.931</td>
+<td style="text-align: right;"><strong>0.962</strong></td>
+</tr>
+<tr>
+<td>Без единого подписчика</td>
+<td style="text-align: right;">957 (66.1 %)</td>
+<td style="text-align: right;">625 (71.3 %)</td>
+</tr>
+<tr>
+<td>Доля топ-5</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">50.3 %</td>
+</tr>
+<tr>
+<td>Доля топ-10</td>
+<td style="text-align: right;">31.5 %</td>
+<td style="text-align: right;">64.0 %</td>
+</tr>
+<tr>
+<td>Доля топ-50</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">91.2 %</td>
+</tr>
+<tr>
+<td>Доля топ-100</td>
+<td style="text-align: right;">85.0 %</td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr>
+<td>Медиана / p90 / максимум</td>
+<td style="text-align: right;">0 / 13 / 945</td>
+<td style="text-align: right;">—</td>
+</tr>
+</tbody>
+</table></div>
+<p>Оценка активов снизу: 3.94 млрд ₽ (подписки × минимальный порог входа своей стратегии), не меньше 293 тыс. ₽ на подписку. При базовой ставке 6 % это около 236 млн ₽ платы в год, при льготной 3 % — 118 млн ₽.</p>
+<h2>Д4. Капитальные сегменты и почему их нельзя сравнивать</h2>
+<p>Взвешенные по подпискам квантили порога входа: p10 — 35 тыс. ₽, p25 — 63 тыс., <strong>медиана — 180 тыс.</strong>, p75 — 400 тыс., p90 — 550 тыс.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Сегмент</th>
+<th style="text-align: right;">Подписок</th>
+<th style="text-align: right;">Sharpe</th>
+<th style="text-align: right;">Доходность, %</th>
+<th style="text-align: right;">Просадка, %</th>
+<th style="text-align: right;">Возраст, лет</th>
+<th style="text-align: right;">Половину держат</th>
+<th style="text-align: right;">Эфф. N</th>
+<th style="text-align: right;">Доля топ-1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>менее 50 тыс.</td>
+<td style="text-align: right;">3 149</td>
+<td style="text-align: right;">1.57</td>
+<td style="text-align: right;">43.8</td>
+<td style="text-align: right;">−36.9</td>
+<td style="text-align: right;">3.7</td>
+<td style="text-align: right;"><strong>5</strong></td>
+<td style="text-align: right;">13.6</td>
+<td style="text-align: right;">15.5 %</td>
+</tr>
+<tr>
+<td>50–150 тыс.</td>
+<td style="text-align: right;">3 174</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">16.2</td>
+<td style="text-align: right;">−46.2</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">18.8</td>
+<td style="text-align: right;">10.6 %</td>
+</tr>
+<tr>
+<td>150–400 тыс.</td>
+<td style="text-align: right;">3 840</td>
+<td style="text-align: right;">1.45</td>
+<td style="text-align: right;">37.1</td>
+<td style="text-align: right;">−26.6</td>
+<td style="text-align: right;">6.4</td>
+<td style="text-align: right;"><strong>5</strong></td>
+<td style="text-align: right;">11.2</td>
+<td style="text-align: right;"><strong>24.6 %</strong></td>
+</tr>
+<tr>
+<td>400 тыс. — 1 млн</td>
+<td style="text-align: right;">2 902</td>
+<td style="text-align: right;">0.91</td>
+<td style="text-align: right;">23.4</td>
+<td style="text-align: right;">−46.9</td>
+<td style="text-align: right;">6.6</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">16.0</td>
+<td style="text-align: right;">14.6 %</td>
+</tr>
+<tr>
+<td>1 млн и выше</td>
+<td style="text-align: right;">365</td>
+<td style="text-align: right;">1.61</td>
+<td style="text-align: right;">38.7</td>
+<td style="text-align: right;">−30.9</td>
+<td style="text-align: right;">6.1</td>
+<td style="text-align: right;"><strong>5</strong></td>
+<td style="text-align: right;">14.2</td>
+<td style="text-align: right;">11.5 %</td>
+</tr>
+<tr>
+<td><strong>Вся выборка</strong></td>
+<td style="text-align: right;">13 430</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;"><strong>57.9</strong></td>
+<td style="text-align: right;">7.0 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>Колонки: «половину держат» — сколько стратегий набирают 50 % подписок сегмента; «эфф. N» — обратный индекс концентрации по долям подписок внутри сегмента; «доля топ-1» — доля самой популярной стратегии сегмента. Левая часть таблицы выглядит содержательно и немонотонно, но верить ей нельзя: различия между строками суть различия между конкретными популярными стратегиями, случайно попавшими в тот или иной диапазон порогов.</p>
+<h2>Д5. Разбор стратегий без единого подписчика</h2>
+<p>Полные таблицы — в разделе 5.1. Здесь то, что в основной текст не вошло.</p>
+<p><strong>Поправка на случайность без контроля длины ряда</strong> (для сравнения с версией с контролем):</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Выборка</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">t ≥ 2 наблюдается</th>
+<th style="text-align: right;">Ожидается</th>
+<th style="text-align: right;">t ≥ 3 наблюдается</th>
+<th style="text-align: right;">Ожидается</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Без подписчиков, все измеримые</td>
+<td style="text-align: right;">793</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">18.0</td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;">1.1</td>
+</tr>
+<tr>
+<td>С подписчиками, все измеримые</td>
+<td style="text-align: right;">469</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">10.7</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.6</td>
+</tr>
+</tbody>
+</table></div>
+<p>Без контроля длины превышение над случайностью у невыбранных выглядит скромным (29 против 18), с контролем — вчетверо (27 против 7.3). Разница потому, что короткие ряды дают низкие t механически.</p>
+<p><strong>Доступность по капиталу:</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Группа</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Медиана порога</th>
+<th style="text-align: right;">≤ 180 тыс.</th>
+<th style="text-align: right;">≤ 400 тыс.</th>
+<th style="text-align: right;">≥ 1 млн</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Без подписчиков, не хуже топовых по трём метрикам</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">500 тыс.</td>
+<td style="text-align: right;">27 %</td>
+<td style="text-align: right;">40 %</td>
+<td style="text-align: right;">37 %</td>
+</tr>
+<tr>
+<td><strong>Без подписчиков, строгий критерий</strong></td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;"><strong>2 710 тыс.</strong></td>
+<td style="text-align: right;">12 %</td>
+<td style="text-align: right;">17 %</td>
+<td style="text-align: right;"><strong>71 %</strong></td>
+</tr>
+<tr>
+<td>С подписчиками, строгий критерий</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">500 тыс.</td>
+<td style="text-align: right;">19 %</td>
+<td style="text-align: right;">44 %</td>
+<td style="text-align: right;">27 %</td>
+</tr>
+<tr>
+<td>Все измеримые живые</td>
+<td style="text-align: right;">1 262</td>
+<td style="text-align: right;">150 тыс.</td>
+<td style="text-align: right;">52 %</td>
+<td style="text-align: right;">73 %</td>
+<td style="text-align: right;">14 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>Девять из 24 стратегий строгого критерия принадлежат одному автору (howtotrade), ещё две — Atos888, остальные тринадцать — тринадцати разным авторам.</p>
+<h2>Д6. Соответствие витринных полей рядам</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Пара</th>
+<th style="text-align: right;">ρ Спирмена</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Витринная годовая доходность ↔ честный CAGR</td>
+<td style="text-align: right;"><strong>+0.954</strong></td>
+</tr>
+<tr>
+<td>Витринная просадка ↔ честная просадка</td>
+<td style="text-align: right;"><strong>+1.000</strong></td>
+</tr>
+<tr>
+<td>CVaR (глубиной) ↔ честная волатильность</td>
+<td style="text-align: right;">+0.776</td>
+</tr>
+<tr>
+<td>CVaR (глубиной) ↔ честная просадка</td>
+<td style="text-align: right;">+0.910</td>
+</tr>
+<tr>
+<td>Ярлык риска (1–3) ↔ честная волатильность</td>
+<td style="text-align: right;">+0.430</td>
+</tr>
+<tr>
+<td>Ярлык риска (1–3) ↔ честная просадка</td>
+<td style="text-align: right;">+0.184</td>
+</tr>
+<tr>
+<td>Рейтинг площадки ↔ честный Sharpe</td>
+<td style="text-align: right;">+0.115</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>n = 1 437.</em></p>
+<h2>Д7. Полные корреляции популярности</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Величина</th>
+<th style="text-align: right;">ρ</th>
+<th style="text-align: right;">n</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Витринные поля</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Годовая доходность</td>
+<td style="text-align: right;">+0.437</td>
+<td style="text-align: right;">1 437</td>
+</tr>
+<tr>
+<td>Рейтинг площадки</td>
+<td style="text-align: right;">+0.442</td>
+<td style="text-align: right;">1 437</td>
+</tr>
+<tr>
+<td>Доходность за 365 дней</td>
+<td style="text-align: right;">+0.152</td>
+<td style="text-align: right;">1 437</td>
+</tr>
+<tr>
+<td>Доходность за 30 дней</td>
+<td style="text-align: right;">+0.069</td>
+<td style="text-align: right;">1 437</td>
+</tr>
+<tr>
+<td>Максимальная просадка (глубина)</td>
+<td style="text-align: right;">−0.040</td>
+<td style="text-align: right;">1 437</td>
+</tr>
+<tr>
+<td>CVaR (глубина)</td>
+<td style="text-align: right;">−0.162</td>
+<td style="text-align: right;">1 437</td>
+</tr>
+<tr>
+<td>Ярлык уровня риска</td>
+<td style="text-align: right;">−0.305</td>
+<td style="text-align: right;">1 437</td>
+</tr>
+<tr>
+<td>Точность следования, %</td>
+<td style="text-align: right;">−0.011</td>
+<td style="text-align: right;">434</td>
+</tr>
+<tr>
+<td><strong>Честные метрики (пожизненные)</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>CAGR</td>
+<td style="text-align: right;">+0.379</td>
+<td style="text-align: right;">1 437</td>
+</tr>
+<tr>
+<td>Sharpe</td>
+<td style="text-align: right;">+0.345</td>
+<td style="text-align: right;">1 437</td>
+</tr>
+<tr>
+<td>Сортино</td>
+<td style="text-align: right;">+0.362</td>
+<td style="text-align: right;">1 416</td>
+</tr>
+<tr>
+<td>Волатильность</td>
+<td style="text-align: right;">−0.074</td>
+<td style="text-align: right;">1 437</td>
+</tr>
+<tr>
+<td>Максимальная просадка (глубина)</td>
+<td style="text-align: right;">−0.040</td>
+<td style="text-align: right;">1 437</td>
+</tr>
+<tr>
+<td>Скос</td>
+<td style="text-align: right;">+0.071</td>
+<td style="text-align: right;">1 433</td>
+</tr>
+<tr>
+<td>Эксцесс</td>
+<td style="text-align: right;">+0.050</td>
+<td style="text-align: right;">1 433</td>
+</tr>
+<tr>
+<td>Возраст</td>
+<td style="text-align: right;">+0.285</td>
+<td style="text-align: right;">1 437</td>
+</tr>
+<tr>
+<td>Доля торговых дней</td>
+<td style="text-align: right;">+0.306</td>
+<td style="text-align: right;">1 437</td>
+</tr>
+<tr>
+<td><strong>Честные метрики на общем окне</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>CAGR</td>
+<td style="text-align: right;">+0.452</td>
+<td style="text-align: right;">601</td>
+</tr>
+<tr>
+<td>Sharpe сырой</td>
+<td style="text-align: right;">+0.419</td>
+<td style="text-align: right;">601</td>
+</tr>
+<tr>
+<td><strong>Sharpe избыточный над ставкой</strong></td>
+<td style="text-align: right;"><strong>+0.383</strong></td>
+<td style="text-align: right;">601</td>
+</tr>
+<tr>
+<td>Сортино</td>
+<td style="text-align: right;">+0.438</td>
+<td style="text-align: right;">599</td>
+</tr>
+<tr>
+<td>Волатильность</td>
+<td style="text-align: right;">−0.192</td>
+<td style="text-align: right;">601</td>
+</tr>
+<tr>
+<td>Просадка (глубина)</td>
+<td style="text-align: right;">−0.264</td>
+<td style="text-align: right;">601</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Д8. Частные корреляции при контроле доходности и возраста</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Величина</th>
+<th style="text-align: right;">ρ парная</th>
+<th style="text-align: right;">ρ частичная</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Честный Sharpe</td>
+<td style="text-align: right;">+0.345</td>
+<td style="text-align: right;"><strong>−0.054</strong></td>
+</tr>
+<tr>
+<td>Честный Сортино</td>
+<td style="text-align: right;">+0.362</td>
+<td style="text-align: right;">−0.051</td>
+</tr>
+<tr>
+<td>Честная просадка (глубина)</td>
+<td style="text-align: right;">−0.040</td>
+<td style="text-align: right;"><strong>+0.082</strong></td>
+</tr>
+<tr>
+<td>Витринная просадка (глубина)</td>
+<td style="text-align: right;">−0.040</td>
+<td style="text-align: right;">+0.082</td>
+</tr>
+<tr>
+<td>CVaR (глубина)</td>
+<td style="text-align: right;">−0.162</td>
+<td style="text-align: right;">+0.028</td>
+</tr>
+<tr>
+<td>Ярлык уровня риска</td>
+<td style="text-align: right;">−0.305</td>
+<td style="text-align: right;">−0.132</td>
+</tr>
+<tr>
+<td>Порог входа</td>
+<td style="text-align: right;">+0.059</td>
+<td style="text-align: right;">−0.104</td>
+</tr>
+<tr>
+<td>Ставка тарифа от активов</td>
+<td style="text-align: right;">−0.475</td>
+<td style="text-align: right;"><strong>−0.402</strong></td>
+</tr>
+<tr>
+<td>Лимит средств</td>
+<td style="text-align: right;">+0.443</td>
+<td style="text-align: right;">+0.349</td>
+</tr>
+<tr>
+<td>Есть плата от результата</td>
+<td style="text-align: right;">+0.351</td>
+<td style="text-align: right;">+0.294</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Контроль — витринная годовая доходность и возраст: то, что видно в карточке первым.</em></p>
+<p>🔴 <strong>С какой точностью читать эти числа.</strong> При выборке 1 437 стратегий погрешность ранговой корреляции составляет около <strong>±0.05</strong> (95-процентный интервал). Отсюда правило чтения таблицы: значения по модулю меньше 0.05 — это ноль; 0.08 — «мало, но отличимо, если подтверждается другим способом»; 0.3 и выше — надёжно. Отдельно про Sharpe: −0.054 формально сидит на самой границе, но в полной модели раздела 5.6, где учтена зависимость стратегий одного автора, он от нуля неотличим (t = −1.24) — поэтому в тексте он и назван нулём.</p>
+<h2>Д9. Распределения метрик: витрина против подписок</h2>
+<p><strong>Пожизненный Sharpe</strong> (n = 1 437, подписок 13 430):</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Вес</th>
+<th style="text-align: right;">p10</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">Медиана</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p90</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Равновзвешенно</td>
+<td style="text-align: right;">−0.88</td>
+<td style="text-align: right;">−0.46</td>
+<td style="text-align: right;"><strong>0.18</strong></td>
+<td style="text-align: right;">1.04</td>
+<td style="text-align: right;">2.28</td>
+</tr>
+<tr>
+<td>По подпискам</td>
+<td style="text-align: right;">0.29</td>
+<td style="text-align: right;">0.49</td>
+<td style="text-align: right;"><strong>1.03</strong></td>
+<td style="text-align: right;">1.89</td>
+<td style="text-align: right;">2.35</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Sharpe на общем окне, сырой</strong> (n = 601, подписок 10 384):</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Вес</th>
+<th style="text-align: right;">p10</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">Медиана</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p90</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Равновзвешенно</td>
+<td style="text-align: right;">−0.48</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;"><strong>0.58</strong></td>
+<td style="text-align: right;">1.10</td>
+<td style="text-align: right;">1.54</td>
+</tr>
+<tr>
+<td>По подпискам</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: right;"><strong>1.17</strong></td>
+<td style="text-align: right;">1.49</td>
+<td style="text-align: right;">2.13</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Sharpe на общем окне, избыточный над ставкой</strong> (n = 601, подписок 10 384):</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Вес</th>
+<th style="text-align: right;">p10</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">Медиана</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p90</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Равновзвешенно</td>
+<td style="text-align: right;">−1.14</td>
+<td style="text-align: right;">−0.55</td>
+<td style="text-align: right;"><strong>−0.05</strong></td>
+<td style="text-align: right;">0.33</td>
+<td style="text-align: right;">0.73</td>
+</tr>
+<tr>
+<td>По подпискам</td>
+<td style="text-align: right;">−0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;"><strong>+0.58</strong></td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">1.35</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Взвешенные по подпискам квантили остальных метрик:</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Величина</th>
+<th style="text-align: right;">p10</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">Медиана</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p90</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CAGR, % годовых</td>
+<td style="text-align: right;">6.90</td>
+<td style="text-align: right;">16.24</td>
+<td style="text-align: right;"><strong>26.69</strong></td>
+<td style="text-align: right;">49.86</td>
+<td style="text-align: right;">85.15</td>
+</tr>
+<tr>
+<td>Максимальная просадка, %</td>
+<td style="text-align: right;">−74.81</td>
+<td style="text-align: right;">−57.42</td>
+<td style="text-align: right;"><strong>−36.94</strong></td>
+<td style="text-align: right;">−24.93</td>
+<td style="text-align: right;">−12.51</td>
+</tr>
+<tr>
+<td>Волатильность, %</td>
+<td style="text-align: right;">17.64</td>
+<td style="text-align: right;">22.25</td>
+<td style="text-align: right;"><strong>27.42</strong></td>
+<td style="text-align: right;">38.45</td>
+<td style="text-align: right;">50.05</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Д10. Пороги качества: доля стратегий против доли подписок</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Критерий</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Доля стратегий</th>
+<th style="text-align: right;">Подписок</th>
+<th style="text-align: right;">Доля подписок</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Пожизненный Sharpe &lt; 0</td>
+<td style="text-align: right;">601</td>
+<td style="text-align: right;">41.8 %</td>
+<td style="text-align: right;">581</td>
+<td style="text-align: right;">4.3 %</td>
+</tr>
+<tr>
+<td>Пожизненный Sharpe ≥ 1</td>
+<td style="text-align: right;">370</td>
+<td style="text-align: right;">25.7 %</td>
+<td style="text-align: right;">6 890</td>
+<td style="text-align: right;">51.3 %</td>
+</tr>
+<tr>
+<td>Пожизненный Sharpe ≥ 1.5</td>
+<td style="text-align: right;">240</td>
+<td style="text-align: right;">16.7 %</td>
+<td style="text-align: right;">4 824</td>
+<td style="text-align: right;">35.9 %</td>
+</tr>
+<tr>
+<td>Пожизненная просадка глубже −30 %</td>
+<td style="text-align: right;">851</td>
+<td style="text-align: right;">59.2 %</td>
+<td style="text-align: right;">8 040</td>
+<td style="text-align: right;">59.9 %</td>
+</tr>
+<tr>
+<td>Пожизненная просадка глубже −50 %</td>
+<td style="text-align: right;">521</td>
+<td style="text-align: right;">36.3 %</td>
+<td style="text-align: right;">4 818</td>
+<td style="text-align: right;">35.9 %</td>
+</tr>
+<tr>
+<td>Избыточный Sharpe на окне &lt; 0</td>
+<td style="text-align: right;">320</td>
+<td style="text-align: right;">22.3 %</td>
+<td style="text-align: right;">1 638</td>
+<td style="text-align: right;">12.2 %</td>
+</tr>
+<tr>
+<td>Избыточный Sharpe на окне ≥ 1</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">2.2 %</td>
+<td style="text-align: right;">2 190</td>
+<td style="text-align: right;">16.3 %</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Д11. Полюса риска: полный разбор и чувствительность</h2>
+<p><strong>Что считается.</strong> Стратегии с подписчиками (491) делятся по глубине просадки; внутри каждого полюса смотрится, какая доля подписок пришлась на стратегии с Sharpe ≥ 1.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Сегмент</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Подписок</th>
+<th style="text-align: right;">Доля подписок</th>
+<th style="text-align: right;">Половину держат</th>
+<th style="text-align: right;">Эфф. N</th>
+<th style="text-align: right;">Доля топ-1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Просадка мельче −20 %</td>
+<td style="text-align: right;">127</td>
+<td style="text-align: right;">2 614</td>
+<td style="text-align: right;">19.5 %</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">13.4</td>
+<td style="text-align: right;">18.7 %</td>
+</tr>
+<tr>
+<td>…из них с Sharpe ≥ 1</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">2 510</td>
+<td style="text-align: right;">18.7 %</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">12.4</td>
+<td style="text-align: right;">19.4 %</td>
+</tr>
+<tr>
+<td>Просадка глубже −50 %</td>
+<td style="text-align: right;">151</td>
+<td style="text-align: right;">4 818</td>
+<td style="text-align: right;">35.9 %</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">29.9</td>
+<td style="text-align: right;">7.1 %</td>
+</tr>
+<tr>
+<td>…из них с Sharpe ≥ 1</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">1 255</td>
+<td style="text-align: right;">9.3 %</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6.9</td>
+<td style="text-align: right;">22.5 %</td>
+</tr>
+<tr>
+<td>Дешёвый вход (&lt; 50 тыс.) и просадка глубже −50 %</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">837</td>
+<td style="text-align: right;">6.2 %</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr>
+<td>Sharpe &lt; 0</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">581</td>
+<td style="text-align: right;">4.3 %</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr>
+<td>Дорогой вход (≥ 1 млн) и Sharpe ≥ 1</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">242</td>
+<td style="text-align: right;">1.8 %</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+</tr>
+</tbody>
+</table></div>
+<p>🔴 <strong>Та же оговорка, что к <a href="#д4-капитальные-сегменты-и-почему-их-нельзя-сравнивать">Д4</a>:</strong> половину подписок любого полюса держат 3–10 стратегий, эффективное число независимых наблюдений внутри полюса от 6.9 до 29.9. Доли надёжны как порядок величины и ненадёжны в десятых.</p>
+<p><strong>Чувствительность к порогам.</strong> Пороги −20 % и −50 % назначены, а не выведены из данных. При их сдвиге доли меняются сильно:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Порог для спокойного полюса</th>
+<th style="text-align: right;">Доля подписок</th>
+<th>Порог для рискованного</th>
+<th style="text-align: right;">Доля подписок</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>мельче −15 %, Sharpe ≥ 1</td>
+<td style="text-align: right;">12.5 %</td>
+<td>глубже −40 %, CAGR ≥ 30 %</td>
+<td style="text-align: right;">11.3 %</td>
+</tr>
+<tr>
+<td>мельче −20 %, Sharpe ≥ 1</td>
+<td style="text-align: right;">18.7 %</td>
+<td>глубже −50 %, CAGR ≥ 30 %</td>
+<td style="text-align: right;">10.7 %</td>
+</tr>
+<tr>
+<td>мельче −25 %, Sharpe ≥ 1</td>
+<td style="text-align: right;">27.8 %</td>
+<td>глубже −60 %, CAGR ≥ 30 %</td>
+<td style="text-align: right;">7.7 %</td>
+</tr>
+<tr>
+<td>мельче −30 %, Sharpe ≥ 1</td>
+<td style="text-align: right;">35.6 %</td>
+<td>глубже −70 %, CAGR ≥ 30 %</td>
+<td style="text-align: right;">3.7 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>Направление устойчиво, величины — нет: при самой узкой паре порогов полюса почти сравниваются (12.5 % против 11.3 %).</p>
+<p>🔴 <strong>Почему в основном тексте полюса заданы одним признаком.</strong> В исходном расчёте они определялись по-разному: спокойный — просадкой <strong>и Sharpe</strong>, агрессивный — просадкой <strong>и доходностью</strong>. Такая пара несопоставима: слева условие на качество, справа на результат, то есть один полюс по построению хороший, другой нет. При одинаковом втором условии соотношение меняется (18.7 % против 9.3 % по Sharpe с обеих сторон; 15.1 % против 10.7 % по доходности с обеих сторон), а без второго условия вовсе — <strong>разворачивается</strong>: 19.5 % против 35.9 %. Поэтому в тексте полюса заданы одним признаком, риском, а качество показано отдельной колонкой как их свойство, а не как часть определения.</p>
+<p><strong>Достижимость полюсов выбором</strong> (медианы):</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Величина</th>
+<th style="text-align: right;">Спокойный полюс</th>
+<th style="text-align: right;">Рискованный полюс</th>
+<th style="text-align: right;">Все с подписчиками</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Витринная годовая доходность, %</td>
+<td style="text-align: right;">27.3</td>
+<td style="text-align: right;">62.0</td>
+<td style="text-align: right;">15.7</td>
+</tr>
+<tr>
+<td>Витринная просадка, %</td>
+<td style="text-align: right;">−12.1</td>
+<td style="text-align: right;">−60.1</td>
+<td style="text-align: right;">−36.3</td>
+</tr>
+<tr>
+<td>Ярлык уровня риска (1–3)</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">3.0</td>
+</tr>
+<tr>
+<td>Порог входа, тыс. ₽</td>
+<td style="text-align: right;">165</td>
+<td style="text-align: right;">300</td>
+<td style="text-align: right;">200</td>
+</tr>
+<tr>
+<td>Возраст ряда, лет</td>
+<td style="text-align: right;">1.7</td>
+<td style="text-align: right;">6.0</td>
+<td style="text-align: right;">3.5</td>
+</tr>
+<tr>
+<td>Честный Sharpe</td>
+<td style="text-align: right;">2.16</td>
+<td style="text-align: right;">1.09</td>
+<td style="text-align: right;">0.66</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Рискованный полюс здесь — стратегии с просадкой глубже −50 % и доходностью ≥ 30 %, то есть та его часть, что доходность всё-таки принесла.</em></p>
+<p>Обе группы населены стратегиями с показанной доходностью выше средней по витрине: в верхнюю треть по этому полю входят 54.5 % спокойных (68.5 % подписок полюса) и 100 % рискованных. Ни один полюс не является свидетельством отдельного вкуса к риску: оба совместимы с отбором по одной доходности.</p>
+<h2>Д12. Эффект автора</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Величина</th>
+<th style="text-align: right;">Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Авторов живых торговавших стратегий (база модели)</td>
+<td style="text-align: right;">866</td>
+</tr>
+<tr>
+<td>Джини подписок по авторам</td>
+<td style="text-align: right;">0.962</td>
+</tr>
+<tr>
+<td>Доля топ-5 / топ-10 / топ-50 авторов</td>
+<td style="text-align: right;">50.3 % / 64.0 % / 91.2 %</td>
+</tr>
+<tr>
+<td>Авторов без единого подписчика</td>
+<td style="text-align: right;">615 (71.0 %)</td>
+</tr>
+<tr>
+<td>Авторов с двумя и более живыми стратегиями</td>
+<td style="text-align: right;">220 (791 стратегия)</td>
+</tr>
+<tr>
+<td><strong>Доля разброса популярности, объяснённая личностью автора</strong></td>
+<td style="text-align: right;"><strong>67.0 %</strong></td>
+</tr>
+<tr>
+<td>ρ(подписчики, средние подписчики других стратегий автора)</td>
+<td style="text-align: right;"><strong>+0.636</strong></td>
+</tr>
+<tr>
+<td>ρ(подписчики, средний Sharpe других стратегий автора)</td>
+<td style="text-align: right;">+0.219</td>
+</tr>
+</tbody>
+</table></div>
+<p>Таблица топ-10 авторов — в разделе 5.5.</p>
+<h2>Д13. Признаки подачи</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Признак</th>
+<th style="text-align: right;">ρ парная</th>
+<th style="text-align: right;">ρ при контроле доходности и возраста</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Число тегов</td>
+<td style="text-align: right;">+0.456</td>
+<td style="text-align: right;">+0.334</td>
+</tr>
+<tr>
+<td>Рейтинг площадки</td>
+<td style="text-align: right;">+0.442</td>
+<td style="text-align: right;">+0.345</td>
+</tr>
+<tr>
+<td>Теги есть (да/нет)</td>
+<td style="text-align: right;">+0.430</td>
+<td style="text-align: right;">+0.308</td>
+</tr>
+<tr>
+<td>Длина описания</td>
+<td style="text-align: right;">+0.365</td>
+<td style="text-align: right;">+0.250</td>
+</tr>
+<tr>
+<td>Аватар автора есть</td>
+<td style="text-align: right;">+0.358</td>
+<td style="text-align: right;">+0.250</td>
+</tr>
+<tr>
+<td>Число тарифных планов</td>
+<td style="text-align: right;">+0.318</td>
+<td style="text-align: right;">+0.236</td>
+</tr>
+<tr>
+<td>Число заполненных опций карточки</td>
+<td style="text-align: right;">+0.038</td>
+<td style="text-align: right;">+0.041</td>
+</tr>
+<tr>
+<td>Описание вообще есть (да/нет)</td>
+<td style="text-align: right;">+0.037</td>
+<td style="text-align: right;">+0.043</td>
+</tr>
+</tbody>
+</table></div>
+<p>Метки «премиум» нет ни у одной живой стратегии — признак из рассмотрения исключён.</p>
+<h2>Д14. Модель популярности целиком</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Признак</th>
+<th style="text-align: right;">Стандартизованный коэффициент</th>
+<th style="text-align: right;">t обычная</th>
+<th style="text-align: right;"><strong>t с поправкой на автора</strong></th>
+<th style="text-align: right;">ρ парная</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Витринная годовая доходность</td>
+<td style="text-align: right;">+0.432</td>
+<td style="text-align: right;">+9.97</td>
+<td style="text-align: right;"><strong>+8.54</strong></td>
+<td style="text-align: right;">+0.437</td>
+</tr>
+<tr>
+<td>Ставка тарифа от активов</td>
+<td style="text-align: right;">−0.292</td>
+<td style="text-align: right;">−13.76</td>
+<td style="text-align: right;"><strong>−7.05</strong></td>
+<td style="text-align: right;">−0.475</td>
+</tr>
+<tr>
+<td>Рейтинг площадки</td>
+<td style="text-align: right;">+0.269</td>
+<td style="text-align: right;">+12.36</td>
+<td style="text-align: right;"><strong>+9.85</strong></td>
+<td style="text-align: right;">+0.442</td>
+</tr>
+<tr>
+<td>Честная просадка (глубина)</td>
+<td style="text-align: right;">+0.213</td>
+<td style="text-align: right;">+6.56</td>
+<td style="text-align: right;"><strong>+5.87</strong></td>
+<td style="text-align: right;">−0.040</td>
+</tr>
+<tr>
+<td>Длина описания</td>
+<td style="text-align: right;">+0.131</td>
+<td style="text-align: right;">+6.23</td>
+<td style="text-align: right;"><strong>+4.68</strong></td>
+<td style="text-align: right;">+0.365</td>
+</tr>
+<tr>
+<td>Ярлык уровня риска</td>
+<td style="text-align: right;">−0.113</td>
+<td style="text-align: right;">−4.72</td>
+<td style="text-align: right;"><strong>−4.14</strong></td>
+<td style="text-align: right;">−0.305</td>
+</tr>
+<tr>
+<td>Порог входа</td>
+<td style="text-align: right;">−0.102</td>
+<td style="text-align: right;">−5.03</td>
+<td style="text-align: right;"><strong>−3.88</strong></td>
+<td style="text-align: right;">+0.059</td>
+</tr>
+<tr>
+<td>Возраст</td>
+<td style="text-align: right;">−0.083</td>
+<td style="text-align: right;">−2.68</td>
+<td style="text-align: right;"><strong>−2.34</strong></td>
+<td style="text-align: right;">+0.285</td>
+</tr>
+<tr>
+<td>Честный Sharpe</td>
+<td style="text-align: right;">−0.046</td>
+<td style="text-align: right;">−1.05</td>
+<td style="text-align: right;"><strong>−1.24</strong></td>
+<td style="text-align: right;">+0.345</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>n = 1 437, доля объяснённого разброса рангов 47.4 %. Зависимая переменная и все признаки переведены в ранги.</em></p>
+<p><strong>Поправка на группировку по авторам.</strong> Обычный расчёт надёжности предполагает независимые наблюдения; здесь их нет — 791 стратегия из 1 437 принадлежит авторам, у которых стратегий несколько, максимум у одного 37, а раздел 5.5 показывает, что автор объясняет 67 % разброса популярности. Надёжность пересчитана с группировкой по 866 авторам (группированная сэндвич-оценка с поправкой на конечное число групп).</p>
+<p>Что изменилось: у <strong>ставки тарифа</strong> надёжность упала почти вдвое (13.76 → 7.05) — тариф в значительной мере свойство автора, а не отдельной стратегии; у остальных признаков снижение умеренное. <strong>Ни один вывод не изменился:</strong> все значимые признаки остались значимыми, включая пограничный возраст (−2.34), а честный Sharpe как был неотличим от нуля, так и остался (−1.24). В этом и смысл проверки — она могла отменить часть выводов и не отменила.</p>
+<h2>Д15. Сколько независимых ставок стоит за подписками</h2>
+<p><strong>Как считано.</strong> Дневные доходности живых стратегий с подписчиками, окно с 2023-08-01 по 2026-08-04, требование — не меньше 250 совместных торговых дней с остальными. В матрицу попали <strong>427 стратегий из 491</strong>, на них 12 764 подписки — <strong>95.0 %</strong> всех.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Мера</th>
+<th style="text-align: right;">Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Стратегий в матрице</td>
+<td style="text-align: right;">427</td>
+</tr>
+<tr>
+<td>Эффективное N по концентрации подписок (1/HHI)</td>
+<td style="text-align: right;">54.5</td>
+</tr>
+<tr>
+<td>Медианная попарная корреляция</td>
+<td style="text-align: right;">0.098</td>
+</tr>
+<tr>
+<td><strong>Эффективное число независимых ставок</strong></td>
+<td style="text-align: right;"><strong>6.6</strong></td>
+</tr>
+<tr>
+<td>То же равновзвешенно (контроль)</td>
+<td style="text-align: right;">11.9</td>
+</tr>
+<tr>
+<td>Доля дисперсии в первой компоненте</td>
+<td style="text-align: right;">34.3 %</td>
+</tr>
+<tr>
+<td>В первых трёх</td>
+<td style="text-align: right;">54.9 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>Эффективное число независимых ставок — participation ratio собственных чисел взвешенной по подпискам корреляционной матрицы: <code>(Σλ)² / Σλ²</code>. Оно отвечает на вопрос «сколько по-настоящему разных направлений в этой массе денег», тогда как 1/HHI отвечает на другой — «во скольких стратегиях они лежат».</p>
+<p><strong>Кластеры по поведению.</strong> Иерархическая кластеризация (Ward на расстоянии 1−ρ), затем описание исходом и признаками — порядок тот же, что в разделе 4.5 главы 4.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th style="text-align: right;">k</th>
+<th style="text-align: right;">Силуэт</th>
+<th style="text-align: right;">Устойчивость</th>
+<th>Размеры</th>
+<th>Доли подписок</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.242</td>
+<td style="text-align: right;">0.898</td>
+<td>197 / 230</td>
+<td>52 % / 48 %</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong>3</strong></td>
+<td style="text-align: right;"><strong>0.244</strong></td>
+<td style="text-align: right;"><strong>0.875</strong></td>
+<td>197 / 65 / 165</td>
+<td>52 % / 15 % / 32 %</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.257</td>
+<td style="text-align: right;">0.878</td>
+<td>197 / 65 / 25 / 140</td>
+<td>52 % / 15 % / 4 % / 29 %</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.258</td>
+<td style="text-align: right;">0.882</td>
+<td>197 / 65 / 25 / 46 / 94</td>
+<td>52 % / 15 % / 4 % / 17 % / 11 %</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.172</td>
+<td style="text-align: right;">0.881</td>
+<td>149 / 48 / 65 / 25 / 46 / 94</td>
+<td>46 % / 7 % / 15 % / 4 % / 17 % / 11 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>Силуэт — насколько группы обособлены (0 — не различимы, 1 — идеально); устойчивость — доля пар стратегий, сохраняющих совместность при пересборке на 80 % выборки, 20 повторений. Обособленность слабая при любом k, устойчивость высокая: <strong>состав групп надёжен, границы между ними размыты</strong>. Первые два кластера не меняются от k = 2 до k = 5, поэтому взято k = 3.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Кластер</th>
+<th style="text-align: right;">Систем</th>
+<th style="text-align: right;">Подписок</th>
+<th style="text-align: right;">Доля</th>
+<th style="text-align: right;">ρ внутри</th>
+<th style="text-align: right;">Бета</th>
+<th style="text-align: right;">R²</th>
+<th style="text-align: right;">Sharpe</th>
+<th style="text-align: right;">CAGR %</th>
+<th style="text-align: right;">Просадка %</th>
+<th style="text-align: right;">Вола %</th>
+<th style="text-align: right;">Ежедневных</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align: right;">197</td>
+<td style="text-align: right;">6 692</td>
+<td style="text-align: right;">52.4 %</td>
+<td style="text-align: right;">0.523</td>
+<td style="text-align: right;">0.63</td>
+<td style="text-align: right;">0.36</td>
+<td style="text-align: right;">0.36</td>
+<td style="text-align: right;">7.5</td>
+<td style="text-align: right;">−43.1</td>
+<td style="text-align: right;">23.7</td>
+<td style="text-align: right;">38 %</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">1 969</td>
+<td style="text-align: right;">15.4 %</td>
+<td style="text-align: right;">0.407</td>
+<td style="text-align: right;">−0.02</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">1.33</td>
+<td style="text-align: right;">41.4</td>
+<td style="text-align: right;">−34.7</td>
+<td style="text-align: right;">32.3</td>
+<td style="text-align: right;">83 %</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align: right;">165</td>
+<td style="text-align: right;">4 103</td>
+<td style="text-align: right;">32.1 %</td>
+<td style="text-align: right;">0.053</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.74</td>
+<td style="text-align: right;">19.4</td>
+<td style="text-align: right;">−38.4</td>
+<td style="text-align: right;">29.6</td>
+<td style="text-align: right;">65 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>Межкластерные медианные корреляции: 1↔2 — 0.005, 1↔3 — 0.067, 2↔3 — 0.053. Группы практически ортогональны.</p>
+<p>🔴 <strong>Оговорки.</strong> Кластер 3 кластером не является: внутренняя корреляция 0.053 не отличается от общей 0.098 — это остаток из непохожих стратегий, собранный по остаточному принципу, и типом спроса называть его нельзя. Корреляции считаются на нормированных рядах, поэтому мера говорит о разнообразии <strong>направлений</strong>, а не о вкладе в риск. Окно одно и оно короткое (три года): корреляции в кризис растут, и в спокойный период число независимых ставок было бы выше, а в обвал — ниже.</p>
+<h2>Д16. Тарифная арифметика</h2>
+<p>Модель списания: плата от активов берётся непрерывно (доля годовой ставки на календарные дни между точками ряда); плата от результата — в конце периода от прироста над предыдущим максимумом, вариант без такого правила посчитан отдельно как верхняя оценка.</p>
+<p>🔴 <strong>О числе стратегий с платой от результата.</strong> У 32 стратегий несколько тарифных вариантов стоят подписчику по нашей оценке ровно одинаково («6 % от активов» и «3 % от активов + 20 % от дохода» дают одну и ту же величину), поэтому любое число, посчитанное «по выбранному тарифу», зависит от произвольного правила разрешения такой ничьей — и сдвигает результат на треть подписок. Поэтому в главе используется счёт <strong>по наличию варианта</strong>, от соглашений не зависящий: плату от результата предлагают <strong>125 живых стратегий из 1 448 (8.6 %)</strong>, и на них приходится <strong>6 528 подписок из 13 430 (48.6 %)</strong>. Доля подписок вшестеро выше доли самих таких стратегий — то есть предложение платы от результата на витрине редкое, а подписки в нём густые.</p>
+<p>Ставка от активов, взвешенная по подпискам, — 4.56 % годовых против 5.44 % равновзвешенно: популярные стратегии в среднем дешевле.</p>
+<p>Полные таблицы «до и после тарифа», группы по валовой доходности и цена high-water mark — в разделе 5.7.</p>
+<h2>Д17. Порог входа и частота сделок: ранговые связи</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Пара</th>
+<th style="text-align: right;">ρ</th>
+<th style="text-align: right;">n</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Порог входа ↔ Sharpe до тарифа</td>
+<td style="text-align: right;"><strong>+0.296</strong></td>
+<td style="text-align: right;">690</td>
+</tr>
+<tr>
+<td>Порог входа ↔ доходность после тарифа</td>
+<td style="text-align: right;">+0.299</td>
+<td style="text-align: right;">690</td>
+</tr>
+<tr>
+<td>Порог входа ↔ волатильность</td>
+<td style="text-align: right;">−0.081</td>
+<td style="text-align: right;">690</td>
+</tr>
+<tr>
+<td>Порог входа ↔ число подписчиков</td>
+<td style="text-align: right;">+0.068</td>
+<td style="text-align: right;">690</td>
+</tr>
+<tr>
+<td>Частота сделок ↔ Sharpe до тарифа</td>
+<td style="text-align: right;"><strong>−0.159</strong></td>
+<td style="text-align: right;">690</td>
+</tr>
+<tr>
+<td>Частота сделок ↔ Sharpe после тарифа</td>
+<td style="text-align: right;">−0.137</td>
+<td style="text-align: right;">690</td>
+</tr>
+<tr>
+<td>Частота сделок ↔ доходность после тарифа</td>
+<td style="text-align: right;">−0.096</td>
+<td style="text-align: right;">690</td>
+</tr>
+<tr>
+<td>Частота сделок ↔ волатильность</td>
+<td style="text-align: right;">+0.290</td>
+<td style="text-align: right;">690</td>
+</tr>
+<tr>
+<td>Частота сделок ↔ число подписчиков</td>
+<td style="text-align: right;">+0.124</td>
+<td style="text-align: right;">690</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Д18. Нижняя оценка денег: подписки против рублей</h2>
+<p><strong>Как считано.</strong> <code>деньги стратегии = число её подписок × минимальный порог входа</code>. Только живые стратегии: у закрытых счётчик обнулён площадкой. Сумма по всем живым — <strong>3.94 млрд ₽</strong> при 13 430 подписках, то есть не меньше 293 тыс. ₽ на подписку при медианном пороге живой стратегии 135 тыс. и взвешенной подписками медиане 180 тыс.</p>
+<p>🔴 <strong>Что здесь нижняя оценка, а что нет.</strong> Нижняя оценка — только <strong>сумма</strong>: счёт подписчика не может быть меньше порога. <strong>Доли</strong> нижней оценкой не являются — они верны при допущении, что у каждого подписчика на счёте ровно порог. Если у дешёвых стратегий счета превышают порог сильнее, чем у дорогих, все рублёвые доли ниже завышены в пользу дорогих. Проверить это в данных нечем: индивидуальных записей нет ни одной.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Разрез</th>
+<th style="text-align: right;">Доля подписок</th>
+<th style="text-align: right;">Доля денег</th>
+<th>Расходятся ли веса</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Верхний квинтиль по порогу входа</td>
+<td style="text-align: right;">14.8 %</td>
+<td style="text-align: right;"><strong>49.8 %</strong></td>
+<td><strong>да, противоположно</strong></td>
+</tr>
+<tr>
+<td>Нижний квинтиль по порогу входа</td>
+<td style="text-align: right;">23.7 %</td>
+<td style="text-align: right;"><strong>3.1 %</strong></td>
+<td><strong>да, противоположно</strong></td>
+</tr>
+<tr>
+<td>Ежедневно торгующие</td>
+<td style="text-align: right;">64.9 %</td>
+<td style="text-align: right;">70.8 %</td>
+<td>нет, перекос усиливается</td>
+</tr>
+<tr>
+<td>Есть вариант платы от результата</td>
+<td style="text-align: right;">48.6 %</td>
+<td style="text-align: right;">48.0 %</td>
+<td>нет, совпали</td>
+</tr>
+<tr>
+<td>Стратегии с Sharpe ≥ 1 (1 262 измеримые живые)</td>
+<td style="text-align: right;">50.8 %</td>
+<td style="text-align: right;">52.5 %</td>
+<td>нет</td>
+</tr>
+<tr>
+<td>Убыточные по Sharpe (1 262 измеримые живые)</td>
+<td style="text-align: right;">4.3 %</td>
+<td style="text-align: right;">3.0 %</td>
+<td>нет</td>
+</tr>
+<tr>
+<td>Топ-100 стратегий по популярности</td>
+<td style="text-align: right;">85.0 %</td>
+<td style="text-align: right;">87.0 %</td>
+<td>нет</td>
+</tr>
+<tr>
+<td>Топ-5 авторов</td>
+<td style="text-align: right;">50.3 %</td>
+<td style="text-align: right;">50.9 %</td>
+<td>нет</td>
+</tr>
+<tr>
+<td>Выше денежного рынка после тарифа (окно ≥ 3 лет)</td>
+<td style="text-align: right;">61.4 %</td>
+<td style="text-align: right;">77.4 %</td>
+<td>нет, вывод усиливается</td>
+</tr>
+<tr>
+<td>Убыточные после тарифа (окно ≥ 3 лет)</td>
+<td style="text-align: right;">4.4 %</td>
+<td style="text-align: right;">2.2 %</td>
+<td>нет, вывод усиливается</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Базы: разрезы по порогу, частоте и тарифу — живые стратегии (491 с подписками; тарифный — все 1 448); качество — 1 262 измеримые живые; последние две строки — 593 стратегии окна. Коэффициент Джини: по стратегиям 0.931 в подписках против 0.940 в рублях, по авторам 0.962 против 0.969.</em></p>
+<p><strong>Единственный разрез, где веса дают противоположный ответ, — порог входа</strong>, и это ожидаемо: рубль и есть подписка, умноженная на порог. Содержательная часть — не сам переворот, а его величина: нижняя оценка на подписку различается в 26 раз (38 тыс. против 985 тыс.), а число подписок компенсирует это лишь в 1.5 раза.</p>
+<hr>
+<h1>Источники</h1>
+<p><strong>Первичные данные</strong></p>
+<ul>
+<li>Каталог, карточки и дневные ряды стратегий Comon — <a href="https://www.comon.ru/">comon.ru</a>, выгрузка 5 августа 2026 года (ряды доведены до 4 августа включительно). Состав и метод — <a href="comon-story-0-intro.html">введение</a>.</li>
+</ul>
+<p><strong>Правила площадки</strong></p>
+<ul>
+<li>Тарифы автоследования и условия подписки — <a href="https://www.comon.ru/">comon.ru</a>, раздел тарифов; разбор тарифной сетки — <a href="comon-story-1-market.html">глава 1</a>.</li>
+</ul>
+<p><strong>Нормы и регулирование</strong></p>
+<ul>
+<li>Банк России о рисках копирования сделок, 2021 — <a href="http://naufor.ru/tree.asp?n=21643">материал НАУФОР</a> о разборе регулятором рынка копирования сделок, включая риск избыточных операций ради комиссии.</li>
+<li>IOSCO, <a href="https://www.iosco.org/library/pubdocs/pdf/IOSCOPD793.pdf">«Online Imitative Trading Practices: Copy Trading, Mirror Trading, Social Trading»</a>, финальный доклад FR/06/2025, май 2025. Международная организация комиссий по ценным бумагам фиксирует, что квалификация и послужные списки ведущих трейдеров независимо не проверяются, а стандартизованного формата раскрытия исторического результата не существует.</li>
+</ul>
+<p><strong>Внешние данные</strong></p>
+<ul>
+<li>Ставка денежного рынка RUSFAR — <a href="https://www.moex.com/ru/index/RUSFAR">Московская биржа</a>.</li>
+</ul>
+<p><strong>Публикации</strong></p>
+<ul>
+<li>Jose Apesteguia, Jörg Oechssler, Simon Weidenholzer, <a href="https://jose-apesteguia.github.io/CopyTrading.pdf">«Copy Trading»</a>, Management Science, 2020, том 66, № 12, с. 5608–5622. Серия лабораторных экспериментов: сама возможность копировать чужие сделки значимо увеличивает принимаемый риск. Механизм, который авторы называют причиной, — тот же, что виден в наших данных: инвестор с высокой доходностью мог просто больше рисковать, а отличить это от умения копирующему нечем.</li>
+</ul>
+<hr>
+<hr>
+<p><em>Условия использования: текст и графики — CC BY-NC-SA 4.0, код расчётов — BSD 3-Clause; <a href="comon-story-license.html">подробнее</a>.</em></p>
+<div class="foot">Дальше: <a href="comon-story-6-conclusion.html">Заключение</a> · <a href="index.html">оглавление серии</a></div>
+</main>
+</body>
+</html>

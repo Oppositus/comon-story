@@ -1,0 +1,2096 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Глава 2. Кладбище: что происходит со стратегией после запуска</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="topbar"><div class="wrap"><a href="index.html">Оглавление</a><span class="sep">·</span><a href="comon-story-license.html">Условия использования</a><span class="sep">·</span><a href="comon-story-0-intro.html">Введение</a><span class="sep">·</span><a href="comon-story-1-market.html">1</a><span class="sep">·</span><span class="here">2</span><span class="sep">·</span><a href="comon-story-3-returns.html">3</a><span class="sep">·</span><a href="comon-story-4-authors.html">4</a><span class="sep">·</span><a href="comon-story-4b-interlude.html">Вторая площадка</a><span class="sep">·</span><a href="comon-story-5-buyers.html">5</a><span class="sep">·</span><a href="comon-story-6-conclusion.html">Заключение</a></div></nav>
+<main class="wrap">
+<h1>Глава 2. Кладбище: что происходит со стратегией после запуска</h1>
+
+<p><em>Данные, методы и словарь терминов — во <a href="comon-story-0-intro.html">введении</a>. Все метрики пересчитаны из дневных рядов 19 978 стратегий Comon, включая 18 529 закрытых.</em></p>
+<hr>
+<p>Витрина сортирует стратегии по доходности, и разговор о выборе обычно начинается с неё. Данные говорят, что начинать надо с другого.</p>
+<p>Главный риск подписчика — не в том, что стратегия проиграет. Он в том, что <strong>стратегии не станет</strong>. Это происходит быстрее и чаще, чем можно предположить, глядя на витрину, где все стратегии по определению живы.</p>
+<h2>2.1 Сколько живёт стратегия: медиана — 173 дня</h2>
+<p>В расчёт берутся 14 832 стратегии, которые <strong>хотя бы раз совершили сделку</strong>. Пустые заготовки — 5 145 штук, из них 5 134 закрытые, то есть больше четверти всего архива, — исключены: они описывают поведение людей при регистрации, а не выживаемость торговых систем. Смертей — 13 395; 1 437 стратегий живы на день среза, и это тоже данные, просто незавершённые.</p>
+<p>Здесь нужна короткая методическая ремарка, иначе число будет неверным. Если посчитать срок жизни только по умершим, получится <strong>106 дней</strong>. Но так считать нельзя: живые стратегии, среди которых есть десятилетние, в такой расчёт просто не попадут, и картина выйдет мрачнее реальности. Правильный способ — тот же, каким в медицине считают выживаемость пациентов: живые учитываются как «дожили как минимум до сегодня». Он даёт:</p>
+<p><strong>Медианный срок жизни торгующей стратегии — 173 дня.</strong> Меньше полугода.</p>
+<p><a class="figure" href="../images/01-km-survival.png" target="_blank" rel="noopener"><img alt="Кривая дожития Каплана—Мейера: медиана 173 дня, до пяти лет доживают 6,9 %" src="../images/01-km-survival.png"></a></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Дожили до</th>
+<th style="text-align: right;">Доля</th>
+<th>95 % интервал</th>
+<th style="text-align: right;">Из 1000 стратегий останется</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Полугода</td>
+<td style="text-align: right;">48.9 %</td>
+<td>48.1–49.7 %</td>
+<td style="text-align: right;">489</td>
+</tr>
+<tr>
+<td>1 года</td>
+<td style="text-align: right;">30.5 %</td>
+<td>29.7–31.2 %</td>
+<td style="text-align: right;">305</td>
+</tr>
+<tr>
+<td>2 лет</td>
+<td style="text-align: right;">16.3 %</td>
+<td>15.7–16.9 %</td>
+<td style="text-align: right;">163</td>
+</tr>
+<tr>
+<td><strong>3 лет</strong></td>
+<td style="text-align: right;"><strong>11.7 %</strong></td>
+<td>11.2–12.3 %</td>
+<td style="text-align: right;"><strong>117</strong></td>
+</tr>
+<tr>
+<td><strong>5 лет</strong></td>
+<td style="text-align: right;"><strong>6.9 %</strong></td>
+<td>6.5–7.4 %</td>
+<td style="text-align: right;"><strong>69</strong></td>
+</tr>
+<tr>
+<td>7 лет</td>
+<td style="text-align: right;">4.8 %</td>
+<td>4.3–5.2 %</td>
+<td style="text-align: right;">48</td>
+</tr>
+<tr>
+<td>10 лет</td>
+<td style="text-align: right;">2.8 %</td>
+<td>2.3–3.2 %</td>
+<td style="text-align: right;">28</td>
+</tr>
+</tbody>
+</table></div>
+<p>Читается это так: <strong>из тысячи запущенных стратегий через год работают триста, через три года — сто семнадцать, через пять лет — шестьдесят девять</strong>.</p>
+<p>Отсюда прямое следствие для того, кто выбирает по витрине. Стратегия с трёхлетней историей — не «одна из многих», а одна из девяти. Это не значит, что она хорошая; это значит, что она редкая по другому признаку — она дожила.</p>
+<h2>2.2 Когда умирают: риск падает с возрастом</h2>
+<p>Смертность распределена по жизни крайне неравномерно.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Месяц жизни</th>
+<th style="text-align: right;">Стратегий под риском</th>
+<th style="text-align: right;">Умерло</th>
+<th style="text-align: right;">Риск за интервал</th>
+<th style="text-align: right;">В годовом темпе</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0–1</td>
+<td style="text-align: right;">14 832</td>
+<td style="text-align: right;">3 369</td>
+<td style="text-align: right;"><strong>22.7 %</strong></td>
+<td style="text-align: right;">95.5 %</td>
+</tr>
+<tr>
+<td>1–2</td>
+<td style="text-align: right;">11 403</td>
+<td style="text-align: right;">1 246</td>
+<td style="text-align: right;">10.9 %</td>
+<td style="text-align: right;">75.1 %</td>
+</tr>
+<tr>
+<td>2–3</td>
+<td style="text-align: right;">10 120</td>
+<td style="text-align: right;">938</td>
+<td style="text-align: right;">9.3 %</td>
+<td style="text-align: right;">68.9 %</td>
+</tr>
+<tr>
+<td>3–6</td>
+<td style="text-align: right;">9 148</td>
+<td style="text-align: right;">1 966</td>
+<td style="text-align: right;">21.5 %</td>
+<td style="text-align: right;">62.0 %</td>
+</tr>
+<tr>
+<td>6–9</td>
+<td style="text-align: right;">7 067</td>
+<td style="text-align: right;">1 494</td>
+<td style="text-align: right;">21.1 %</td>
+<td style="text-align: right;">61.3 %</td>
+</tr>
+<tr>
+<td>9–12</td>
+<td style="text-align: right;">5 451</td>
+<td style="text-align: right;">1 124</td>
+<td style="text-align: right;">20.6 %</td>
+<td style="text-align: right;">60.3 %</td>
+</tr>
+<tr>
+<td>12–18</td>
+<td style="text-align: right;">4 251</td>
+<td style="text-align: right;">1 334</td>
+<td style="text-align: right;">31.4 %</td>
+<td style="text-align: right;">52.9 %</td>
+</tr>
+<tr>
+<td>18–24</td>
+<td style="text-align: right;">2 806</td>
+<td style="text-align: right;">597</td>
+<td style="text-align: right;">21.3 %</td>
+<td style="text-align: right;">38.0 %</td>
+</tr>
+<tr>
+<td>24–36</td>
+<td style="text-align: right;">2 105</td>
+<td style="text-align: right;">565</td>
+<td style="text-align: right;">26.8 %</td>
+<td style="text-align: right;">26.8 %</td>
+</tr>
+<tr>
+<td>36–48</td>
+<td style="text-align: right;">1 366</td>
+<td style="text-align: right;">332</td>
+<td style="text-align: right;">24.3 %</td>
+<td style="text-align: right;">24.3 %</td>
+</tr>
+<tr>
+<td>48–60</td>
+<td style="text-align: right;">896</td>
+<td style="text-align: right;">167</td>
+<td style="text-align: right;">18.6 %</td>
+<td style="text-align: right;"><strong>18.6 %</strong></td>
+</tr>
+<tr>
+<td>60–84</td>
+<td style="text-align: right;">589</td>
+<td style="text-align: right;">154</td>
+<td style="text-align: right;">26.1 %</td>
+<td style="text-align: right;"><strong>14.1 %</strong></td>
+</tr>
+<tr>
+<td>84 и дальше</td>
+<td style="text-align: right;">261</td>
+<td style="text-align: right;">109</td>
+<td style="text-align: right;">41.8 %</td>
+<td style="text-align: right;"><strong>4.1 %</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><em>«Риск за интервал» — доля тех, кто умер за этот отрезок, от числа доживших до его начала. «В годовом темпе» — тот же риск, пересчитанный на год, чтобы отрезки разной длины были сравнимы между собой.</em></p>
+<p><strong>Почти четверть стратегий умирает в первый же месяц.</strong> Годовой темп смертности падает с 95 % на старте до 14–19 % после четвёртого года — то есть <strong>чем дольше стратегия живёт, тем ниже её текущий риск умереть</strong>. Это классическая картина отсева слабых на входе: сначала отваливаются те, кто попробовал и бросил, дальше остаются те, кто работает всерьёз.</p>
+<p><a class="figure" href="../images/02-hazard-by-age.png" target="_blank" rel="noopener"><img alt="Годовой темп смертности по возрастным интервалам: падает с 95 % на старте до 4 % после семи лет" src="../images/02-hazard-by-age.png"></a></p>
+<p>Практический смысл: <strong>возраст стратегии — это реальная информация</strong>, и притом одна из немногих, доступных на витрине бесплатно. Пережившая три года стратегия умирает примерно вчетверо реже свежезапущенной.</p>
+<p>С одной оговоркой, важной настолько, что мы вернёмся к ней в главе 3: возраст говорит именно о <strong>живучести</strong>. О доходности он тоже кое-что говорит — но совсем не то, чего ожидаешь, и разбирать это лучше вместе с остальными цифрами о доходности.</p>
+<h3>Сколько ей осталось: таблица дожития</h3>
+<p>Раз риск смерти зависит от возраста, полезнее не общая медиана, а тот же вопрос, что задают демографы: <strong>если стратегия дожила до возраста N, сколько ей осталось?</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th style="text-align: right;">Дожила до</th>
+<th style="text-align: right;">Таких осталось от старта</th>
+<th style="text-align: right;"><strong>Медиана остатка</strong></th>
+<th style="text-align: right;">Четверть умрёт за</th>
+<th style="text-align: right;">Три четверти умрут за</th>
+<th style="text-align: right;">Ожидаемая длина жизни целиком</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">Старт</td>
+<td style="text-align: right;">100 %</td>
+<td style="text-align: right;"><strong>5.7 мес</strong></td>
+<td style="text-align: right;">1.2 мес</td>
+<td style="text-align: right;">14.7 мес</td>
+<td style="text-align: right;">15.4 мес</td>
+</tr>
+<tr>
+<td style="text-align: right;">1 месяц</td>
+<td style="text-align: right;">77.3 %</td>
+<td style="text-align: right;">7.9 мес</td>
+<td style="text-align: right;">2.8 мес</td>
+<td style="text-align: right;">18.8 мес</td>
+<td style="text-align: right;">19.8 мес</td>
+</tr>
+<tr>
+<td style="text-align: right;">3 месяца</td>
+<td style="text-align: right;">62.4 %</td>
+<td style="text-align: right;">8.8 мес</td>
+<td style="text-align: right;">3.6 мес</td>
+<td style="text-align: right;">22.3 мес</td>
+<td style="text-align: right;">24.2 мес</td>
+</tr>
+<tr>
+<td style="text-align: right;">6 месяцев</td>
+<td style="text-align: right;">48.9 %</td>
+<td style="text-align: right;">9.0 мес</td>
+<td style="text-align: right;">3.7 мес</td>
+<td style="text-align: right;">28.3 мес</td>
+<td style="text-align: right;">29.8 мес</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong>1 год</strong></td>
+<td style="text-align: right;">30.5 %</td>
+<td style="text-align: right;"><strong>14.0 мес</strong></td>
+<td style="text-align: right;">3.9 мес</td>
+<td style="text-align: right;">43.6 мес</td>
+<td style="text-align: right;">43.0 мес</td>
+</tr>
+<tr>
+<td style="text-align: right;">1.5 года</td>
+<td style="text-align: right;">20.8 %</td>
+<td style="text-align: right;">22.4 мес</td>
+<td style="text-align: right;">7.3 мес</td>
+<td style="text-align: right;">60.8 мес</td>
+<td style="text-align: right;">56.9 мес</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong>2 года</strong></td>
+<td style="text-align: right;">16.3 %</td>
+<td style="text-align: right;"><strong>28.3 мес</strong></td>
+<td style="text-align: right;">10.4 мес</td>
+<td style="text-align: right;">74.6 мес</td>
+<td style="text-align: right;">67.6 мес</td>
+</tr>
+<tr>
+<td style="text-align: right;">3 года</td>
+<td style="text-align: right;">11.7 %</td>
+<td style="text-align: right;">34.8 мес</td>
+<td style="text-align: right;">11.6 мес</td>
+<td style="text-align: right;">80.4 мес</td>
+<td style="text-align: right;">84.0 мес</td>
+</tr>
+<tr>
+<td style="text-align: right;">4 года</td>
+<td style="text-align: right;">8.7 %</td>
+<td style="text-align: right;">43.5 мес</td>
+<td style="text-align: right;">15.4 мес</td>
+<td style="text-align: right;">87.0 мес</td>
+<td style="text-align: right;">99.6 мес</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong>5 лет</strong></td>
+<td style="text-align: right;">6.9 %</td>
+<td style="text-align: right;"><strong>49.6 мес</strong></td>
+<td style="text-align: right;">18.4 мес</td>
+<td style="text-align: right;">83.2 мес</td>
+<td style="text-align: right;">111.6 мес</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>«Медиана остатка» — срок, за который доживших до этого возраста станет вдвое меньше. «Четверть умрёт за» и «три четверти умрут за» — то же для потери четверти и трёх четвертей группы. Последняя колонка — прожитый возраст плюс средний остаток; средний остаток ограничен горизонтом десяти лет, потому что неограниченного среднего здесь не существует (см. приложение Б5).</em></p>
+<p><strong>Ожидаемый остаток растёт с возрастом, и растёт сильно.</strong> Только что запущенной стратегии остаётся меньше полугода. Прожившей год — четырнадцать месяцев. Прожившей два года — двадцать восемь. Пятилетней — почти пятьдесят месяцев, то есть <strong>впереди у неё вдвое больше, чем весь ожидаемый срок жизни новорождённой</strong>.</p>
+<p><a class="figure" href="../images/03-residual-life.png" target="_blank" rel="noopener"><img alt="Медианный остаток жизни против прожитого возраста: чем дольше стратегия живёт, тем больше жизни у неё впереди" src="../images/03-residual-life.png"></a></p>
+<p>Демографу такая картина знакома: так выглядят таблицы дожития общества с высокой детской смертностью. Средняя продолжительность жизни там низкая не потому, что взрослые живут мало, а потому, что многие не переживают первых лет; кто пережил — живёт долго. С торговыми стратегиями ровно то же: медиана в 173 дня создана массовым отсевом на входе, а не тем, что «стратегии в принципе живут полгода».</p>
+<p>Разброс при этом остаётся огромным на любом возрасте. У годовалой стратегии четверть сверстниц исчезнет в ближайшие четыре месяца, а три четверти — только через три с половиной года. <strong>Ожидаемый остаток — характеристика группы, а не прогноз для конкретной стратегии.</strong></p>
+<h2>2.3 От чего умирают</h2>
+<p>«Умерла» — слишком грубое слово для того, что происходит с этими стратегиями на самом деле. Мы разобрали каждую закрытую стратегию по <strong>механизму смерти</strong>: что именно случилось в конце.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Что произошло</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Доля архива</th>
+<th style="text-align: right;">Медиана срока жизни</th>
+<th style="text-align: right;">Медиана итога</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Не стартовала</strong> — ни одной сделки за всю жизнь</td>
+<td style="text-align: right;">5 134</td>
+<td style="text-align: right;">27.7 %</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr>
+<td>Недостаточно истории, чтобы судить</td>
+<td style="text-align: right;">7 506</td>
+<td style="text-align: right;">40.5 %</td>
+<td style="text-align: right;">139 дней</td>
+<td style="text-align: right;">−18.9 %</td>
+</tr>
+<tr>
+<td><strong>Смерть у собственного пика</strong> — от лучшей точки своей кривой упала не больше чем на 5 %</td>
+<td style="text-align: right;">3 189</td>
+<td style="text-align: right;">17.2 %</td>
+<td style="text-align: right;">32 дня</td>
+<td style="text-align: right;"><strong>+1.6 %</strong></td>
+</tr>
+<tr>
+<td><strong>Заброшена</strong> — 90+ дней без сделок до закрытия</td>
+<td style="text-align: right;">2 081</td>
+<td style="text-align: right;">11.2 %</td>
+<td style="text-align: right;">256 дней</td>
+<td style="text-align: right;">−18.1 %</td>
+</tr>
+<tr>
+<td>Слом не подтверждён — признаки есть, доказательства нет</td>
+<td style="text-align: right;">283</td>
+<td style="text-align: right;">1.5 %</td>
+<td style="text-align: right;">954 дня</td>
+<td style="text-align: right;">−2.2 %</td>
+</tr>
+<tr>
+<td>Обычная просадка в пределах своей истории</td>
+<td style="text-align: right;">241</td>
+<td style="text-align: right;">1.3 %</td>
+<td style="text-align: right;">1 063 дня</td>
+<td style="text-align: right;">+32.6 %</td>
+</tr>
+<tr>
+<td><strong>Деградация</strong> — механизм сломался</td>
+<td style="text-align: right;"><strong>95</strong></td>
+<td style="text-align: right;"><strong>0.5 %</strong></td>
+<td style="text-align: right;">1 039 дней</td>
+<td style="text-align: right;">−5.1 %</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>База — </em><em>все 18 529 закрытых стратегий</em><em>: механизм смерти разобран у каждой. Живых здесь нет по определению: смерти у них ещё не было. 🔴 </em><em>«Медиана итога» здесь и всюду в главе — результат подписчика, который вошёл в первый день жизни стратегии и не выходил.</em><em> Тот, кто подписался позже — а подписываются всегда позже, — получил бы другое; насколько другое, посчитано в конце раздела. Медиана срока жизни и медиана итога у класса «не стартовала» не существуют — стратегия не торговала ни дня, поэтому в этих клетках прочерк, а не ноль. Три последних класса разделены проверкой на слом — она устроена из двух независимых тестов и разбирается в разделе 2.5: «деградация» означает, что сработали оба теста, «слом не подтверждён» — что сработал только один и этого мало для вердикта, «обычная просадка» — что не сработал ни один и стратегия закрылась в пределах привычного для себя риска.</em></p>
+<p>Первое, что бросается в глаза: <strong>больше четверти архива никогда не торговало</strong>, а ещё 17 % закрылись, стоя на максимуме собственной кривой. Смерть здесь чаще всего не катастрофа, а тишина. Оговорки здесь две, и обе важные. Первая: максимум собственной кривой — не то же самое, что прибыль. У стратегии, которая с самого начала ушла в минус и больше не возвращалась, лучшая точка тоже ниже вложенной суммы, и закрытие «у пика» означает лишь, что напоследок она не обвалилась. Вторая: <strong>треть этого класса — стратегии с очень коротким рядом</strong>, у 507 из 3 189 торговый день вообще один. Когда точек мало, «умерла у пика» получается почти автоматически: падать от единственной точки некуда. Само определение (упала от максимума не больше чем на 5 %) от этого не портится и порог задан заранее, но читать 17 % как «каждая шестая стратегия закрылась на своём лучшем результате» не стоит — заметная их часть просто не успела ничего показать.</p>
+<p>Особенно показательна связка механизма с финансовым итогом:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Механизм \ Итог</th>
+<th style="text-align: right;">Разорение</th>
+<th style="text-align: right;">Убыток</th>
+<th style="text-align: right;">Прибыль</th>
+<th style="text-align: right;">Итого</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Заброшена</td>
+<td style="text-align: right;">359</td>
+<td style="text-align: right;">1 182</td>
+<td style="text-align: right;">540</td>
+<td style="text-align: right;">2 081</td>
+</tr>
+<tr>
+<td><strong>Смерть у пика</strong></td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1 173</td>
+<td style="text-align: right;"><strong>2 013</strong></td>
+<td style="text-align: right;">3 189</td>
+</tr>
+<tr>
+<td>Обычная просадка</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">207</td>
+<td style="text-align: right;">241</td>
+</tr>
+<tr>
+<td><strong>Деградация</strong></td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;"><strong>46</strong></td>
+<td style="text-align: right;">95</td>
+</tr>
+<tr>
+<td>Слом не подтверждён</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">115</td>
+<td style="text-align: right;">135</td>
+<td style="text-align: right;">283</td>
+</tr>
+<tr>
+<td>Недостаточно истории</td>
+<td style="text-align: right;">806</td>
+<td style="text-align: right;">5 449</td>
+<td style="text-align: right;">1 251</td>
+<td style="text-align: right;">7 506</td>
+</tr>
+<tr>
+<td><strong>Итого</strong></td>
+<td style="text-align: right;"><strong>1 233</strong></td>
+<td style="text-align: right;"><strong>7 970</strong></td>
+<td style="text-align: right;"><strong>4 192</strong></td>
+<td style="text-align: right;"><strong>13 395</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Оси таблицы независимы, и это стоит держать в голове, потому что иначе несколько клеток выглядят противоречиво. Механизм отвечает на вопрос «как выглядел конец», итог — «сколько денег осталось у подписчика по сравнению с вложенной суммой». Ниже разобраны три клетки, которые чаще всего вызывают вопрос.</em></p>
+<p><strong>Как можно умереть у пика и остаться в убытке — 1 173 случая.</strong> «Пик» здесь — лучшая точка <strong>собственной кривой стратегии</strong>, а не уровень изначального капитала. У двух третей этих стратегий (799 из 1 173) кривая вообще ни разу не поднималась выше вложенной суммы: их лучшая точка тоже ниже старта, и умереть «у пика» означает лишь, что напоследок они не обвалились. Мы проверили эти случаи поштучно, и главное в них оказалось не в механизме, а в масштабе: <strong>медианный убыток здесь — 2.6 %, а больше половины стратегий торговали не дольше четырёх дней</strong>. Это не драма отыгрыша и потери, а несколько сделок, мелкий минус и закрытие. Класс говорит только о том, что финального обвала не было: стратегия не рухнула напоследок, она просто перестала торговать.</p>
+<p><strong>Как разорившаяся стратегия попадает в «смерть у пика» — 3 случая.</strong> Мы посмотрели все три. У каждой из них <strong>один-единственный торговый день</strong>, и на нём потеряно от 91 до 99.5 % капитала: одна сделка 15 августа 2011 года, одна 14 февраля 2019-го, одна 25 июня 2024-го. Разорение здесь очевидно, а «смерть у пика» присвоена вырожденно: когда в ряду одна точка, она же и максимум, поэтому падения от пика формально нет. Три случая на 3 189 — не картина, а край, где определение упирается в слишком короткий ряд.</p>
+<p><strong>Как разорение может оказаться «обычной просадкой» — 1 случай.</strong> Этот случай стоит разобрать полностью, потому что он показывает границу самого слова «разорение». Стратегия прожила 430 торговых дней, вырастала почти втрое, потом падала до восемнадцати копеек с рубля — просадка 94 %, отсюда и класс «разорение», который присваивается по <strong>худшей точке за всю жизнь</strong>. Но закончила она <strong>с прибылью 26 %</strong>: после провала кривая восстановилась, и последнее падение — 56 % от максимума — для стратегии с таким размахом оказалось рядовым. Проверка на слом (раздел 2.5) сравнивает финальное падение не с абсолютным порогом, а с собственной историей: для спокойной кривой провал в 30 % — событие, для этой и 56 % — обычный день. Ломаться ей было нечему, она такой и была с самого начала. Ровно поэтому абсолютных порогов мы не используем — и ровно поэтому «разорение» в наших таблицах означает «в какой-то момент теряла почти всё», а не «оставила подписчика ни с чем».</p>
+<p><strong>2 013 стратегий закрылись у своего пика и в плюсе.</strong> Машина была цела, деньги на месте — и всё равно стратегия исчезла. Почему именно, данные не говорят: причины закрытия нам не видны, видно только, что торговля прекратилась в лучшей точке. Для подписчика это в любом случае одинаково — надо искать новую стратегию.</p>
+<p>И обратная, более редкая, но более неприятная ячейка: <strong>46 стратегий деградировали, оставаясь в прибыли</strong>. Механизм уже сломался, а итоговая цифра ещё зелёная. Без разделения на две оси такие случаи выглядели бы как благополучные закрытия.</p>
+<p>Теперь о худшем исходе. <strong>Разорение — 1 233 стратегии, 6.7 % архива</strong>: просадка глубже 90 % или от капитала осталась десятая часть. Стратегий, потерявших 95 % и больше, — 730. Накопленным итогом вероятность разорения выглядит так:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Через сколько лет</th>
+<th style="text-align: right;">Вероятность разориться</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 год</td>
+<td style="text-align: right;">4.0 %</td>
+</tr>
+<tr>
+<td>3 года</td>
+<td style="text-align: right;">7.3 %</td>
+</tr>
+<tr>
+<td>5 лет</td>
+<td style="text-align: right;">8.8 %</td>
+</tr>
+<tr>
+<td>10 лет</td>
+<td style="text-align: right;">9.9 %</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Примерно одна из четырнадцати торгующих стратегий за три года теряет почти всё.</strong> Это не хвост распределения, это регулярное событие.</p>
+<h3>Итог стратегии — это не итог подписчика</h3>
+<p>Во всех таблицах выше «итог» означает одно: <strong>что получил бы человек, подписавшийся в первый день жизни стратегии и не отписавшийся ни разу</strong>. Таких подписчиков не бывает. На витрину смотрят, когда там уже есть что показать, — а к этому моменту часть кривой, в том числе самая приятная её часть, уже пройдена.</p>
+<p>Посчитаем два других входа на тех же 13 393 умерших стратегиях, у которых была хотя бы одна сделка. <strong>Вход на пике</strong>: человек увидел хорошую историю и подписался на максимуме кривой; его результат — это ровно та просадка от вершины, которой стратегия закончила жизнь. <strong>Случайный вход</strong>: подписка в произвольный день, медиана по всем возможным дням.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Когда подписался</th>
+<th style="text-align: right;">p10</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">Медиана</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p90</th>
+<th style="text-align: right;">Доля в минусе</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>В первый день (это и есть «итог» таблиц выше)</td>
+<td style="text-align: right;">−80.8 %</td>
+<td style="text-align: right;">−37.1 %</td>
+<td style="text-align: right;"><strong>−8.5 %</strong></td>
+<td style="text-align: right;">+2.3 %</td>
+<td style="text-align: right;">+21.2 %</td>
+<td style="text-align: right;">68.6 %</td>
+</tr>
+<tr>
+<td>В случайный день жизни стратегии</td>
+<td style="text-align: right;">−57.9 %</td>
+<td style="text-align: right;">−20.5 %</td>
+<td style="text-align: right;"><strong>−3.5 %</strong></td>
+<td style="text-align: right;">0.0 %</td>
+<td style="text-align: right;">+7.4 %</td>
+<td style="text-align: right;">64.0 %</td>
+</tr>
+<tr>
+<td>На пике кривой</td>
+<td style="text-align: right;">−85.7 %</td>
+<td style="text-align: right;">−48.5 %</td>
+<td style="text-align: right;"><strong>−19.1 %</strong></td>
+<td style="text-align: right;">−5.2 %</td>
+<td style="text-align: right;">−0.7 %</td>
+<td style="text-align: right;"><strong>94.5 %</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><em>База — 13 393 закрытые стратегии, торговавшие хотя бы день (у двух из 13 395 ряд непригоден для расчёта). Все числа валовые: плата за следование и комиссии брокера подписчика не вычтены. Пик определён задним числом по всей кривой.</em></p>
+<p>🔴 <strong>Как это читать.</strong> Вход на пике — не портрет типичного подписчика, а <strong>верхняя граница пессимизма</strong>: в момент подписки никто не знает, что стоит на вершине. Случайный вход — нейтральная середина. Реальный опыт лежит между этими двумя строками, и обе они хуже той, что публикуется как результат стратегии. Заодно видно неочевидное: случайный вход <strong>лучше</strong> входа в первый день (−3.5 % против −8.5 %) — поздний подписчик пропускает часть падения тех стратегий, которые пошли вниз сразу.</p>
+<p>Самое неприятное — там, где витрина выглядит хорошо. Возьмём стратегии, у которых <strong>до пика было не меньше 100 торговых дней и накопленный рост не меньше +50 %</strong>: именно такую историю человек и разглядывает, прежде чем подписаться. Таких 1 126 — 8.4 % умерших с торгами, медианный рост к пику +117 %, медианная история до пика 310 торговых дней.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Сценарий (медианы по 1 126 стратегиям)</th>
+<th style="text-align: right;">Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Итог стратегии (подписка в первый день)</td>
+<td style="text-align: right;"><strong>+40.4 %</strong></td>
+</tr>
+<tr>
+<td>Подписка в случайный день</td>
+<td style="text-align: right;">0.0 %</td>
+</tr>
+<tr>
+<td>Подписка на пике</td>
+<td style="text-align: right;"><strong>−34.3 %</strong></td>
+</tr>
+<tr>
+<td>Доля стратегий, где вход на пике дал минус</td>
+<td style="text-align: right;">95.8 %</td>
+</tr>
+<tr>
+<td>Медианный срок, который подписчик держал бы после пика</td>
+<td style="text-align: right;">225 дней</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Стратегия, показавшая за жизнь +40 %, вошедшему на её максимуме отдала бы −34 %.</strong> И это не редкая клетка: из 4 200 стратегий, закончивших жизнь в плюсе, <strong>82.5 % оставили бы подписавшегося на пике в минусе</strong>. Причём чем ярче витрина, тем сильнее расхождение: у стратегий с итогом больше +500 % медианный итог 1 003 %, а вход на пике даёт −13.3 %.</p>
+<p>Отсюда правило чтения всей главы: числа в её таблицах описывают <strong>судьбу стратегий</strong>, а не опыт клиентов. Полная разбивка по механизмам смерти — в приложении Б13.</p>
+<h2>2.4 Кто закрывает стратегию — и почему это не всегда автор</h2>
+<p>Читая «стратегия закрыта», естественно вообразить человека, который решил всё бросить. Правила площадки говорят, что это часто не так.</p>
+<p>Регламент содержит закрытый список причин, по которым <strong>администрация сама</strong> переносит стратегию в архив — отключая всех подписчиков и блокируя учётную запись автора:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Критерий по правилам</th>
+<th>Можно ли измерить в наших данных</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Полный вывод денег со счёта стратегии</td>
+<td>Косвенно — проявляется как обрыв сделок</td>
+</tr>
+<tr>
+<td>Оценка счёта в течение месяца не превышает 30 000 ₽</td>
+<td>Оценка сверху</td>
+</tr>
+<tr>
+<td>Доходность не меняется 3 месяца и более</td>
+<td><strong>Прямо</strong></td>
+</tr>
+<tr>
+<td>Доходность составляет менее −95 %</td>
+<td><strong>Прямо</strong></td>
+</tr>
+<tr>
+<td>Нет никаких операций 3 месяца и более</td>
+<td><strong>Прямо</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Мы посчитали, сколько стратегий подпадает под эти критерии:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Оценка</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Доля архива</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Нижняя</strong> — только прямо наблюдаемые критерии</td>
+<td style="text-align: right;"><strong>4 681</strong></td>
+<td style="text-align: right;"><strong>25.3 %</strong></td>
+</tr>
+<tr>
+<td><strong>Верхняя</strong> — плюс оценка по размеру счёта</td>
+<td style="text-align: right;">10 036</td>
+<td style="text-align: right;">54.2 %</td>
+</tr>
+<tr>
+<td>Не подпадают ни под один наблюдаемый критерий</td>
+<td style="text-align: right;">8 493</td>
+<td style="text-align: right;">45.8 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>Верхняя оценка слабая, и мы это подчёркиваем: медианный порог входа по популяции — ровно 30 000 ₽, то есть половина стратегий стартует прямо на границе, и любой убыток формально переводит их в этот класс. Надёжная цифра — нижняя: <strong>администрацией закрыта как минимум четверть архива</strong>.</p>
+<p>🔴 <strong>Самое существенное здесь — судьба класса «заброшена».</strong> Все 2 081 стратегия в нём подпадают под критерий принудительного закрытия «нет операций три месяца». То есть это <strong>не</strong> «автор потерял интерес и закрыл» — это площадка закрыла за бездействие. Разница принципиальна для того, кто пытается понять причины смертности.</p>
+<p>С этой поправкой картина причин выглядит уже не двусторонней, а трёхсторонней:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Кто «убил» стратегию</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Доля архива</th>
+<th style="text-align: right;">Медиана итога</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Администрация</strong> (наблюдаемо)</td>
+<td style="text-align: right;">4 681</td>
+<td style="text-align: right;"><strong>25.3 %</strong></td>
+<td style="text-align: right;">0.0 %</td>
+</tr>
+<tr>
+<td>Рынок: убыток</td>
+<td style="text-align: right;">6 770</td>
+<td style="text-align: right;">36.5 %</td>
+<td style="text-align: right;">−16.4 %</td>
+</tr>
+<tr>
+<td>Рынок: разорение</td>
+<td style="text-align: right;">389</td>
+<td style="text-align: right;">2.1 %</td>
+<td style="text-align: right;">−89.6 %</td>
+</tr>
+<tr>
+<td>Рынок: деградация</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">0.3 %</td>
+<td style="text-align: right;">+26.1 %</td>
+</tr>
+<tr>
+<td>Автор: ушёл в прибыли</td>
+<td style="text-align: right;">3 606</td>
+<td style="text-align: right;">19.5 %</td>
+<td style="text-align: right;">+8.4 %</td>
+</tr>
+<tr>
+<td>Автор: прочее</td>
+<td style="text-align: right;">3 019</td>
+<td style="text-align: right;">16.3 %</td>
+<td style="text-align: right;">0.0 %</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Итого: администрация 25.3 %, рынок 39.0 %, автор 35.8 %.</strong></p>
+<p>И здесь стоит сказать то, что редко говорят про площадку в таком тексте: <strong>эта уборка сделана в интересах подписчика</strong>. Стратегия, которая три месяца не торгует, счёт которой опустел, или которая потеряла 95 % капитала, не должна оставаться на витрине как живой вариант для подписки. Правила заставляют её убрать, и правила работают.</p>
+<p>У той же уборки есть побочный эффект, о котором мы предупреждали во <a href="comon-story-0-intro.html">введении</a>: именно она превращает витрину в галерею выживших. Все убранные стратегии продолжают существовать в архиве — но их никто не видит, кроме тех, кто специально пойдёт искать. Это ровно то, что мы и сделали.</p>
+<h2>2.5 Сломалась или просто просела: как отличить</h2>
+<p>Из всех причин смерти одна интересует нас особенно, потому что она единственная бьёт по подписчику напрямую: <strong>стратегия перестала работать</strong>. Не «неудачный месяц», а «механизм сломался».</p>
+<p>Отличить одно от другого сложнее, чем кажется. Абсолютные пороги здесь бесполезны: для спокойной стратегии просадка 30 % — катастрофа, для агрессивной — рядовое событие. Поэтому эталоном служит <strong>собственная история каждой стратегии</strong>, а вердикт выносится только при согласии двух независимых тестов:</p>
+<p><strong>Тест первый — «бывало ли с ней такое раньше».</strong> Берётся вся история до начала финальной просадки, из неё многократно (2 000 раз) пересобираются искусственные варианты того, как эта стратегия могла бы идти дальше, и смотрится, насколько глубокие просадки для неё вообще типичны. Если финальная просадка попадает в худшие 5 % — своим обычным риском она не объясняется.</p>
+<p><strong>Тест второй — «был ли перелом».</strong> По дневному ряду ищется момент, после которого поведение стратегии изменилось: средняя доходность ушла вниз и продержалась в новом состоянии не меньше 60 торговых дней. Одна плохая неделя переломом не считается.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Класс</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Медиана финальной просадки</th>
+<th style="text-align: right;">Медиана «своего» порога</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Обычная просадка</td>
+<td style="text-align: right;">241</td>
+<td style="text-align: right;">−16.4 %</td>
+<td style="text-align: right;">−33.8 %</td>
+</tr>
+<tr>
+<td>Слом не подтверждён (сработал один тест из двух)</td>
+<td style="text-align: right;">283</td>
+<td style="text-align: right;">−43.6 %</td>
+<td style="text-align: right;">−25.2 %</td>
+</tr>
+<tr>
+<td><strong>Деградация</strong> (сработали оба)</td>
+<td style="text-align: right;"><strong>95</strong></td>
+<td style="text-align: right;"><strong>−56.2 %</strong></td>
+<td style="text-align: right;">−26.7 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>Деградировавшие стратегии проседали на 56 % при том, что их собственная история предсказывала не глубже 27 %. И это был не эпизод: <strong>медиана жизни в сломанном состоянии — 218 торговых дней</strong>, почти год работы уже неисправной машины.</p>
+<p>🔴 <strong>А теперь честное ограничение, без которого предыдущий абзац читался бы неверно.</strong> Чтобы вынести вердикт, нужна история: не меньше 250 торговых дней <strong>до</strong> начала финальной просадки. Такую историю имеют лишь <strong>1 098 стратегий — 5.9 % архива</strong> (если же считать не от всего архива, а только от закрытых стратегий, у которых была хотя бы одна сделка, — 8.2 %); после отсева заброшенных и умерших у пика в тесты попали 619. Медиана истории до пика по всему архиву — <strong>12 торговых дней</strong>.</p>
+<p>Поэтому вывод «деградация встречается редко» (0.5 % архива, 0.6 % за десять лет) относится <strong>только к тем стратегиям, у которых хватило истории на вердикт</strong>. Про остальные мы честно не знаем — и предпочитаем это сказать, а не назначить им причину смерти.</p>
+<p>Правильное чтение такое: <strong>среди стратегий, доживших до статистической зрелости, поломка механизма — не главная причина смерти. Чаще стратегия закрывается в спокойном состоянии — нередко прямо на своём максимуме — или просто в убытке, без всякого перелома.</strong></p>
+<h2>2.6 Насколько эта популяция вообще «нормальная»</h2>
+<p>Прежде чем принимать цифры выживаемости всерьёз, нужно проверить, не искажены ли они мусором. Две находки говорят, что засорённость реальна.</p>
+<p><strong>Первая: разовая чистка 2014 года.</strong> В данных виден резкий всплеск — 4 231 стратегия начала свой ряд в 2014 году, вчетверо больше, чем в соседние годы. Объяснение находится сразу: <strong>3 712 из них (87.7 %) числятся за служебным аккаунтом площадки</strong>. Всего за этим аккаунтом 4 058 стратегий — 21.9 % архива, живых среди них нет. Правила разрешают переносить стратегию в архив «путём отключения счёта стратегии от аккаунта», и отвязанные стратегии оказываются именно там.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Год архивации</th>
+<th style="text-align: right;">Служебный аккаунт</th>
+<th style="text-align: right;">Остальные</th>
+<th style="text-align: right;">Доля служебного</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2013</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">307</td>
+<td style="text-align: right;">0.0 %</td>
+</tr>
+<tr>
+<td><strong>2014</strong></td>
+<td style="text-align: right;"><strong>3 862</strong></td>
+<td style="text-align: right;">928</td>
+<td style="text-align: right;"><strong>80.6 %</strong></td>
+</tr>
+<tr>
+<td>2015</td>
+<td style="text-align: right;">184</td>
+<td style="text-align: right;">915</td>
+<td style="text-align: right;">16.7 %</td>
+</tr>
+<tr>
+<td>2016</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">757</td>
+<td style="text-align: right;">1.6 %</td>
+</tr>
+<tr>
+<td>2017 и позже</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">~10 700</td>
+<td style="text-align: right;">0.0 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>Это не текущая практика наказаний, а единовременное событие: у этой партии половина не торговала ни дня, подписчиков — ноль, доля разорившихся не выше, чем у остальных. Похоже на разовую уборку старого пласта пустых заготовок.</p>
+<p><strong>Вторая: фабрики стратегий.</strong> Правила площадки грозят блокировкой за «многократные попытки создания стратегий с короткими сроками существования». В данных это видно прямо:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Стратегий у автора</th>
+<th style="text-align: right;">Авторов</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Из них не торговали ни дня</th>
+<th style="text-align: right;">Медиана срока жизни торговавших</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align: right;">3 107</td>
+<td style="text-align: right;">3 107</td>
+<td style="text-align: right;">20.0 %</td>
+<td style="text-align: right;"><strong>289 дней</strong></td>
+</tr>
+<tr>
+<td>2–3</td>
+<td style="text-align: right;">1 517</td>
+<td style="text-align: right;">3 510</td>
+<td style="text-align: right;">21.2 %</td>
+<td style="text-align: right;">171 день</td>
+</tr>
+<tr>
+<td>4–9</td>
+<td style="text-align: right;">747</td>
+<td style="text-align: right;">4 098</td>
+<td style="text-align: right;">19.2 %</td>
+<td style="text-align: right;">134 дня</td>
+</tr>
+<tr>
+<td>10–19</td>
+<td style="text-align: right;">170</td>
+<td style="text-align: right;">2 206</td>
+<td style="text-align: right;">18.1 %</td>
+<td style="text-align: right;">86 дней</td>
+</tr>
+<tr>
+<td><strong>20 и больше</strong></td>
+<td style="text-align: right;"><strong>65</strong></td>
+<td style="text-align: right;"><strong>2 998</strong></td>
+<td style="text-align: right;"><strong>27.5 %</strong></td>
+<td style="text-align: right;"><strong>25 дней</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Служебный аккаунт площадки из таблицы исключён: за ним числятся 4 058 отвязанных стратегий, но это не автор. Срок жизни — от создания до последнего торгового дня, как и везде в главе; считается по стратегиям, которые хотя бы раз торговали, поэтому рядом стоит доля тех, кто не торговал вовсе.</em></p>
+<p><strong>Шестьдесят пять авторов держат 2 998 стратегий — 15 % всего каталога в 19 978 записей, а медианная жизнь такой системы — двадцать пять дней</strong> против 289 дней у авторов единственной стратегии. Связь монотонная: чем больше стратегий у автора, тем короче их жизнь — ровно то поведение, против которого написано правило. У фабрик выше и доля пустых заготовок: 27.5 % против 18–21 % в остальных группах. Подробнее об этих людях — в <a href="comon-story-4-authors.html">главе 4</a>; там та же группа берётся с отсечкой «больше 20» и считается от популяции без служебного аккаунта, поэтому числа выглядят иначе — 62 автора, 2 938 стратегий и доля 18.5 %.</p>
+<p>Главный вопрос: не держится ли вся картина смертности на этом мусоре? Проверяем, убирая подозрительные группы:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Выборка</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Медиана жизни</th>
+<th style="text-align: right;">Дожили 1 год</th>
+<th style="text-align: right;">3 года</th>
+<th style="text-align: right;">5 лет</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Вся популяция</td>
+<td style="text-align: right;">14 832</td>
+<td style="text-align: right;">173 дня</td>
+<td style="text-align: right;">30.5 %</td>
+<td style="text-align: right;">11.7 %</td>
+<td style="text-align: right;">6.9 %</td>
+</tr>
+<tr>
+<td>Без партии служебного аккаунта</td>
+<td style="text-align: right;">12 548</td>
+<td style="text-align: right;">134 дня</td>
+<td style="text-align: right;">31.6 %</td>
+<td style="text-align: right;">14.1 %</td>
+<td style="text-align: right;">8.4 %</td>
+</tr>
+<tr>
+<td>Без всех авторов с 20 и более стратегиями</td>
+<td style="text-align: right;">10 373</td>
+<td style="text-align: right;">175 дней</td>
+<td style="text-align: right;">35.5 %</td>
+<td style="text-align: right;">15.7 %</td>
+<td style="text-align: right;">8.9 %</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Третья строка убирает и фабрики, и служебный аккаунт разом — он тоже попадает под условие «20 и более».</em></p>
+<p><a class="figure" href="../images/18-survival-robustness.png" target="_blank" rel="noopener"><img alt="Три кривые дожития: вся популяция, без служебного аккаунта и без авторов с двадцатью и более стратегиями — форма кривой одна" src="../images/18-survival-robustness.png"></a></p>
+<p><strong>Выводы устойчивы.</strong> Доля доживших до трёх лет сдвигается с 11.7 % к 14–16 %, до пяти лет — с 6.9 % к 8.4–8.9 %. Порядок величин и форма кривой те же, медиана жизни остаётся в диапазоне 130–175 дней. То есть даже если считать только «серьёзные» стратегии, до трёх лет доживает примерно каждая седьмая, а до пяти — каждая двенадцатая.</p>
+<h2>2.7 Что предсказывает выживание — и что не предсказывает ничего</h2>
+<p>Последний вопрос главы самый практичный: можно ли, глядя на стратегию, угадать, доживёт ли она?</p>
+<p>Мы взяли 4 188 стратегий, проживших хотя бы год, измерили их характеристики <strong>за первый год</strong> и посмотрели, как это связано со смертностью в дальнейшем. Такой порядок важен: иначе получилось бы, что долгожители «предсказываются» тем, что они долго жили.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Характеристика первого года</th>
+<th style="text-align: right;">Во сколько раз меняется риск смерти</th>
+<th>Значимость</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Порог входа</strong> (минимальная сумма подписки)</td>
+<td style="text-align: right;"><strong>0.685</strong> — выше порог, реже умирают</td>
+<td>очень высокая</td>
+</tr>
+<tr>
+<td><strong>Регулярность торговли</strong> (число торговых дней)</td>
+<td style="text-align: right;"><strong>0.755</strong> — торгует чаще, живёт дольше</td>
+<td>очень высокая</td>
+</tr>
+<tr>
+<td><strong>Глубина просадки в первый год</strong></td>
+<td style="text-align: right;"><strong>1.271</strong> — глубже просадка, чаще умирают</td>
+<td>очень высокая</td>
+</tr>
+<tr>
+<td>Волатильность первого года</td>
+<td style="text-align: right;">0.938</td>
+<td>слабая</td>
+</tr>
+<tr>
+<td><strong>Доходность за первый год</strong></td>
+<td style="text-align: right;"><strong>0.997</strong></td>
+<td><strong>нет вообще</strong> (p = 0.86)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Числа означают изменение риска при росте признака на одно стандартное отклонение: 0.685 — риск падает почти на треть, 1.271 — растёт на 27 %.</p>
+<p>Три вывода, и третий — главный.</p>
+<p><strong>Порог входа предсказывает живучесть лучше всего.</strong> Высокий минимум для подписчика — это косвенный признак серьёзности намерений автора: такую стратегию не заводят на пробу. Забегая вперёд, в главе 5 выяснится, что порог входа — сильнейший из заранее видимых на витрине признаков, связанных с качеством (частота сделок связана тоже, но слабее).</p>
+<p><strong>Регулярность торговли работает, глубокая ранняя просадка вредит.</strong> Обе связи интуитивны и обе сильны.</p>
+<p>🔴 <strong>Доходность первого года не предсказывает выживание вообще.</strong> Не «слабо предсказывает» — не предсказывает: стратегии, заработавшие в первый год, умирают ровно так же часто, как убыточные. Ранний хороший результат — не свидетельство прочности.</p>
+<p>Сразу оговорим, чего этот вывод не означает. Он не о том, как распределяются подписки: в данных подписки связаны со свежим результатом заметно слабее, чем с доходностью за всю историю стратегии и с её возрастом (глава 5). Возраст, как мы видели в разделе 2.2, с живучестью действительно связан. Речь именно о раннем результате: первые двенадцать месяцев прибыли не говорят о том, что стратегия проживёт дольше.</p>
+<p>Обычная оговорка: всё перечисленное — связи, а не причины. Высокий порог входа не делает стратегию живучей; он лишь встречается там же, где живучесть. Поднять минимальную сумму, чтобы стратегия зажила дольше, невозможно.</p>
+<hr>
+<h2>Выводы главы</h2>
+<ol>
+<li>
+<p><strong>Медианная стратегия живёт 173 дня.</strong> До года доживает 30.5 %, до трёх лет — 11.7 %, до пяти — 6.9 %. Из тысячи запущенных стратегий через пять лет работают шестьдесят девять.</p>
+</li>
+<li>
+<p><strong>Смертность падает с возрастом.</strong> 22.7 % умирают в первый месяц, годовой темп снижается с 95 % на старте до 14–19 % после четвёртого года. Возраст стратегии — реальная информация о её живучести, доступная на витрине бесплатно. О будущей доходности он говорит отдельный и неожиданный разговор — в главе 3.</p>
+</li>
+<li>
+<p><strong>Ожидаемый остаток жизни растёт с возрастом.</strong> Новорождённой стратегии остаётся в среднем меньше полугода, прожившей год — 14 месяцев, двухлетней — 28, пятилетней — почти 50 месяцев. Медиана в 173 дня создана массовым отсевом на входе, а не тем, что «стратегии в принципе живут полгода» — это та же арифметика, что в таблицах дожития общества с высокой детской смертностью.</p>
+</li>
+<li>
+<p><strong>Смерть чаще всего не катастрофа, а тишина.</strong> Больше четверти архива не совершило ни одной сделки; 17.2 % закрылись, стоя на собственном пике, и 2 013 из них — в плюсе. Для подписчика такая смерть означает потерю стратегии, но не денег.</p>
+</li>
+<li>
+<p><strong>Разорение — регулярное событие, а не хвост.</strong> 6.7 % архива потеряли почти всё; вероятность разориться составляет 4.0 % за первый год и 7.3 % за три года. Примерно одна торгующая стратегия из четырнадцати за три года теряет почти весь капитал.</p>
+</li>
+<li>
+<p><strong>Четверть архива закрыла администрация, а не автор.</strong> Все 2 081 «заброшенная» стратегия подпадают под критерий принудительного закрытия за три месяца бездействия. Итоговое разделение причин: администрация 25.3 %, рынок 39.0 %, автор 35.8 %. Эта уборка сделана в интересах подписчика — и она же превращает витрину в галерею выживших.</p>
+</li>
+<li>
+<p><strong>Доказанная деградация редка — 0.5 % архива, — но это нижняя граница.</strong> Вердикт требует 250 торговых дней истории, которые есть лишь у 5.9 % архива — или у 8.2 %, если считать только те закрытые стратегии, что совершили хотя бы одну сделку. Среди доживших до статистической зрелости стратегия чаще закрывается в спокойном состоянии или в обычном убытке, чем ломается.</p>
+</li>
+<li>
+<p><strong>Популяция засорена, но выводы устойчивы.</strong> 21.9 % архива — разовая чистка 2014 года; ещё 15 % популяции держат 65 авторов-фабрик, у которых медиана жизни стратегии 25 дней против 289 у авторов единственной стратегии. Если убрать и тех и других, до трёх лет доживает 14–16 % вместо 11.7 %: цифры сдвигаются, картина остаётся.</p>
+</li>
+<li>
+<p>🔴 <strong>Доходность первого года не предсказывает выживание</strong> (p = 0.86). Предсказывают порог входа (риск ниже на треть), регулярность торговли и отсутствие глубокой ранней просадки. Ранний хороший результат — не признак прочности; оценивать по нему шансы стратегии дожить бессмысленно.</p>
+</li>
+<li>
+<p>🔴 <strong>Итог стратегии — не итог подписчика.</strong> Все числа главы описывают того, кто вошёл в первый день и не выходил; таких не бывает. Подписавшийся на пике кривой оказывается в минусе в <strong>94.5 %</strong> случаев при медиане −19.1 %, случайный вход даёт −3.5 %. На стратегиях с привлекательной витриной — не меньше 100 торговых дней истории и рост от +50 % до пика — расхождение максимально: итог <strong>+40.4 %</strong>, вход на пике <strong>−34.3 %</strong>. Из 4 200 стратегий, закончивших жизнь в плюсе, <strong>82.5 % оставили бы вошедшего на пике в минусе</strong>.</p>
+</li>
+</ol>
+<p>Стратегии, которая доживёт, недостаточно: она должна ещё и зарабатывать. О том, сколько доходности бывает на самом деле и из чего она сделана, — <a href="comon-story-3-returns.html">глава 3</a>.</p>
+<hr>
+<h1>Приложение: полная статистика</h1>
+<h2>Б1. Известные ограничения этой главы</h2>
+<ul>
+<li><strong>Мощность теста деградации.</strong> Через оба теста прошли 619 стратегий из 18 529. Для 40.5 % архива вердикт невозможен в принципе — слишком короткая история.</li>
+<li><strong>Границы классов условны.</strong> Пороги «заброшена» (90 дней) и «смерть у пика» (5 %) заданы заранее — это правильно с точки зрения защиты от подгонки, но стратегия с просадкой 6 % попадёт в другой класс, чем с 4 %.</li>
+<li><strong>Разорение определяется по ряду доходности</strong>, а не по факту принудительного закрытия позиций брокером: просадка ≥ 90 % от пика либо от капитала осталось ≤ 10 %.</li>
+<li><strong>Причина смерти неизвестна для живых.</strong> 1 437 живых стратегий цензурированы — то есть учтены как «дожили как минимум до дня среза», а чем закончится их жизнь, неизвестно. Для кривых дожития это корректно, но в структуру причин они вклада не вносят.</li>
+<li><strong>Верхняя оценка доли принудительных закрытий (54.2 %) слабая</strong> и приведена только как граница: она опирается на порог входа как прокси размера счёта, а это не тождество.</li>
+</ul>
+<hr>
+<h2>Б2. Выборка и определения</h2>
+<ul>
+<li>В анализ выживаемости входят <strong>14 832 стратегии</strong>, совершившие хотя бы одну сделку. Исключены 5 145 не стартовавших.</li>
+<li>Событий (смертей) — 13 395; цензурировано 1 437 живых на 2026-08-04 (последний день, за который есть данные во всех рядах).</li>
+<li><strong>Дата смерти — последний торговый день</strong>, а не дата архивации (обоснование — приложение А8 <a href="comon-story-1-market.html">главы 1</a>).</li>
+<li>Кривая дожития — оценка Каплана—Мейера, доверительные интервалы 95 %.</li>
+<li>Классы механизма смерти заданы заранее и не подбирались под результат: «заброшена» — 90 дней без сделок, «смерть у пика» — просадка не глубже 5 %.</li>
+</ul>
+<h2>Б3. Кривая дожития (Каплан—Мейер)</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Дожили до</th>
+<th style="text-align: right;">Доля</th>
+<th>95 % ДИ</th>
+<th style="text-align: right;">Из 1000</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.5 года</td>
+<td style="text-align: right;">48.9 %</td>
+<td>48.1–49.7 %</td>
+<td style="text-align: right;">489</td>
+</tr>
+<tr>
+<td>1 год</td>
+<td style="text-align: right;">30.5 %</td>
+<td>29.7–31.2 %</td>
+<td style="text-align: right;">305</td>
+</tr>
+<tr>
+<td>2 года</td>
+<td style="text-align: right;">16.3 %</td>
+<td>15.7–16.9 %</td>
+<td style="text-align: right;">163</td>
+</tr>
+<tr>
+<td>3 года</td>
+<td style="text-align: right;">11.7 %</td>
+<td>11.2–12.3 %</td>
+<td style="text-align: right;">117</td>
+</tr>
+<tr>
+<td>5 лет</td>
+<td style="text-align: right;">6.9 %</td>
+<td>6.5–7.4 %</td>
+<td style="text-align: right;">69</td>
+</tr>
+<tr>
+<td>7 лет</td>
+<td style="text-align: right;">4.8 %</td>
+<td>4.3–5.2 %</td>
+<td style="text-align: right;">48</td>
+</tr>
+<tr>
+<td>10 лет</td>
+<td style="text-align: right;">2.8 %</td>
+<td>2.3–3.2 %</td>
+<td style="text-align: right;">28</td>
+</tr>
+</tbody>
+</table></div>
+<p>Медиана — 173 дня (0.47 года). Для сравнения: медиана срока жизни, посчитанная только по умершим, без учёта живых, даёт 106 дней — именно поэтому используется метод с цензурированием.</p>
+<h2>Б4. Функция риска по месяцам жизни</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Месяц жизни</th>
+<th style="text-align: right;">Под риском</th>
+<th style="text-align: right;">Умерло</th>
+<th style="text-align: right;">Риск за интервал</th>
+<th style="text-align: right;">Годовой темп</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0–1</td>
+<td style="text-align: right;">14 832</td>
+<td style="text-align: right;">3 369</td>
+<td style="text-align: right;">22.7 %</td>
+<td style="text-align: right;">95.5 %</td>
+</tr>
+<tr>
+<td>1–2</td>
+<td style="text-align: right;">11 403</td>
+<td style="text-align: right;">1 246</td>
+<td style="text-align: right;">10.9 %</td>
+<td style="text-align: right;">75.1 %</td>
+</tr>
+<tr>
+<td>2–3</td>
+<td style="text-align: right;">10 120</td>
+<td style="text-align: right;">938</td>
+<td style="text-align: right;">9.3 %</td>
+<td style="text-align: right;">68.9 %</td>
+</tr>
+<tr>
+<td>3–6</td>
+<td style="text-align: right;">9 148</td>
+<td style="text-align: right;">1 966</td>
+<td style="text-align: right;">21.5 %</td>
+<td style="text-align: right;">62.0 %</td>
+</tr>
+<tr>
+<td>6–9</td>
+<td style="text-align: right;">7 067</td>
+<td style="text-align: right;">1 494</td>
+<td style="text-align: right;">21.1 %</td>
+<td style="text-align: right;">61.3 %</td>
+</tr>
+<tr>
+<td>9–12</td>
+<td style="text-align: right;">5 451</td>
+<td style="text-align: right;">1 124</td>
+<td style="text-align: right;">20.6 %</td>
+<td style="text-align: right;">60.3 %</td>
+</tr>
+<tr>
+<td>12–18</td>
+<td style="text-align: right;">4 251</td>
+<td style="text-align: right;">1 334</td>
+<td style="text-align: right;">31.4 %</td>
+<td style="text-align: right;">52.9 %</td>
+</tr>
+<tr>
+<td>18–24</td>
+<td style="text-align: right;">2 806</td>
+<td style="text-align: right;">597</td>
+<td style="text-align: right;">21.3 %</td>
+<td style="text-align: right;">38.0 %</td>
+</tr>
+<tr>
+<td>24–36</td>
+<td style="text-align: right;">2 105</td>
+<td style="text-align: right;">565</td>
+<td style="text-align: right;">26.8 %</td>
+<td style="text-align: right;">26.8 %</td>
+</tr>
+<tr>
+<td>36–48</td>
+<td style="text-align: right;">1 366</td>
+<td style="text-align: right;">332</td>
+<td style="text-align: right;">24.3 %</td>
+<td style="text-align: right;">24.3 %</td>
+</tr>
+<tr>
+<td>48–60</td>
+<td style="text-align: right;">896</td>
+<td style="text-align: right;">167</td>
+<td style="text-align: right;">18.6 %</td>
+<td style="text-align: right;">18.6 %</td>
+</tr>
+<tr>
+<td>60–84</td>
+<td style="text-align: right;">589</td>
+<td style="text-align: right;">154</td>
+<td style="text-align: right;">26.1 %</td>
+<td style="text-align: right;">14.1 %</td>
+</tr>
+<tr>
+<td>84+</td>
+<td style="text-align: right;">261</td>
+<td style="text-align: right;">109</td>
+<td style="text-align: right;">41.8 %</td>
+<td style="text-align: right;">4.1 %</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Б5. Таблица дожития: ожидаемый остаток жизни</h2>
+<p>Считается от той же кривой Каплана—Мейера. Контроль корректности: медиана срока жизни при рождении воспроизводится как 173 дня.</p>
+<p>Сколько стратегий ещё наблюдается на каждом возрасте (от этого зависит надёжность строки):</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th style="text-align: right;">Возраст</th>
+<th style="text-align: right;">Под риском</th>
+<th style="text-align: right;">Возраст</th>
+<th style="text-align: right;">Под риском</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">старт</td>
+<td style="text-align: right;">14 832</td>
+<td style="text-align: right;">2 года</td>
+<td style="text-align: right;">2 105</td>
+</tr>
+<tr>
+<td style="text-align: right;">1 мес</td>
+<td style="text-align: right;">11 403</td>
+<td style="text-align: right;">3 года</td>
+<td style="text-align: right;">1 366</td>
+</tr>
+<tr>
+<td style="text-align: right;">3 мес</td>
+<td style="text-align: right;">9 148</td>
+<td style="text-align: right;">4 года</td>
+<td style="text-align: right;">898</td>
+</tr>
+<tr>
+<td style="text-align: right;">6 мес</td>
+<td style="text-align: right;">7 067</td>
+<td style="text-align: right;">5 лет</td>
+<td style="text-align: right;">589</td>
+</tr>
+<tr>
+<td style="text-align: right;">1 год</td>
+<td style="text-align: right;">4 251</td>
+<td style="text-align: right;">7 лет</td>
+<td style="text-align: right;">261</td>
+</tr>
+<tr>
+<td style="text-align: right;">1.5 года</td>
+<td style="text-align: right;">2 806</td>
+<td style="text-align: right;">10 лет</td>
+<td style="text-align: right;">63</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Горизонт 10 лет</strong> (используется в разделе 2.2):</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th style="text-align: right;">Дожила до, мес</th>
+<th style="text-align: right;">S(N), %</th>
+<th style="text-align: right;">Медиана остатка, мес</th>
+<th style="text-align: right;">25 % умрут через, мес</th>
+<th style="text-align: right;">75 % умрут через, мес</th>
+<th style="text-align: right;">Средний остаток, мес</th>
+<th style="text-align: right;">Ожид. длина жизни, мес</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">100.0</td>
+<td style="text-align: right;">5.7</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">14.7</td>
+<td style="text-align: right;">15.4</td>
+<td style="text-align: right;">15.4</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">77.3</td>
+<td style="text-align: right;">7.9</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">18.8</td>
+<td style="text-align: right;">18.8</td>
+<td style="text-align: right;">19.8</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">62.4</td>
+<td style="text-align: right;">8.8</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">22.3</td>
+<td style="text-align: right;">21.2</td>
+<td style="text-align: right;">24.2</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">48.9</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: right;">3.7</td>
+<td style="text-align: right;">28.3</td>
+<td style="text-align: right;">23.8</td>
+<td style="text-align: right;">29.8</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">38.5</td>
+<td style="text-align: right;">10.8</td>
+<td style="text-align: right;">3.7</td>
+<td style="text-align: right;">34.7</td>
+<td style="text-align: right;">27.1</td>
+<td style="text-align: right;">36.1</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">30.5</td>
+<td style="text-align: right;">14.0</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: right;">43.6</td>
+<td style="text-align: right;">31.0</td>
+<td style="text-align: right;">43.0</td>
+</tr>
+<tr>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">20.8</td>
+<td style="text-align: right;">22.4</td>
+<td style="text-align: right;">7.3</td>
+<td style="text-align: right;">60.8</td>
+<td style="text-align: right;">38.9</td>
+<td style="text-align: right;">56.9</td>
+</tr>
+<tr>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">16.3</td>
+<td style="text-align: right;">28.3</td>
+<td style="text-align: right;">10.4</td>
+<td style="text-align: right;">74.6</td>
+<td style="text-align: right;">43.6</td>
+<td style="text-align: right;">67.6</td>
+</tr>
+<tr>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">11.7</td>
+<td style="text-align: right;">34.8</td>
+<td style="text-align: right;">11.6</td>
+<td style="text-align: right;">80.4</td>
+<td style="text-align: right;">48.0</td>
+<td style="text-align: right;">84.0</td>
+</tr>
+<tr>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">8.7</td>
+<td style="text-align: right;">43.5</td>
+<td style="text-align: right;">15.4</td>
+<td style="text-align: right;">87.0</td>
+<td style="text-align: right;">51.6</td>
+<td style="text-align: right;">99.6</td>
+</tr>
+<tr>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">6.9</td>
+<td style="text-align: right;">49.6</td>
+<td style="text-align: right;">18.4</td>
+<td style="text-align: right;">83.2</td>
+<td style="text-align: right;">51.6</td>
+<td style="text-align: right;">111.6</td>
+</tr>
+<tr>
+<td style="text-align: right;">84*</td>
+<td style="text-align: right;">4.8</td>
+<td style="text-align: right;">47.4</td>
+<td style="text-align: right;">22.8</td>
+<td style="text-align: right;">68.3</td>
+<td style="text-align: right;">47.0</td>
+<td style="text-align: right;">131.0</td>
+</tr>
+<tr>
+<td style="text-align: right;">120*</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">30.0</td>
+<td style="text-align: right;">15.4</td>
+<td style="text-align: right;">44.6</td>
+<td style="text-align: right;">33.2</td>
+<td style="text-align: right;">153.2</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Горизонт 5 лет</strong> (тот же расчёт с более коротким ограничением — видно, насколько величина зависит от горизонта):</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th style="text-align: right;">Дожила до, мес</th>
+<th style="text-align: right;">Медиана остатка, мес</th>
+<th style="text-align: right;">Средний остаток, мес</th>
+<th style="text-align: right;">Ожид. длина жизни, мес</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5.7</td>
+<td style="text-align: right;">12.6</td>
+<td style="text-align: right;">12.6</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">24.7</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">14.0</td>
+<td style="text-align: right;">23.5</td>
+<td style="text-align: right;">35.5</td>
+</tr>
+<tr>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">28.3</td>
+<td style="text-align: right;">31.9</td>
+<td style="text-align: right;">55.9</td>
+</tr>
+<tr>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">34.8</td>
+<td style="text-align: right;">34.7</td>
+<td style="text-align: right;">70.7</td>
+</tr>
+<tr>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">49.6</td>
+<td style="text-align: right;">39.7</td>
+<td style="text-align: right;">99.7</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Как это считается и чего здесь нельзя делать.</strong></p>
+<ul>
+<li><strong>Медиана остатка</strong> — время, за которое доля доживших падает вдвое от уровня на возрасте N. Она не зависит от того, где оборвано наблюдение, пока сама точка попадает в наблюдаемый диапазон, поэтому в тексте главы используется именно она.</li>
+<li><strong>Средний остаток обязательно ограничен горизонтом.</strong> Неограниченного среднего для этих данных не существует: кривая дожития не доходит до нуля (на десяти годах ещё 2.8 %), а хвост оборван цензурированием. Число читается как «в среднем за ближайшие 10 лет», не как «в среднем вообще». Сравнение двух горизонтов выше показывает масштаб этой условности: для новорождённой стратегии 12.6 против 15.4 месяца.</li>
+<li>🔴 <strong>Строки, помеченные звёздочкой (7 и 10 лет), ненадёжны.</strong> Под риском там 261 и 63 стратегии, и средний остаток начинает снижаться (51.6 → 47.0 → 33.2 мес). Это артефакт обрыва наблюдения — «остаток» просто не помещается в оставшееся окно данных, — а не реальное ухудшение перспектив у долгожителей. В основной текст главы эти строки не вынесены.</li>
+<li>Максимальный наблюдаемый срок жизни в выборке — 5 148 дней (14.1 года).</li>
+</ul>
+<h2>Б6. Когорты рождения</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Когорта</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Медиана жизни, дней</th>
+<th style="text-align: right;">Дожили 1 год</th>
+<th style="text-align: right;">Дожили 3 года</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2008</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">832</td>
+<td style="text-align: right;">73.3 %</td>
+<td style="text-align: right;">33.3 %</td>
+</tr>
+<tr>
+<td>2009</td>
+<td style="text-align: right;">133</td>
+<td style="text-align: right;">668</td>
+<td style="text-align: right;">77.4 %</td>
+<td style="text-align: right;">25.6 %</td>
+</tr>
+<tr>
+<td>2010</td>
+<td style="text-align: right;">283</td>
+<td style="text-align: right;">272</td>
+<td style="text-align: right;">39.2 %</td>
+<td style="text-align: right;">13.1 %</td>
+</tr>
+<tr>
+<td>2011</td>
+<td style="text-align: right;">574</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">20.0 %</td>
+<td style="text-align: right;">7.3 %</td>
+</tr>
+<tr>
+<td>2013</td>
+<td style="text-align: right;">1 503</td>
+<td style="text-align: right;">337</td>
+<td style="text-align: right;">38.1 %</td>
+<td style="text-align: right;">0.9 %</td>
+</tr>
+<tr>
+<td>2014</td>
+<td style="text-align: right;">1 336</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">9.0 %</td>
+<td style="text-align: right;">3.7 %</td>
+</tr>
+<tr>
+<td>2016</td>
+<td style="text-align: right;">752</td>
+<td style="text-align: right;">89</td>
+<td style="text-align: right;">27.3 %</td>
+<td style="text-align: right;">13.3 %</td>
+</tr>
+<tr>
+<td>2018</td>
+<td style="text-align: right;">1 128</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: right;">24.6 %</td>
+<td style="text-align: right;">8.4 %</td>
+</tr>
+<tr>
+<td>2020</td>
+<td style="text-align: right;">1 243</td>
+<td style="text-align: right;">167</td>
+<td style="text-align: right;">35.2 %</td>
+<td style="text-align: right;">13.4 %</td>
+</tr>
+<tr>
+<td>2022</td>
+<td style="text-align: right;">837</td>
+<td style="text-align: right;">163</td>
+<td style="text-align: right;">38.2 %</td>
+<td style="text-align: right;">21.0 %</td>
+</tr>
+<tr>
+<td>2023</td>
+<td style="text-align: right;">710</td>
+<td style="text-align: right;">223</td>
+<td style="text-align: right;">39.3 %</td>
+<td style="text-align: right;">21.6 %</td>
+</tr>
+<tr>
+<td>2024</td>
+<td style="text-align: right;">573</td>
+<td style="text-align: right;">247</td>
+<td style="text-align: right;">42.9 %</td>
+<td style="text-align: right;">30.0 %*</td>
+</tr>
+<tr>
+<td>2025</td>
+<td style="text-align: right;">750</td>
+<td style="text-align: right;">214</td>
+<td style="text-align: right;">38.9 %</td>
+<td style="text-align: right;">30.7 %*</td>
+</tr>
+</tbody>
+</table></div>
+<p>* когорта не наблюдалась столько времени — оценка неполная.</p>
+<p>Ранние когорты (2008–2009, всего 178 стратегий) жили заметно дольше; провал приходится на 2011–2015, с 2016 картина медленно улучшается. Рост живучести поздних когорт частично реален — площадка ужесточала требования, — частично артефакт: у молодых когорт было меньше времени умереть. 🔴 <strong>Когорта 2013 (0.9 % доживших до трёх лет при 1 503 стратегиях) искажена чисткой 2014 года</strong> — см. раздел 2.6.</p>
+<h2>Б7. Конкурирующие риски (Аален—Йохансен)</h2>
+<p>Накопленная вероятность умереть <strong>именно от этой причины</strong> к сроку X, с учётом того, что другая причина могла забрать стратегию раньше.</p>
+<p>🔴 <strong>База здесь другая, чем в разделе 2.3, и это надо держать в голове при сравнении.</strong> Метод конкурирующих рисков работает на всей популяции выживаемости — <strong>14 832 стратегии, торговавшие хотя бы день, включая 1 437 живых</strong>, которые учитываются как цензурированные (дожили как минимум до дня среза). В разделе 2.3 база иная: только архив, 18 529 закрытых стратегий, из которых 5 134 не совершили ни одной сделки. Отсюда и видимое расхождение в классе «недостаточно истории»: здесь 8 943, там 7 506. Разница — ровно 1 437, то есть живые: вердикта о причине смерти у них быть не может, и в этой таблице они собраны в тот же класс.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Причина</th>
+<th style="text-align: right;">1 год</th>
+<th style="text-align: right;">3 года</th>
+<th style="text-align: right;">5 лет</th>
+<th style="text-align: right;">10 лет</th>
+<th style="text-align: right;">Стратегий</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Недостаточно истории для вердикта</td>
+<td style="text-align: right;">41.3 %</td>
+<td style="text-align: right;">51.1 %</td>
+<td style="text-align: right;">52.3 %</td>
+<td style="text-align: right;">53.1 %</td>
+<td style="text-align: right;">8 943</td>
+</tr>
+<tr>
+<td>Смерть у пика</td>
+<td style="text-align: right;">19.4 %</td>
+<td style="text-align: right;">21.5 %</td>
+<td style="text-align: right;">21.9 %</td>
+<td style="text-align: right;">22.2 %</td>
+<td style="text-align: right;">3 189</td>
+</tr>
+<tr>
+<td>Заброшена</td>
+<td style="text-align: right;">8.8 %</td>
+<td style="text-align: right;">13.1 %</td>
+<td style="text-align: right;">14.7 %</td>
+<td style="text-align: right;">15.7 %</td>
+<td style="text-align: right;">2 081</td>
+</tr>
+<tr>
+<td>Слом не подтверждён</td>
+<td style="text-align: right;">0.0 %</td>
+<td style="text-align: right;">1.3 %</td>
+<td style="text-align: right;">1.8 %</td>
+<td style="text-align: right;">2.8 %</td>
+<td style="text-align: right;">283</td>
+</tr>
+<tr>
+<td>Обычная просадка</td>
+<td style="text-align: right;">0.0 %</td>
+<td style="text-align: right;">1.0 %</td>
+<td style="text-align: right;">1.7 %</td>
+<td style="text-align: right;">2.4 %</td>
+<td style="text-align: right;">241</td>
+</tr>
+<tr>
+<td>Деградация</td>
+<td style="text-align: right;">0.0 %</td>
+<td style="text-align: right;">0.4 %</td>
+<td style="text-align: right;">0.7 %</td>
+<td style="text-align: right;">0.9 %</td>
+<td style="text-align: right;">95</td>
+</tr>
+</tbody>
+</table></div>
+<p>Половина смертей падает на «недостаточно истории» — это не причина, а признание нехватки мощности. Поэтому та же декомпозиция, где таким стратегиям причина назначается по финансовому исходу (он известен всегда):</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Причина</th>
+<th style="text-align: right;">1 год</th>
+<th style="text-align: right;">3 года</th>
+<th style="text-align: right;">5 лет</th>
+<th style="text-align: right;">10 лет</th>
+<th style="text-align: right;">Стратегий</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Убыток без вердикта</td>
+<td style="text-align: right;">38.9 %</td>
+<td style="text-align: right;">45.9 %</td>
+<td style="text-align: right;">46.8 %</td>
+<td style="text-align: right;">47.5 %</td>
+<td style="text-align: right;">8 207</td>
+</tr>
+<tr>
+<td>Ушла в прибыли</td>
+<td style="text-align: right;">18.8 %</td>
+<td style="text-align: right;">23.6 %</td>
+<td style="text-align: right;">24.9 %</td>
+<td style="text-align: right;">26.5 %</td>
+<td style="text-align: right;">3 606</td>
+</tr>
+<tr>
+<td>Заброшена</td>
+<td style="text-align: right;">7.8 %</td>
+<td style="text-align: right;">11.2 %</td>
+<td style="text-align: right;">12.1 %</td>
+<td style="text-align: right;">12.8 %</td>
+<td style="text-align: right;">1 722</td>
+</tr>
+<tr>
+<td><strong>Разорение</strong></td>
+<td style="text-align: right;"><strong>4.0 %</strong></td>
+<td style="text-align: right;"><strong>7.3 %</strong></td>
+<td style="text-align: right;"><strong>8.8 %</strong></td>
+<td style="text-align: right;"><strong>9.9 %</strong></td>
+<td style="text-align: right;">1 233</td>
+</tr>
+<tr>
+<td>Деградация</td>
+<td style="text-align: right;">0.0 %</td>
+<td style="text-align: right;">0.3 %</td>
+<td style="text-align: right;">0.5 %</td>
+<td style="text-align: right;">0.6 %</td>
+<td style="text-align: right;">64</td>
+</tr>
+</tbody>
+</table></div>
+<p>Сводно по типу причины:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>К сроку</th>
+<th style="text-align: right;">Рыночная причина</th>
+<th style="text-align: right;">Решение автора</th>
+<th style="text-align: right;">В т. ч. разорение</th>
+<th style="text-align: right;">В т. ч. доказанная деградация</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 год</td>
+<td style="text-align: right;">43.0 %</td>
+<td style="text-align: right;">26.6 %</td>
+<td style="text-align: right;">4.0 %</td>
+<td style="text-align: right;">0.0 %</td>
+</tr>
+<tr>
+<td>3 года</td>
+<td style="text-align: right;">53.6 %</td>
+<td style="text-align: right;">34.7 %</td>
+<td style="text-align: right;">7.3 %</td>
+<td style="text-align: right;">0.3 %</td>
+</tr>
+<tr>
+<td>5 лет</td>
+<td style="text-align: right;">56.1 %</td>
+<td style="text-align: right;">37.0 %</td>
+<td style="text-align: right;">8.8 %</td>
+<td style="text-align: right;">0.5 %</td>
+</tr>
+<tr>
+<td>10 лет</td>
+<td style="text-align: right;">57.9 %</td>
+<td style="text-align: right;">39.3 %</td>
+<td style="text-align: right;">9.9 %</td>
+<td style="text-align: right;">0.6 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>С поправкой на правила площадки (раздел 2.4) это разделение читается как «рынок / автор / <strong>администрация</strong>»: 39.0 % / 35.8 % / 25.3 %.</p>
+<h2>Б8. Финансовый исход</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Класс</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Доля</th>
+<th style="text-align: right;">Медиана итога</th>
+<th style="text-align: right;">Медиана максимальной просадки</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Разорение (просадка ≥ 90 % или от капитала осталось ≤ 10 %)</td>
+<td style="text-align: right;">1 233</td>
+<td style="text-align: right;">6.7 %</td>
+<td style="text-align: right;">−96.4 %</td>
+<td style="text-align: right;">−97.8 %</td>
+</tr>
+<tr>
+<td>Убыток</td>
+<td style="text-align: right;">7 970</td>
+<td style="text-align: right;">43.0 %</td>
+<td style="text-align: right;">−17.4 %</td>
+<td style="text-align: right;">−27.8 %</td>
+</tr>
+<tr>
+<td>Прибыль</td>
+<td style="text-align: right;">4 192</td>
+<td style="text-align: right;">22.6 %</td>
+<td style="text-align: right;">+9.2 %</td>
+<td style="text-align: right;">−12.0 %</td>
+</tr>
+<tr>
+<td>Нет данных (не стартовала)</td>
+<td style="text-align: right;">5 134</td>
+<td style="text-align: right;">27.7 %</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Б9. Тесты на деградацию</h2>
+<p><strong>Тест 1 — блочный бутстрап.</strong> История до последнего пика → циклический блочный бутстрап (блок 10 дней, 2 000 траекторий) → распределение <strong>максимальной</strong> просадки на отрезке той же длины, что финальный. Сравнение именно с максимумом, а не с типичной просадкой: финальную просадку мы разглядываем потому, что она последняя, — без этой поправки в вывод протащилась бы ошибка отбора.</p>
+<p><strong>Тест 2 — точка разлома.</strong> CUSUM с перестановочным тестом (500 перестановок, с поправкой на то, что точку разлома мы искали по тем же данным) плюс требование, чтобы новый режим прожил ≥ 60 торговых дней с дрейфом вниз.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Тест</th>
+<th>Сработал</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Бутстрап отверг «это её обычный риск» (p &lt; 0.05)</td>
+<td>348 из 619 (56.2 %)</td>
+</tr>
+<tr>
+<td>Разлом подтверждён (p &lt; 0.05, режим ≥ 60 дней, дрейф вниз)</td>
+<td>125 из 619 (20.2 %)</td>
+</tr>
+<tr>
+<td><strong>Согласие обоих = деградация</strong></td>
+<td><strong>95</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Медиана длины нового режима у деградировавших — 218 торговых дней.</p>
+<p><strong>Мощность теста:</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Порог истории до пика</th>
+<th style="text-align: right;">Допущено стратегий</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>50 дней</td>
+<td style="text-align: right;">3 578</td>
+</tr>
+<tr>
+<td>100 дней</td>
+<td style="text-align: right;">2 350</td>
+</tr>
+<tr>
+<td><strong>250 дней (принят)</strong></td>
+<td style="text-align: right;"><strong>1 098</strong></td>
+</tr>
+<tr>
+<td>500 дней</td>
+<td style="text-align: right;">501</td>
+</tr>
+</tbody>
+</table></div>
+<p>Медиана истории до пика по всему архиву — 12 торговых дней. После отсева заброшенных и умерших у пика в тесты попали 619 стратегий.</p>
+<h2>Б10. Регрессия Кокса: что предсказывает смерть</h2>
+<p>Ковариаты измеряются за первый год жизни, риск считается с конца первого года — иначе возник бы immortal time bias (долгожители «предсказывались» бы тем, что они долго жили). Выборка — 4 188 стратегий, проживших ≥ 1 года; событий 3 196. Счётчик подписчиков исключён: у мёртвых стратегий поле обнулено (приложение А1 <a href="comon-story-1-market.html">главы 1</a>). Признаки стандартизованы, поэтому коэффициенты сравнимы между собой.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Признак первого года</th>
+<th style="text-align: right;">β</th>
+<th style="text-align: right;">HR на 1 σ</th>
+<th style="text-align: right;">z</th>
+<th style="text-align: right;">p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>log10(порог входа)</td>
+<td style="text-align: right;">−0.379</td>
+<td style="text-align: right;"><strong>0.685</strong></td>
+<td style="text-align: right;">−22.02</td>
+<td style="text-align: right;">&lt;1e−16</td>
+</tr>
+<tr>
+<td>Торговых дней в первый год</td>
+<td style="text-align: right;">−0.281</td>
+<td style="text-align: right;"><strong>0.755</strong></td>
+<td style="text-align: right;">−13.68</td>
+<td style="text-align: right;">&lt;1e−16</td>
+</tr>
+<tr>
+<td>Глубина просадки первого года</td>
+<td style="text-align: right;">+0.240</td>
+<td style="text-align: right;"><strong>1.271</strong></td>
+<td style="text-align: right;">8.77</td>
+<td style="text-align: right;">&lt;1e−16</td>
+</tr>
+<tr>
+<td>Волатильность первого года</td>
+<td style="text-align: right;">−0.065</td>
+<td style="text-align: right;">0.938</td>
+<td style="text-align: right;">−2.32</td>
+<td style="text-align: right;">0.020</td>
+</tr>
+<tr>
+<td><strong>Доходность за первый год</strong></td>
+<td style="text-align: right;">−0.003</td>
+<td style="text-align: right;">0.997</td>
+<td style="text-align: right;">−0.18</td>
+<td style="text-align: right;"><strong>0.86</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>HR на 1 σ</strong> — во сколько раз меняется мгновенный риск смерти при росте признака на одно стандартное отклонение; больше 1 — умирают чаще, меньше 1 — реже.</p>
+<p><a class="figure" href="../images/31-cox-forest.png" target="_blank" rel="noopener"><img alt="Форест-плот регрессии Кокса: отношения рисков с доверительными интервалами; у доходности первого года интервал накрывает единицу" src="../images/31-cox-forest.png"></a></p>
+<h2>Б11. Критерии принудительного закрытия: пересечения</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Критерий</th>
+<th style="text-align: right;">Стратегий</th>
+<th style="text-align: right;">Доля архива</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Нет сделок ≥ 3 месяцев до архивации (из торговавших)</td>
+<td style="text-align: right;">2 081</td>
+<td style="text-align: right;">11.2 %</td>
+</tr>
+<tr>
+<td>Ни одной операции за всю жизнь при сроке ≥ 3 месяцев</td>
+<td style="text-align: right;">2 115</td>
+<td style="text-align: right;">11.4 %</td>
+</tr>
+<tr>
+<td>Итог ≤ −95 %</td>
+<td style="text-align: right;">730</td>
+<td style="text-align: right;">3.9 %</td>
+</tr>
+<tr>
+<td>Оценка счёта &lt; 30 000 ₽ (оценка сверху)</td>
+<td style="text-align: right;">7 145</td>
+<td style="text-align: right;">38.6 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>Пересечения прямых критериев: только тишина — 3 951, только итог ≤ −95 % — 485, оба сразу — 245.</p>
+<p>Доля каждого класса механизма, подпадающая под наблюдаемые критерии:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Класс механизма</th>
+<th style="text-align: right;">Всего</th>
+<th style="text-align: right;">Под прямые критерии</th>
+<th style="text-align: right;">Доля</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Не стартовала</td>
+<td style="text-align: right;">5 134</td>
+<td style="text-align: right;">2 115</td>
+<td style="text-align: right;">41.2 %</td>
+</tr>
+<tr>
+<td><strong>Заброшена</strong></td>
+<td style="text-align: right;">2 081</td>
+<td style="text-align: right;">2 081</td>
+<td style="text-align: right;"><strong>100 %</strong></td>
+</tr>
+<tr>
+<td>Смерть у пика</td>
+<td style="text-align: right;">3 189</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.1 %</td>
+</tr>
+<tr>
+<td>Обычная просадка</td>
+<td style="text-align: right;">241</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0 %</td>
+</tr>
+<tr>
+<td>Деградация</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">16.8 %</td>
+</tr>
+<tr>
+<td>Слом не подтверждён</td>
+<td style="text-align: right;">283</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">3.5 %</td>
+</tr>
+<tr>
+<td>Недостаточно истории</td>
+<td style="text-align: right;">7 506</td>
+<td style="text-align: right;">457</td>
+<td style="text-align: right;">6.1 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>При разнесении причин приоритет такой: принудительное закрытие → рыночная причина → решение автора. Поэтому в таблице раздела 2.4 «разорение» составляет 389 стратегий, а не 1 233: остальные 844 разорившиеся одновременно подпадают под критерии принудительного закрытия и учтены там.</p>
+<h2>Б12. Служебный аккаунт площадки</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Признак</th>
+<th style="text-align: right;">Служебный аккаунт</th>
+<th style="text-align: right;">Прочие архивные</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Без единой сделки</td>
+<td style="text-align: right;">43.7 %</td>
+<td style="text-align: right;">23.2 %</td>
+</tr>
+<tr>
+<td>Медиана торговых дней</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">37</td>
+</tr>
+<tr>
+<td>Медиана итога</td>
+<td style="text-align: right;">0.0 %</td>
+<td style="text-align: right;">−4.2 %</td>
+</tr>
+<tr>
+<td>Итог ≤ −95 %</td>
+<td style="text-align: right;">3.5 %</td>
+<td style="text-align: right;">4.1 %</td>
+</tr>
+<tr>
+<td>Медиана порога входа</td>
+<td style="text-align: right;">10 000 ₽</td>
+<td style="text-align: right;">50 000 ₽</td>
+</tr>
+<tr>
+<td>Подписок всего</td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr>
+<td>Тишина ≥ 90 дней</td>
+<td style="text-align: right;">7.5 %</td>
+<td style="text-align: right;">12.3 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>4 058 стратегий, 21.9 % архива, живых среди них нет. Вся партия создана в 2012–2014 годах (2 567 стратегий — в одном 2013-м) и закрыта в 2014–2016; после 2016 года — ни одной архивации.</p>
+<h2>Б13. Вход не в первый день: разбивка по механизму смерти</h2>
+<p>Медианы по каждому классу. «Итог» — подписка в первый день, «на пике» — подписка на максимуме кривой, «случайный» — медиана по всем возможным дням входа. «Дней после пика» — сколько подписчик, вошедший на вершине, держал бы стратегию до её закрытия.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Механизм смерти</th>
+<th style="text-align: right;">Систем</th>
+<th style="text-align: right;">Итог</th>
+<th style="text-align: right;">На пике</th>
+<th style="text-align: right;">Случайный</th>
+<th style="text-align: right;">Доля в минусе при входе на пике</th>
+<th style="text-align: right;">Дней после пика</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Смерть у пика</td>
+<td style="text-align: right;">3 187</td>
+<td style="text-align: right;">+1.6 %</td>
+<td style="text-align: right;">−1.6 %</td>
+<td style="text-align: right;">+0.7 %</td>
+<td style="text-align: right;">78.9 %</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr>
+<td>Обычная просадка</td>
+<td style="text-align: right;">241</td>
+<td style="text-align: right;">+32.6 %</td>
+<td style="text-align: right;">−16.4 %</td>
+<td style="text-align: right;">+11.7 %</td>
+<td style="text-align: right;">100.0 %</td>
+<td style="text-align: right;">250</td>
+</tr>
+<tr>
+<td>Деградация</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">−5.1 %</td>
+<td style="text-align: right;"><strong>−56.2 %</strong></td>
+<td style="text-align: right;">−30.8 %</td>
+<td style="text-align: right;">100.0 %</td>
+<td style="text-align: right;">322</td>
+</tr>
+<tr>
+<td>Слом не подтверждён</td>
+<td style="text-align: right;">283</td>
+<td style="text-align: right;">−2.2 %</td>
+<td style="text-align: right;">−43.6 %</td>
+<td style="text-align: right;">−12.3 %</td>
+<td style="text-align: right;">100.0 %</td>
+<td style="text-align: right;">240</td>
+</tr>
+<tr>
+<td>Заброшена</td>
+<td style="text-align: right;">2 081</td>
+<td style="text-align: right;">−18.1 %</td>
+<td style="text-align: right;">−31.1 %</td>
+<td style="text-align: right;">0.0 %</td>
+<td style="text-align: right;">97.0 %</td>
+<td style="text-align: right;">373</td>
+</tr>
+<tr>
+<td>Недостаточно истории</td>
+<td style="text-align: right;">7 506</td>
+<td style="text-align: right;">−18.9 %</td>
+<td style="text-align: right;">−29.1 %</td>
+<td style="text-align: right;">−11.8 %</td>
+<td style="text-align: right;">100.0 %</td>
+<td style="text-align: right;">72</td>
+</tr>
+<tr>
+<td><strong>Все</strong></td>
+<td style="text-align: right;"><strong>13 393</strong></td>
+<td style="text-align: right;"><strong>−8.5 %</strong></td>
+<td style="text-align: right;"><strong>−19.1 %</strong></td>
+<td style="text-align: right;"><strong>−3.5 %</strong></td>
+<td style="text-align: right;"><strong>94.5 %</strong></td>
+<td style="text-align: right;"><strong>67</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>То же на «витринном» подвыборе — стратегии, у которых до пика было не меньше 100 торговых дней и рост не меньше +50 %:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Механизм смерти</th>
+<th style="text-align: right;">Систем</th>
+<th style="text-align: right;">Итог</th>
+<th style="text-align: right;">На пике</th>
+<th style="text-align: right;">Случайный</th>
+<th style="text-align: right;">Дней после пика</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Смерть у пика</td>
+<td style="text-align: right;">149</td>
+<td style="text-align: right;">+94.3 %</td>
+<td style="text-align: right;">−1.2 %</td>
+<td style="text-align: right;">+56.4 %</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr>
+<td>Обычная просадка</td>
+<td style="text-align: right;">145</td>
+<td style="text-align: right;">+74.8 %</td>
+<td style="text-align: right;">−18.2 %</td>
+<td style="text-align: right;">+22.7 %</td>
+<td style="text-align: right;">276</td>
+</tr>
+<tr>
+<td>Деградация</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">+6.8 %</td>
+<td style="text-align: right;"><strong>−57.3 %</strong></td>
+<td style="text-align: right;">−29.4 %</td>
+<td style="text-align: right;">322</td>
+</tr>
+<tr>
+<td>Слом не подтверждён</td>
+<td style="text-align: right;">196</td>
+<td style="text-align: right;">+22.3 %</td>
+<td style="text-align: right;">−46.5 %</td>
+<td style="text-align: right;">−11.0 %</td>
+<td style="text-align: right;">276</td>
+</tr>
+<tr>
+<td>Заброшена</td>
+<td style="text-align: right;">249</td>
+<td style="text-align: right;">+36.4 %</td>
+<td style="text-align: right;">−37.2 %</td>
+<td style="text-align: right;">0.0 %</td>
+<td style="text-align: right;">497</td>
+</tr>
+<tr>
+<td>Недостаточно истории</td>
+<td style="text-align: right;">311</td>
+<td style="text-align: right;">−1.5 %</td>
+<td style="text-align: right;">−50.9 %</td>
+<td style="text-align: right;">−18.3 %</td>
+<td style="text-align: right;">164</td>
+</tr>
+<tr>
+<td><strong>Все</strong></td>
+<td style="text-align: right;"><strong>1 126</strong></td>
+<td style="text-align: right;"><strong>+40.4 %</strong></td>
+<td style="text-align: right;"><strong>−34.3 %</strong></td>
+<td style="text-align: right;"><strong>0.0 %</strong></td>
+<td style="text-align: right;"><strong>225</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>И разрез по яркости витрины — только среди 4 200 стратегий, закончивших жизнь в плюсе:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Итог стратегии</th>
+<th style="text-align: right;">Систем</th>
+<th style="text-align: right;">Медиана итога</th>
+<th style="text-align: right;">На пике</th>
+<th style="text-align: right;">Случайный</th>
+<th style="text-align: right;">Доля в минусе при входе на пике</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0…+25 %</td>
+<td style="text-align: right;">3 008</td>
+<td style="text-align: right;">+5.5 %</td>
+<td style="text-align: right;">−3.0 %</td>
+<td style="text-align: right;">+0.8 %</td>
+<td style="text-align: right;">81.1 %</td>
+</tr>
+<tr>
+<td>+25…+100 %</td>
+<td style="text-align: right;">843</td>
+<td style="text-align: right;">+44.0 %</td>
+<td style="text-align: right;">−8.6 %</td>
+<td style="text-align: right;">+11.4 %</td>
+<td style="text-align: right;">86.1 %</td>
+</tr>
+<tr>
+<td>+100…+500 %</td>
+<td style="text-align: right;">271</td>
+<td style="text-align: right;">+172.4 %</td>
+<td style="text-align: right;">−9.8 %</td>
+<td style="text-align: right;">+47.6 %</td>
+<td style="text-align: right;">83.8 %</td>
+</tr>
+<tr>
+<td>Больше +500 %</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;"><strong>+1 003.0 %</strong></td>
+<td style="text-align: right;"><strong>−13.3 %</strong></td>
+<td style="text-align: right;">+154.6 %</td>
+<td style="text-align: right;">92.3 %</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Что здесь важно и чего здесь нет.</strong> Класс «деградация» — единственный, где вход на пике теряет больше половины капитала (−56 %): механизм ломается после вершины, и подписчик держит стратегию в среднем 322 дня уже сломанной. Класс «смерть у пика» выглядит безобидно (−1.6 %) ровно по определению: эти стратегии закрылись, не отойдя от максимума. Пик определён задним числом и подписчику в момент входа не виден, поэтому строки «на пике» — граница пессимизма, а не оценка среднего опыта; строки «случайный» — середина. Плата за следование и комиссии брокера ни в одном столбце не вычтены.</p>
+<h1>Источники</h1>
+<p><strong>Первичные данные</strong></p>
+<ul>
+<li>Публичный каталог автоследования Comon, <a href="https://www.comon.ru/strategies/">www.comon.ru</a> — выгрузка 5 августа 2026 года (ряды доведены до 4 августа включительно), 19 978 стратегий с карточками и дневными рядами. Состав выборки и правила пересчёта — во <a href="comon-story-0-intro.html">введении</a> и в приложении <a href="comon-story-1-market.html">главы 1</a>.</li>
+</ul>
+<p><strong>Правила площадки</strong></p>
+<ul>
+<li><a href="https://docs.comon.ru/trader-information/restrictions-and-requirements/">Ограничения и требования к стратегиям</a> — регламент Comon: закрытый список оснований для принудительного переноса стратегии в архив (полный вывод средств, счёт менее 30 000 ₽ в течение месяца, неизменная доходность 3 месяца, доходность ниже −95 %, отсутствие операций 3 месяца), перенос «в том числе путём отключения счёта стратегии от аккаунта», а также запрет на многократное создание краткоживущих стратегий.</li>
+</ul>
+<hr>
+<hr>
+<p><em>Условия использования: текст и графики — CC BY-NC-SA 4.0, код расчётов — BSD 3-Clause; <a href="comon-story-license.html">подробнее</a>.</em></p>
+<div class="foot">Дальше: <a href="comon-story-3-returns.html">Глава 3. Из чего сделана доходность</a> · <a href="index.html">оглавление серии</a></div>
+</main>
+</body>
+</html>
