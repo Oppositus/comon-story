@@ -4,10 +4,33 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Условия использования</title>
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav class="topbar"><div class="wrap"><a href="index.html">Оглавление</a><span class="sep">·</span><span class="here">Условия использования</span><span class="sep">·</span><a href="comon-story-0-intro.html">Введение</a><span class="sep">·</span><a href="comon-story-1-market.html">1</a><span class="sep">·</span><a href="comon-story-2-survival.html">2</a><span class="sep">·</span><a href="comon-story-3-returns.html">3</a><span class="sep">·</span><a href="comon-story-4-authors.html">4</a><span class="sep">·</span><a href="comon-story-4b-interlude.html">Вторая площадка</a><span class="sep">·</span><a href="comon-story-5-buyers.html">5</a><span class="sep">·</span><a href="comon-story-6-conclusion.html">Заключение</a></div></nav>
+<nav class="topbar"><div class="wrap"><span class="nav-links"><a href="index.html">Оглавление</a><span class="sep">·</span><span class="here">Условия использования</span><span class="sep">·</span><a href="comon-story-0-intro.html">Введение</a><span class="sep">·</span><a href="comon-story-1-market.html">1</a><span class="sep">·</span><a href="comon-story-2-survival.html">2</a><span class="sep">·</span><a href="comon-story-3-returns.html">3</a><span class="sep">·</span><a href="comon-story-4-authors.html">4</a><span class="sep">·</span><a href="comon-story-4b-interlude.html">Вторая площадка</a><span class="sep">·</span><a href="comon-story-5-buyers.html">5</a><span class="sep">·</span><a href="comon-story-6-conclusion.html">Заключение</a></span><button id="theme-toggle" class="theme-toggle" type="button" hidden aria-label="Переключить тему оформления">&#9789;</button></div></nav>
+<script>(function(){
+  var btn = document.getElementById('theme-toggle');
+  var root = document.documentElement;
+  function isDark(){
+    var t = root.getAttribute('data-theme');
+    if (t) return t === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function sync(){
+    var dark = isDark();
+    btn.textContent = dark ? '\u2600' : '\u263E';
+    btn.setAttribute('aria-label', dark ? 'Включить светлую тему' : 'Включить тёмную тему');
+  }
+  btn.hidden = false;
+  btn.addEventListener('click', function(){
+    var next = isDark() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch(e){}
+    sync();
+  });
+  sync();
+})();</script>
 <main class="wrap">
 <h1>Условия использования</h1>
 

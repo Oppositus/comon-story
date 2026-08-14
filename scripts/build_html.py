@@ -63,6 +63,7 @@ CSS = """/* Стиль серии. Единственная таблица ст�
    а не в разметке — так восемь длинных глав остаются одинаковыми на вид. */
 
 :root {
+  color-scheme: light;
   --bg:        #fcfcfb;
   --surface:   #ffffff;
   --ink:       #171a1c;
@@ -76,6 +77,7 @@ CSS = """/* Стиль серии. Единственная таблица ст�
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --bg:        #14161a;
     --surface:   #1b1e23;
     --ink:       #e8eaec;
@@ -86,6 +88,22 @@ CSS = """/* Стиль серии. Единственная таблица ст�
     --accent:    #79b0f0;
     --accent-bg: #1d2734;
   }
+}
+
+/* Ручной выбор темы (кнопка в шапке) перебивает системную настройку —
+   светлый вариант перебит уже выше через :not([data-theme="light"]),
+   а этот блок даёт обратный ход: тёмная тема при светлой ОС. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:        #14161a;
+  --surface:   #1b1e23;
+  --ink:       #e8eaec;
+  --ink-soft:  #b3b9bf;
+  --ink-faint: #8b9299;
+  --rule:      #2c3138;
+  --rule-soft: #23272d;
+  --accent:    #79b0f0;
+  --accent-bg: #1d2734;
 }
 
 html { -webkit-text-size-adjust: 100%; }
@@ -106,14 +124,34 @@ body {
   background: var(--surface);
   margin-bottom: 2.4rem;
 }
-.topbar .wrap { padding-top: .85rem; padding-bottom: .85rem; }
+.topbar .wrap {
+  padding-top: .85rem; padding-bottom: .85rem;
+  display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+}
+.topbar .nav-links { flex: 1 1 auto; min-width: 0; }
 .topbar a, .topbar span {
   font: 500 13px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
-.topbar a { color: var(--ink-soft); text-decoration: none; }
+.topbar a { color: var(--ink-soft); text-decoration: none; white-space: nowrap; }
 .topbar a:hover { color: var(--accent); text-decoration: underline; }
-.topbar .here { color: var(--ink); font-weight: 700; }
+.topbar .here { color: var(--ink); font-weight: 700; white-space: nowrap; }
 .topbar .sep { color: var(--ink-faint); padding: 0 .35rem; }
+
+/* Тумблер темы: по умолчанию следует системной настройке (см. переменные
+   выше), кнопка даёт зайти читателю наперекор ей — выбор запоминается. */
+.theme-toggle {
+  flex: 0 0 auto;
+  appearance: none;
+  width: 1.9rem; height: 1.9rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 1rem; line-height: 1;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
 
 h1, h2, h3, h4 {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -147,17 +185,25 @@ blockquote {
 
 hr { border: 0; border-top: 1px solid var(--rule); margin: 2.6rem 0; }
 
-/* Таблицы: их в серии много и они широкие — каждая прокручивается внутри себя,
-   страница по горизонтали не едет никогда. */
+/* Таблицы: их в серии много и они широкие — вместо прокрутки внутри себя
+   таблица вырывается из узкой колонки текста (до 90% ширины страницы),
+   а текст в ячейках переносится, так что горизонтальный скролл не нужен. */
 .tablewrap {
-  overflow-x: auto;
-  margin: 1.5rem 0;
+  width: 90vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -45vw;
+  margin-right: -45vw;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   border: 1px solid var(--rule);
   border-radius: 6px;
   background: var(--surface);
 }
 table {
   border-collapse: collapse;
+  table-layout: fixed;
   width: 100%;
   font: 14px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
@@ -165,7 +211,9 @@ th, td {
   padding: .5rem .7rem;
   text-align: left;
   border-bottom: 1px solid var(--rule-soft);
-  white-space: nowrap;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 th {
   font-weight: 650;
@@ -175,7 +223,7 @@ th {
   position: sticky; top: 0;
 }
 tr:last-child td { border-bottom: 0; }
-td:first-child, th:first-child { white-space: normal; min-width: 11rem; }
+td:first-child, th:first-child { width: 22%; }
 
 /* Графики серии: картинка — ссылка на саму себя, открывается в новой вкладке */
 img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
@@ -228,6 +276,19 @@ code {
   .wrap { padding: 0 .9rem 4rem; }
   h1, .cover-title { font-size: 1.6rem; }
   h2 { font-size: 1.25rem; }
+  .tablewrap { width: 94vw; margin-left: -47vw; margin-right: -47vw; }
+  table { font-size: 12px; }
+  th, td { padding: .4rem .35rem; }
+  /* Таблицы от шести колонок: горизонтальный заголовок на узком экране
+     рассыпается на буквы, поворот читается лучше. */
+  thead tr:has(th:nth-child(6)) th {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    text-align: left;
+    vertical-align: bottom;
+    padding: .4rem .25rem;
+  }
 }
 """
 
@@ -237,10 +298,33 @@ PAGE = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
+<script>(function(){{try{{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}}catch(e){{}}}})();</script>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav class="topbar"><div class="wrap">{nav}</div></nav>
+<nav class="topbar"><div class="wrap"><span class="nav-links">{nav}</span><button id="theme-toggle" class="theme-toggle" type="button" hidden aria-label="Переключить тему оформления">&#9789;</button></div></nav>
+<script>(function(){{
+  var btn = document.getElementById('theme-toggle');
+  var root = document.documentElement;
+  function isDark(){{
+    var t = root.getAttribute('data-theme');
+    if (t) return t === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }}
+  function sync(){{
+    var dark = isDark();
+    btn.textContent = dark ? '\\u2600' : '\\u263E';
+    btn.setAttribute('aria-label', dark ? 'Включить светлую тему' : 'Включить тёмную тему');
+  }}
+  btn.hidden = false;
+  btn.addEventListener('click', function(){{
+    var next = isDark() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try {{ localStorage.setItem('theme', next); }} catch(e){{}}
+    sync();
+  }});
+  sync();
+}})();</script>
 <main class="wrap">
 {body}
 <div class="foot">{foot}</div>

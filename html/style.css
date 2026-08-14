@@ -2,6 +2,7 @@
    а не в разметке — так восемь длинных глав остаются одинаковыми на вид. */
 
 :root {
+  color-scheme: light;
   --bg:        #fcfcfb;
   --surface:   #ffffff;
   --ink:       #171a1c;
@@ -15,6 +16,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --bg:        #14161a;
     --surface:   #1b1e23;
     --ink:       #e8eaec;
@@ -25,6 +27,22 @@
     --accent:    #79b0f0;
     --accent-bg: #1d2734;
   }
+}
+
+/* Ручной выбор темы (кнопка в шапке) перебивает системную настройку —
+   светлый вариант перебит уже выше через :not([data-theme="light"]),
+   а этот блок даёт обратный ход: тёмная тема при светлой ОС. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:        #14161a;
+  --surface:   #1b1e23;
+  --ink:       #e8eaec;
+  --ink-soft:  #b3b9bf;
+  --ink-faint: #8b9299;
+  --rule:      #2c3138;
+  --rule-soft: #23272d;
+  --accent:    #79b0f0;
+  --accent-bg: #1d2734;
 }
 
 html { -webkit-text-size-adjust: 100%; }
@@ -45,14 +63,34 @@ body {
   background: var(--surface);
   margin-bottom: 2.4rem;
 }
-.topbar .wrap { padding-top: .85rem; padding-bottom: .85rem; }
+.topbar .wrap {
+  padding-top: .85rem; padding-bottom: .85rem;
+  display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+}
+.topbar .nav-links { flex: 1 1 auto; min-width: 0; }
 .topbar a, .topbar span {
   font: 500 13px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
-.topbar a { color: var(--ink-soft); text-decoration: none; }
+.topbar a { color: var(--ink-soft); text-decoration: none; white-space: nowrap; }
 .topbar a:hover { color: var(--accent); text-decoration: underline; }
-.topbar .here { color: var(--ink); font-weight: 700; }
+.topbar .here { color: var(--ink); font-weight: 700; white-space: nowrap; }
 .topbar .sep { color: var(--ink-faint); padding: 0 .35rem; }
+
+/* Тумблер темы: по умолчанию следует системной настройке (см. переменные
+   выше), кнопка даёт зайти читателю наперекор ей — выбор запоминается. */
+.theme-toggle {
+  flex: 0 0 auto;
+  appearance: none;
+  width: 1.9rem; height: 1.9rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 1rem; line-height: 1;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
 
 h1, h2, h3, h4 {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;

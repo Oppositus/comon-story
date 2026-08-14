@@ -4,10 +4,33 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Автоследование: исследование</title>
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav class="topbar"><div class="wrap"><a href="index.html" class="here">Оглавление</a></div></nav>
+<nav class="topbar"><div class="wrap"><span class="nav-links"><a href="index.html" class="here">Оглавление</a></span><button id="theme-toggle" class="theme-toggle" type="button" hidden aria-label="Переключить тему оформления">&#9789;</button></div></nav>
+<script>(function(){
+  var btn = document.getElementById('theme-toggle');
+  var root = document.documentElement;
+  function isDark(){
+    var t = root.getAttribute('data-theme');
+    if (t) return t === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function sync(){
+    var dark = isDark();
+    btn.textContent = dark ? '\u2600' : '\u263E';
+    btn.setAttribute('aria-label', dark ? 'Включить светлую тему' : 'Включить тёмную тему');
+  }
+  btn.hidden = false;
+  btn.addEventListener('click', function(){
+    var next = isDark() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch(e){}
+    sync();
+  });
+  sync();
+})();</script>
 <main class="wrap">
 <h1 class="cover-title">Автоследование: исследование</h1>
 <p class="lede">Автоследование — сервис, где инвестор подписывается на торговую стратегию другого человека, и сделки автора повторяются на его счёте. Исследование построено на полной популяции одной площадки — Comon (Финам): 19 978 стратегий, включая 18 529 закрытых. Все метрики пересчитаны из дневных рядов, а не взяты с витрины.</p>
