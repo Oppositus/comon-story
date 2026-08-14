@@ -20,3 +20,7 @@ results/
 
 __pycache__/
 *.pyc
+
+#Временный файлы для ЖЖ
+_lj
+scripts/build_lj.py
