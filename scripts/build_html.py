@@ -14,9 +14,10 @@
 относительному пути: он верен и при открытии файла с диска, и на GitHub Pages.
 
 🔴 GitHub НЕ рендерит html внутри репозитория — он покажет исходный код
-страницы. Чтобы серия открывалась как серия, в настройках репозитория нужно
-включить GitHub Pages (Settings → Pages → Deploy from a branch, папка /html
-или корень). Локально достаточно открыть index.html двойным кликом.
+страницы. Серия читается на GitHub Pages: выкладку делает workflow
+.github/workflows/pages.yml, который выдаёт репозиторий как есть, без сборки
+(режим Deploy from a branch прогонял всё через Jekyll и падал). Локально
+достаточно открыть index.html двойным кликом.
 
 Зависимость: python-markdown (pip install markdown).
 """
@@ -334,7 +335,7 @@ def build():
         '<ul class="toc">\n' + "\n".join(items) + "\n</ul>"
     )
     pages.append(("index.html",
-                  PAGE.format(title="Автоследование: что показывают данные",
+                  PAGE.format(title="Автоследование: исследование",
                               nav='<a href="index.html" class="here">Оглавление</a>',
                               body=cover_body,
                               foot="Данные и код расчётов — в этом же репозитории: "
