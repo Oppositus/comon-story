@@ -1,0 +1,38 @@
+# Публикация сайта серии на GitHub Pages.
+#
+# Сайт статический: html/ уже собран скриптом scripts/build_html.py, поэтому
+# workflow ничего не строит — он выкладывает репозиторий как есть. Прежний
+# режим (Deploy from a branch) прогонял содержимое через Jekyll и падал с
+# «Page build failed», хотя файлы всё же разворачивались; здесь сборки нет,
+# а значит нет и повода падать.
+name: Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:        # можно запустить руками из вкладки Actions
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Параллельные выкладки не нужны: одновременно живёт одна версия сайта.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .        # весь репозиторий: index.html в корне ведёт на html/
+      - id: deployment
+        uses: actions/deploy-pages@v4
