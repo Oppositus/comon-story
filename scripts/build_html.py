@@ -425,17 +425,21 @@ def build():
         'рядов, а не взяты с витрины.</p>\n'
         '<ul class="toc">\n' + "\n".join(items) + "\n</ul>"
     )
-    # Подтверждение через мета-тег Яндекс.Вебмастер требует его именно на
-    # главной странице сайта (html/index.html — тот путь и зарегистрирован
-    # в вебмастере), поэтому extra_head здесь непустой, в отличие от глав.
+    # Подтверждение через мета-тег требуют и Яндекс.Вебмастер, и Bing —
+    # оба именно на главной странице сайта (html/index.html — тот путь и
+    # зарегистрирован в вебмастерах), поэтому extra_head здесь непустой,
+    # в отличие от глав.
+    verification_tags = (
+        '<meta name="yandex-verification" content="fdcf5127b5b73e81" />\n'
+        '<meta name="msvalidate.01" content="6A166E1F7BBE329231489C4936669649" />\n'
+    )
     pages.append(("index.html",
                   PAGE.format(title="Автоследование: исследование",
                               nav='<a href="index.html" class="here">Оглавление</a>',
                               body=cover_body,
                               foot="Данные и код расчётов — в этом же репозитории: "
                                    "<code>data/</code> и <code>scripts/</code>.",
-                              extra_head='<meta name="yandex-verification" '
-                                         'content="fdcf5127b5b73e81" />\n'),
+                              extra_head=verification_tags),
                   len(cover_body)))
 
     if problems:
