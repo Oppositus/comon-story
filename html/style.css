@@ -124,16 +124,22 @@ blockquote {
 
 hr { border: 0; border-top: 1px solid var(--rule); margin: 2.6rem 0; }
 
-/* Таблицы: их в серии много и они широкие — вместо прокрутки внутри себя
-   таблица вырывается из узкой колонки текста (до 90% ширины страницы),
-   а текст в ячейках переносится, так что горизонтальный скролл не нужен. */
+/* Таблицы: их в серии много, и они разной ширины. Узкая — не шире колонки
+   текста (как абзац или картинка); широкой не хватает колонки — она
+   вырывается из неё, но не больше 90% ширины страницы, а текст в ячейках
+   переносится, так что горизонтальный скролл не нужен. width: max-content
+   (а не fit-content(90vw) — эта форма функции не поддерживается браузерами
+   для width вне grid) даёт истинную ширину по содержимому без оглядки на
+   узкий родительский контейнер, а min/max-width обрезают её до коридора.
+   Центрирование через transform, а не фиксированный margin в vw, работает
+   при любой итоговой ширине. */
 .tablewrap {
-  width: 90vw;
   position: relative;
   left: 50%;
-  right: 50%;
-  margin-left: -45vw;
-  margin-right: -45vw;
+  transform: translateX(-50%);
+  width: max-content;
+  min-width: min(44rem, 90vw);
+  max-width: 90vw;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   border: 1px solid var(--rule);
@@ -142,7 +148,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2.6rem 0; }
 }
 table {
   border-collapse: collapse;
-  table-layout: fixed;
+  table-layout: auto;
   width: 100%;
   font: 14px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
@@ -162,7 +168,6 @@ th {
   position: sticky; top: 0;
 }
 tr:last-child td { border-bottom: 0; }
-td:first-child, th:first-child { width: 22%; }
 
 /* Графики серии: картинка — ссылка на саму себя, открывается в новой вкладке */
 img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
@@ -215,7 +220,7 @@ code {
   .wrap { padding: 0 .9rem 4rem; }
   h1, .cover-title { font-size: 1.6rem; }
   h2 { font-size: 1.25rem; }
-  .tablewrap { width: 94vw; margin-left: -47vw; margin-right: -47vw; }
+  .tablewrap { min-width: min(44rem, 94vw); max-width: 94vw; }
   table { font-size: 12px; }
   th, td { padding: .4rem .35rem; }
   /* Таблицы от шести колонок: горизонтальный заголовок на узком экране
