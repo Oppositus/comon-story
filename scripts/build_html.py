@@ -23,6 +23,7 @@
 """
 import html as htmllib
 import re
+import shutil
 import sys
 from pathlib import Path
 
@@ -31,6 +32,7 @@ import markdown
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "md"
 OUT = ROOT / "html"
+STATIC = ROOT / "static"
 CHECK = "--check" in sys.argv
 
 # Порядок серии и короткие имена для оглавления. Держим здесь, а не выводим из
@@ -444,6 +446,16 @@ def build():
         (OUT / name).write_text(text, encoding="utf-8")
         print(f"  {name:<34} {len(text)/1024:>7.0f} КБ")
     print(f"  {'style.css':<34} {len(CSS)/1024:>7.0f} КБ")
+
+    # Файлы вроде подтверждения владения сайтом (Google Search Console и
+    # подобные): лежат в static/ как есть и копируются в html/ один в один —
+    # без страницы, без места в PARTS, поэтому в навигацию не попадают.
+    if STATIC.is_dir():
+        for f in sorted(STATIC.iterdir()):
+            if f.is_file():
+                shutil.copy2(f, OUT / f.name)
+                print(f"  {f.name:<34} {f.stat().st_size/1024:>7.0f} КБ (static)")
+
     print(f"\nсобрано страниц: {len(pages)} → {OUT}")
 
 
