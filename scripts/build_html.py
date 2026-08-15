@@ -307,7 +307,7 @@ PAGE = """<!doctype html>
 <title>{title}</title>
 <script>(function(){{try{{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}}catch(e){{}}}})();</script>
 <link rel="stylesheet" href="style.css">
-</head>
+{extra_head}</head>
 <body>
 <nav class="topbar"><div class="wrap"><span class="nav-links">{nav}</span><button id="theme-toggle" class="theme-toggle" type="button" hidden aria-label="Переключить тему оформления">&#9789;</button></div></nav>
 <script>(function(){{
@@ -408,7 +408,7 @@ def build():
         foot = nxt + '<a href="index.html">оглавление серии</a>'
 
         page = PAGE.format(title=htmllib.escape(title), nav=nav_html(src),
-                           body=body, foot=foot)
+                           body=body, foot=foot, extra_head="")
         pages.append((src[:-3] + ".html", page, len(body)))
 
     # обложка
@@ -425,12 +425,17 @@ def build():
         'рядов, а не взяты с витрины.</p>\n'
         '<ul class="toc">\n' + "\n".join(items) + "\n</ul>"
     )
+    # Подтверждение через мета-тег Яндекс.Вебмастер требует его именно на
+    # главной странице сайта (html/index.html — тот путь и зарегистрирован
+    # в вебмастере), поэтому extra_head здесь непустой, в отличие от глав.
     pages.append(("index.html",
                   PAGE.format(title="Автоследование: исследование",
                               nav='<a href="index.html" class="here">Оглавление</a>',
                               body=cover_body,
                               foot="Данные и код расчётов — в этом же репозитории: "
-                                   "<code>data/</code> и <code>scripts/</code>."),
+                                   "<code>data/</code> и <code>scripts/</code>.",
+                              extra_head='<meta name="yandex-verification" '
+                                         'content="fdcf5127b5b73e81" />\n'),
                   len(cover_body)))
 
     if problems:
