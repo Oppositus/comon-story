@@ -299,10 +299,30 @@ code {
 }
 """
 
+# Яндекс.Метрика: код выдан владельцем, вставляется как есть, без правок.
+# Невидимый — без информера. webvisor/clickmap/accurateTrackBounce нужны
+# именно для лонгридов: важно не «сколько зашло», а на каком абзаце бросают
+# читать. Стоит на всех страницах серии, а не только на главной, поэтому
+# идёт отдельным {metrika}, а не через extra_head (тот — только для index).
+METRIKA = """<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=111629219', 'ym');
+
+    ym(111629219, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/111629219" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+"""
+
 PAGE = """<!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
+{metrika}<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <script>(function(){{try{{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}}catch(e){{}}}})();</script>
@@ -408,7 +428,7 @@ def build():
         foot = nxt + '<a href="index.html">оглавление серии</a>'
 
         page = PAGE.format(title=htmllib.escape(title), nav=nav_html(src),
-                           body=body, foot=foot, extra_head="")
+                           body=body, foot=foot, extra_head="", metrika=METRIKA)
         pages.append((src[:-3] + ".html", page, len(body)))
 
     # обложка
@@ -439,7 +459,7 @@ def build():
                               body=cover_body,
                               foot="Данные и код расчётов — в этом же репозитории: "
                                    "<code>data/</code> и <code>scripts/</code>.",
-                              extra_head=verification_tags),
+                              extra_head=verification_tags, metrika=METRIKA),
                   len(cover_body)))
 
     if problems:
