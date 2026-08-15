@@ -319,10 +319,18 @@ METRIKA = """<!-- Yandex.Metrika counter -->
 <!-- /Yandex.Metrika counter -->
 """
 
+# GoatCounter — второй, лёгкий счётчик для сверки недоучёта: блокировщики
+# режут mc.yandex.ru заметно чаще, чем малоизвестные счётчики, а расхождение
+# между ними покажет, какую долю аудитории Метрика не видит. Код — как выдал
+# сервис, без правок; без кук, ~1 КБ.
+GOATCOUNTER = """<script data-goatcounter="https://comon-story.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+"""
+
 PAGE = """<!doctype html>
 <html lang="ru">
 <head>
-{metrika}<meta charset="utf-8">
+{metrika}{goatcounter}<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <script>(function(){{try{{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}}catch(e){{}}}})();</script>
@@ -428,7 +436,8 @@ def build():
         foot = nxt + '<a href="index.html">оглавление серии</a>'
 
         page = PAGE.format(title=htmllib.escape(title), nav=nav_html(src),
-                           body=body, foot=foot, extra_head="", metrika=METRIKA)
+                           body=body, foot=foot, extra_head="",
+                           metrika=METRIKA, goatcounter=GOATCOUNTER)
         pages.append((src[:-3] + ".html", page, len(body)))
 
     # обложка
@@ -459,7 +468,8 @@ def build():
                               body=cover_body,
                               foot="Данные и код расчётов — в этом же репозитории: "
                                    "<code>data/</code> и <code>scripts/</code>.",
-                              extra_head=verification_tags, metrika=METRIKA),
+                              extra_head=verification_tags,
+                              metrika=METRIKA, goatcounter=GOATCOUNTER),
                   len(cover_body)))
 
     if problems:
